@@ -39,6 +39,47 @@ export const useContentStore = defineStore( 'content', () => {
   const getLetterByChar = ( char ) => alphabet.value.find( l => l.letter === char.toUpperCase() )
   const getJewelByName = ( name ) => jewels.value.find( j => j.name.toLowerCase() === name.toLowerCase() )
 
+  // Correlation Helpers
+  const getCorrelatedAlphabet = ( name ) => {
+    if ( !name ) return []
+    const lowerName = name.toLowerCase()
+    return alphabet.value.filter( a =>
+      a.name.toLowerCase().includes( lowerName ) ||
+      lowerName.includes( a.name.toLowerCase() )
+    )
+  }
+
+  const getCorrelatedJewels = ( name ) => {
+    if ( !name ) return []
+    const lowerName = name.toLowerCase()
+    return jewels.value.filter( j =>
+      j.name.toLowerCase() === lowerName ||
+      j.name.toLowerCase().includes( lowerName )
+    )
+  }
+
+  // Numerology: Reduce a number to a single digit
+  const reduceToSingleDigit = ( num ) => {
+    let result = num
+    while ( result >= 10 ) {
+      result = String( result ).split( '' ).reduce( ( sum, d ) => sum + Number( d ), 0 )
+    }
+    return result
+  }
+
+  // Get Numerology Breakdown for a number
+  const getNumerologyBreakdown = ( num ) => {
+    const doubled = num + num
+    const reduced = reduceToSingleDigit( doubled )
+    const relatedMath = getMathByNumber( reduced )
+    return {
+      original: num,
+      doubled,
+      reduced,
+      relatedMath
+    }
+  }
+
   return {
     mathematics,
     alphabet,
@@ -51,6 +92,10 @@ export const useContentStore = defineStore( 'content', () => {
     getMathByNumber,
     getLetterByChar,
     getJewelByName,
-    getLessonById: ( id ) => lessons.value.find( l => l.id === id )
+    getLessonById: ( id ) => lessons.value.find( l => l.id === id ),
+    getCorrelatedAlphabet,
+    getCorrelatedJewels,
+    reduceToSingleDigit,
+    getNumerologyBreakdown
   }
 } )

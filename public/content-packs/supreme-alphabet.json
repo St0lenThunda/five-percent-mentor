@@ -3,156 +3,463 @@
     "id": "alpha_1",
     "letter": "A",
     "name": "Allah",
-    "meaning": "Simbolically, 'A' stands for Allah, signifying the Original Man, the Asiatic Black Man, the Maker, the Owner, the Cream of the Planet Earth, Father of Civilization, and God of the Universe."
+    "meaning": "Simbolically, 'A' stands for Allah, signifying the Original Man, the Asiatic Black Man, the Maker, the Owner, the Cream of the Planet Earth, Father of Civilization, and God of the Universe.",
+    "tags": [
+      "god",
+      "creator",
+      "origin",
+      "supreme",
+      "father"
+    ],
+    "relatedTo": [
+      "math_7",
+      "alpha_G",
+      "jewel_Knowledge"
+    ]
   },
   {
     "id": "alpha_2",
     "letter": "B",
     "name": "Be / Born",
-    "meaning": "To exist. Born is to be brought into existence, which is mental or physical birth."
+    "meaning": "To exist. Born is to be brought into existence, which is mental or physical birth.",
+    "tags": [
+      "born",
+      "existence",
+      "manifestation",
+      "birth",
+      "creation"
+    ],
+    "relatedTo": [
+      "math_9",
+      "math_8"
+    ]
   },
   {
     "id": "alpha_3",
     "letter": "C",
     "name": "Cee",
-    "meaning": "To see is to visualize and understand. To Cee is to have insight."
+    "meaning": "To see is to visualize and understand. To Cee is to have insight.",
+    "tags": [
+      "vision",
+      "insight",
+      "perception",
+      "understanding",
+      "clarity"
+    ],
+    "relatedTo": [
+      "math_3",
+      "math_0"
+    ]
   },
   {
     "id": "alpha_4",
     "letter": "D",
     "name": "Divine",
-    "meaning": "Nature that is pure and holy. Can not be mixed, diluted, or tampered with."
+    "meaning": "Nature that is pure and holy. Can not be mixed, diluted, or tampered with.",
+    "tags": [
+      "divine",
+      "purity",
+      "holy",
+      "nature",
+      "sacred"
+    ],
+    "relatedTo": [
+      "math_8",
+      "alpha_G"
+    ]
   },
   {
     "id": "alpha_5",
     "letter": "E",
     "name": "Equality",
-    "meaning": "To be equal in all things. Knowledge, Wisdom, and Understanding."
+    "meaning": "To be equal in all things. Knowledge, Wisdom, and Understanding.",
+    "tags": [
+      "equality",
+      "balance",
+      "fairness",
+      "harmony"
+    ],
+    "relatedTo": [
+      "math_6",
+      "jewel_Equality",
+      "math_1",
+      "math_2",
+      "math_3"
+    ]
   },
   {
     "id": "alpha_6",
     "letter": "F",
     "name": "Father",
-    "meaning": "One who fathers the mental and physical. The foundation of the family."
+    "meaning": "One who fathers the mental and physical. The foundation of the family.",
+    "tags": [
+      "father",
+      "family",
+      "foundation",
+      "leadership",
+      "responsibility"
+    ],
+    "relatedTo": [
+      "math_4",
+      "alpha_A",
+      "alpha_G"
+    ]
   },
   {
     "id": "alpha_7",
     "letter": "G",
     "name": "God",
-    "meaning": " The Supreme Being. The Blackman who has knowledge of himself."
+    "meaning": " The Supreme Being. The Blackman who has knowledge of himself.",
+    "tags": [
+      "god",
+      "supreme",
+      "knowledge",
+      "self",
+      "mastery"
+    ],
+    "relatedTo": [
+      "math_7",
+      "alpha_A",
+      "jewel_Knowledge"
+    ]
   },
   {
     "id": "alpha_8",
     "letter": "H",
     "name": "He / Her",
-    "meaning": "Those who have the power to build or destroy based on their level of intelligence."
+    "meaning": "Those who have the power to build or destroy based on their level of intelligence.",
+    "tags": [
+      "identity",
+      "power",
+      "intelligence",
+      "build",
+      "destroy"
+    ],
+    "relatedTo": [
+      "math_8",
+      "alpha_Q"
+    ]
   },
   {
     "id": "alpha_9",
     "letter": "I",
     "name": "Islam",
-    "meaning": "I Self Lord And Master. Peace. The culture of the original man."
+    "meaning": "I Self Lord And Master. Peace. The culture of the original man.",
+    "tags": [
+      "islam",
+      "peace",
+      "culture",
+      "self",
+      "mastery"
+    ],
+    "relatedTo": [
+      "math_4",
+      "jewel_Peace",
+      "alpha_M"
+    ]
   },
   {
     "id": "alpha_10",
     "letter": "J",
     "name": "Justice",
-    "meaning": "The reward or penalty for one's ways and actions."
+    "meaning": "The reward or penalty for one's ways and actions.",
+    "tags": [
+      "justice",
+      "reward",
+      "action",
+      "consequence",
+      "fairness"
+    ],
+    "relatedTo": [
+      "jewel_Justice",
+      "math_6",
+      "alpha_E"
+    ]
   },
   {
     "id": "alpha_11",
     "letter": "K",
     "name": "King / Kingdom",
-    "meaning": "One who leads and guides. Kingdom is the domain of the King."
+    "meaning": "One who leads and guides. Kingdom is the domain of the King.",
+    "tags": [
+      "king",
+      "leadership",
+      "domain",
+      "guidance",
+      "authority"
+    ],
+    "relatedTo": [
+      "math_1",
+      "alpha_Q",
+      "math_7"
+    ]
   },
   {
     "id": "alpha_12",
     "letter": "L",
     "name": "Love / Hell / Right",
-    "meaning": "Love is the highest elevation of understanding. Hell is a state of mind (low). Right is the proper way."
+    "meaning": "Love is the highest elevation of understanding. Hell is a state of mind (low). Right is the proper way.",
+    "tags": [
+      "love",
+      "elevation",
+      "understanding",
+      "right",
+      "proper"
+    ],
+    "relatedTo": [
+      "jewel_Love",
+      "math_3",
+      "jewel_Happiness"
+    ]
   },
   {
     "id": "alpha_13",
     "letter": "M",
     "name": "Master",
-    "meaning": "One who knows and understands all things within his circumference."
+    "meaning": "One who knows and understands all things within his circumference.",
+    "tags": [
+      "master",
+      "knowledge",
+      "understanding",
+      "mastery",
+      "wisdom"
+    ],
+    "relatedTo": [
+      "math_7",
+      "math_1",
+      "alpha_I"
+    ]
   },
   {
     "id": "alpha_14",
     "letter": "N",
     "name": "Now / Nation / End",
-    "meaning": "Now is the time. Nation is a group of civilized people. End is the conclusion."
+    "meaning": "Now is the time. Nation is a group of civilized people. End is the conclusion.",
+    "tags": [
+      "now",
+      "nation",
+      "time",
+      "people",
+      "conclusion"
+    ],
+    "relatedTo": [
+      "math_9",
+      "math_0",
+      "alpha_B"
+    ]
   },
   {
     "id": "alpha_15",
     "letter": "O",
     "name": "Cipher",
-    "meaning": "A circle consisting of 360 degrees. Completion."
+    "meaning": "A circle consisting of 360 degrees. Completion.",
+    "tags": [
+      "cipher",
+      "circle",
+      "completion",
+      "wholeness",
+      "cycle"
+    ],
+    "relatedTo": [
+      "math_0",
+      "math_9"
+    ]
   },
   {
     "id": "alpha_16",
     "letter": "P",
     "name": "Power",
-    "meaning": "Truth. The light. The magnetic force."
+    "meaning": "Truth. The light. The magnetic force.",
+    "tags": [
+      "power",
+      "truth",
+      "light",
+      "force",
+      "strength"
+    ],
+    "relatedTo": [
+      "math_5",
+      "alpha_T"
+    ]
   },
   {
     "id": "alpha_17",
     "letter": "Q",
     "name": "Queen",
-    "meaning": "The female counterpart of the King. She reflects the knowledge of God."
+    "meaning": "The female counterpart of the King. She reflects the knowledge of God.",
+    "tags": [
+      "queen",
+      "reflection",
+      "knowledge",
+      "feminine",
+      "royalty"
+    ],
+    "relatedTo": [
+      "alpha_K",
+      "alpha_G",
+      "math_1"
+    ]
   },
   {
     "id": "alpha_18",
     "letter": "R",
     "name": "Rule / Ruler",
-    "meaning": "To guide and lead in the right direction."
+    "meaning": "To guide and lead in the right direction.",
+    "tags": [
+      "rule",
+      "guidance",
+      "leadership",
+      "direction",
+      "authority"
+    ],
+    "relatedTo": [
+      "math_5",
+      "alpha_K",
+      "alpha_M"
+    ]
   },
   {
     "id": "alpha_19",
     "letter": "S",
     "name": "Self / Savior",
-    "meaning": "One's own being. Savior is one who saves others by teaching the truth."
+    "meaning": "One's own being. Savior is one who saves others by teaching the truth.",
+    "tags": [
+      "self",
+      "savior",
+      "truth",
+      "teaching",
+      "being"
+    ],
+    "relatedTo": [
+      "alpha_I",
+      "alpha_T",
+      "math_1"
+    ]
   },
   {
     "id": "alpha_20",
     "letter": "T",
     "name": "Truth / Square",
-    "meaning": "That which is actual and factual. Square is truth (4 corners)."
+    "meaning": "That which is actual and factual. Square is truth (4 corners).",
+    "tags": [
+      "truth",
+      "factual",
+      "actual",
+      "square",
+      "honesty"
+    ],
+    "relatedTo": [
+      "math_5",
+      "alpha_P",
+      "jewel_Justice"
+    ]
   },
   {
     "id": "alpha_21",
     "letter": "U",
     "name": "You / Universe",
-    "meaning": "You are the universe. The sun, moon, and stars."
+    "meaning": "You are the universe. The sun, moon, and stars.",
+    "tags": [
+      "universe",
+      "self",
+      "cosmos",
+      "sun",
+      "moon"
+    ],
+    "relatedTo": [
+      "math_3",
+      "alpha_S",
+      "alpha_A"
+    ]
   },
   {
     "id": "alpha_22",
     "letter": "V",
     "name": "Victory",
-    "meaning": "To overcome. To win."
+    "meaning": "To overcome. To win.",
+    "tags": [
+      "victory",
+      "overcome",
+      "success",
+      "triumph",
+      "achievement"
+    ],
+    "relatedTo": [
+      "math_9",
+      "math_5",
+      "alpha_P"
+    ]
   },
   {
     "id": "alpha_23",
     "letter": "W",
     "name": "Wisdom",
-    "meaning": "To speak wise words and act wisely."
+    "meaning": "To speak wise words and act wisely.",
+    "tags": [
+      "wisdom",
+      "speech",
+      "action",
+      "discernment",
+      "wise"
+    ],
+    "relatedTo": [
+      "math_2",
+      "jewel_Wisdom",
+      "alpha_K"
+    ]
   },
   {
     "id": "alpha_24",
     "letter": "X",
     "name": "Unknown",
-    "meaning": "That which is not known. Also represents equality (4 ways)."
+    "meaning": "That which is not known. Also represents equality (4 ways).",
+    "tags": [
+      "unknown",
+      "mystery",
+      "equality",
+      "question",
+      "seeking"
+    ],
+    "relatedTo": [
+      "alpha_Y",
+      "math_6"
+    ]
   },
   {
     "id": "alpha_25",
     "letter": "Y",
     "name": "Why",
-    "meaning": " The question most asked by the 85%. Seeking cause and effect."
+    "meaning": " The question most asked by the 85%. Seeking cause and effect.",
+    "tags": [
+      "why",
+      "question",
+      "seeking",
+      "cause",
+      "effect"
+    ],
+    "relatedTo": [
+      "alpha_X",
+      "math_1",
+      "alpha_K"
+    ]
   },
   {
     "id": "alpha_26",
     "letter": "Z",
     "name": "Zig-Zag-Zig",
-    "meaning": "Knowledge, Wisdom, Understanding. The path from A to Z."
+    "meaning": "Knowledge, Wisdom, Understanding. The path from A to Z.",
+    "tags": [
+      "zigzagzig",
+      "journey",
+      "knowledge",
+      "wisdom",
+      "understanding"
+    ],
+    "relatedTo": [
+      "math_1",
+      "math_2",
+      "math_3",
+      "alpha_A"
+    ]
   }
 ]

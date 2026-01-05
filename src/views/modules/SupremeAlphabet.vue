@@ -217,9 +217,12 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useContentStore } from '../../stores/content'
 import { useProgressStore } from '../../stores/progress'
 
+const route = useRoute()
+const router = useRouter()
 const contentStore = useContentStore()
 const progressStore = useProgressStore()
 
@@ -227,10 +230,14 @@ const selectedItem = ref( null )
 
 const openDetail = ( item ) => {
   selectedItem.value = item
+  // Update URL with query param for deep linking
+  router.replace( { query: { open: item.letter } } )
 }
 
 const closeDetail = () => {
   selectedItem.value = null
+  // Clear query param when closing
+  router.replace( { query: {} } )
 }
 
 const toggleComplete = async ( item ) => {
@@ -238,9 +245,18 @@ const toggleComplete = async ( item ) => {
   await progressStore.markComplete( item.id, 'alphabet', 100 )
 }
 
-onMounted( () => {
-  contentStore.fetchAllContent()
-  progressStore.fetchUserProgress()
+onMounted( async () => {
+  await contentStore.fetchAllContent()
+  await progressStore.fetchUserProgress()
+
+  // Check for query param to auto-open detail
+  const openLetter = route.query.open
+  if ( openLetter ) {
+    const item = contentStore.getLetterByChar( openLetter )
+    if ( item ) {
+      selectedItem.value = item
+    }
+  }
 } )
 </script>
 

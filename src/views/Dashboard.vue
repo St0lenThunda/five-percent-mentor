@@ -270,6 +270,12 @@ const modules = ref( [
     name: 'Self Assessment',
     description: 'Knowledge of self quizzes',
     route: '/self-assessment'
+  },
+  {
+    id: 9,
+    name: 'Visual Map',
+    description: '3D Knowledge Graph exploration',
+    route: '/visual-map'
   }
 ] )
 

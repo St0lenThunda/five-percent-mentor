@@ -58,14 +58,33 @@
       >
         <div class="text-center mb-12">
           <h2 class="text-4xl font-bold text-white mb-4">The Universal Language</h2>
-          <p class="text-xl text-purple-200 max-w-2xl mx-auto">
+          <p class="text-xl text-purple-200 max-w-2xl mx-auto mb-8">
             Master the ten principles (0-9) to decode the universe and understand the nature of reality.
           </p>
+
+          <!-- Search Filter -->
+          <div class="max-w-md mx-auto relative">
+            <input
+              v-model="searchQuery"
+              type="text"
+              placeholder="Search by number, name, or meaning..."
+              class="w-full px-5 py-3 pl-12 bg-white/5 border border-white/20 rounded-xl text-white placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+            />
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-purple-300">🔍</span>
+            <button
+              v-if=" searchQuery "
+              @click="searchQuery = ''"
+              class="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-purple-300 hover:text-white transition-colors"
+              title="Clear search"
+            >
+              ✕
+            </button>
+          </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <div
-            v-for=" item in contentStore.mathematics "
+            v-for=" item in filteredMathematics "
             :key="item.id"
             @click="openDetail( item )"
             class="group cursor-pointer backdrop-blur-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary-500/50 rounded-2xl p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl relative overflow-hidden"
@@ -184,6 +203,91 @@
                 "{{ selectedItem.application }}"
               </p>
             </section>
+
+            <!-- Break It Down Accordion -->
+            <section class="border border-white/10 rounded-2xl overflow-hidden">
+              <button
+                @click="showBreakdown = !showBreakdown"
+                class="w-full px-6 py-4 flex items-center justify-between bg-white/5 hover:bg-white/10 transition-colors text-left"
+              >
+                <span class="text-lg font-bold text-gold-400 flex items-center gap-2">
+                  <span>🔍</span> Break It Down
+                </span>
+                <span
+                  class="text-purple-300 transition-transform duration-300"
+                  :class="{ 'rotate-180': showBreakdown }"
+                >▼</span>
+              </button>
+
+              <Transition
+                enter-active-class="transition-all duration-300 ease-out"
+                enter-from-class="max-h-0 opacity-0"
+                enter-to-class="max-h-[500px] opacity-100"
+                leave-active-class="transition-all duration-200 ease-in"
+                leave-from-class="max-h-[500px] opacity-100"
+                leave-to-class="max-h-0 opacity-0"
+              >
+                <div
+                  v-if=" showBreakdown "
+                  class="px-6 py-4 space-y-6 bg-black/20 overflow-hidden"
+                >
+                  <!-- Numerology -->
+                  <div>
+                    <h4 class="text-sm font-bold text-purple-300 uppercase tracking-wider mb-2">Numerology</h4>
+                    <p class="text-lg text-white">
+                      {{ selectedItem.number }} + {{ selectedItem.number }} = {{ numerology?.doubled }}
+                      <span
+                        v-if=" numerology?.doubled >= 10 "
+                        class="text-purple-400"
+                      >
+                        → {{ String( numerology?.doubled ).split( '' ).join( ' + ' ) }} =
+                      </span>
+                      <span class="text-gold-400 font-bold">{{ numerology?.reduced }}
+                        ({{ numerology?.relatedMath?.name }})</span>
+                    </p>
+                  </div>
+
+                  <!-- Related Alphabet -->
+                  <div v-if=" correlatedAlphabet.length ">
+                    <h4 class="text-sm font-bold text-purple-300 uppercase tracking-wider mb-2">Related Alphabet</h4>
+                    <div class="flex flex-wrap gap-2">
+                      <button
+                        v-for=" letter in correlatedAlphabet "
+                        :key="letter.id"
+                        @click="router.push( { path: '/supreme-alphabet', query: { open: letter.letter } } )"
+                        class="px-3 py-1.5 rounded-lg bg-primary-500/20 text-primary-300 text-sm border border-primary-500/30 hover:bg-primary-500/30 hover:border-primary-500/50 cursor-pointer transition-colors"
+                        :title="letter.meaning"
+                      >
+                        {{ letter.letter }} - {{ letter.name }}
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Related Jewels -->
+                  <div v-if=" correlatedJewels.length ">
+                    <h4 class="text-sm font-bold text-purple-300 uppercase tracking-wider mb-2">Related Jewels</h4>
+                    <div class="flex flex-wrap gap-2">
+                      <span
+                        v-for=" jewel in correlatedJewels "
+                        :key="jewel.id"
+                        class="px-3 py-1.5 rounded-lg bg-gold-500/20 text-gold-300 text-sm border border-gold-500/30 cursor-default"
+                        :title="jewel.description"
+                      >
+                        💎 {{ jewel.name }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Empty State -->
+                  <p
+                    v-if=" !correlatedAlphabet.length && !correlatedJewels.length "
+                    class="text-purple-400 text-sm italic"
+                  >
+                    No direct correlations found. Explore the Alphabet and Jewels to discover connections.
+                  </p>
+                </div>
+              </Transition>
+            </section>
           </div>
 
           <div class="mt-10 pt-8 border-t border-white/10 flex justify-between items-center">
@@ -209,21 +313,59 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useContentStore } from '../../stores/content'
 import { useProgressStore } from '../../stores/progress'
 
+const route = useRoute()
+const router = useRouter()
 const contentStore = useContentStore()
 const progressStore = useProgressStore()
 
 const selectedItem = ref( null )
+const searchQuery = ref( '' )
+const showBreakdown = ref( false )
+
+const filteredMathematics = computed( () => {
+  if ( !searchQuery.value.trim() ) {
+    return contentStore.mathematics
+  }
+  const query = searchQuery.value.toLowerCase()
+  return contentStore.mathematics.filter( m =>
+    String( m.number ).includes( query ) ||
+    m.name.toLowerCase().includes( query ) ||
+    m.meaning.toLowerCase().includes( query )
+  )
+} )
+
+// Dynamic Numerology
+const numerology = computed( () => {
+  if ( !selectedItem.value ) return null
+  return contentStore.getNumerologyBreakdown( selectedItem.value.number )
+} )
+
+// Dynamic Correlations
+const correlatedAlphabet = computed( () => {
+  if ( !selectedItem.value ) return []
+  return contentStore.getCorrelatedAlphabet( selectedItem.value.name )
+} )
+
+const correlatedJewels = computed( () => {
+  if ( !selectedItem.value ) return []
+  return contentStore.getCorrelatedJewels( selectedItem.value.name )
+} )
 
 const openDetail = ( item ) => {
   selectedItem.value = item
+  // Update URL with query param for deep linking
+  router.replace( { query: { open: item.number } } )
 }
 
 const closeDetail = () => {
   selectedItem.value = null
+  // Clear query param when closing
+  router.replace( { query: {} } )
 }
 
 const toggleComplete = async ( item ) => {
@@ -236,9 +378,18 @@ const toggleComplete = async ( item ) => {
   await progressStore.markComplete( item.id, 'mathematics', 100 )
 }
 
-onMounted( () => {
-  contentStore.fetchAllContent()
-  progressStore.fetchUserProgress()
+onMounted( async () => {
+  await contentStore.fetchAllContent()
+  await progressStore.fetchUserProgress()
+
+  // Check for query param to auto-open detail
+  const openNum = route.query.open
+  if ( openNum !== undefined ) {
+    const item = contentStore.getMathByNumber( Number( openNum ) )
+    if ( item ) {
+      selectedItem.value = item
+    }
+  }
 } )
 </script>
 

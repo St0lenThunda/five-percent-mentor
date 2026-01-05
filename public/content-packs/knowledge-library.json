@@ -8,7 +8,20 @@
     "description": "A foundational text detailing the history and theology of the original man, compiled from the teachings of the Honorable Elijah Muhammad.",
     "pdfUrl": "https://archive.org/details/messagetoblackma00muha",
     "ia_id": "messagetoblackma00muha",
-    "localPath": "/content-library/120-lessons-summary.md"
+    "localPath": "/content-library/120-lessons-summary.md",
+    "tags": [
+      "foundation",
+      "history",
+      "theology",
+      "origin",
+      "blackman"
+    ],
+    "relatedTo": [
+      "math_1",
+      "alpha_A",
+      "jewel_1",
+      "book_2"
+    ]
   },
   {
     "id": "book_2",
@@ -18,7 +31,21 @@
     "category": "Core Text",
     "description": "The 'Book of Life' for the NGE. A compilation of the Supreme Wisdom lessons, Supreme Mathematics, and Supreme Alphabet.",
     "localPath": "/content-library/120-lessons-summary.md",
-    "pdfUrl": "https://bookstation.org/book/120-lessons-nation-of-gods-and-earths-4987197"
+    "pdfUrl": "https://bookstation.org/book/120-lessons-nation-of-gods-and-earths-4987197",
+    "tags": [
+      "lessons",
+      "wisdom",
+      "mathematics",
+      "alphabet",
+      "core"
+    ],
+    "relatedTo": [
+      "math_1",
+      "math_2",
+      "math_3",
+      "alpha_Z",
+      "doc_1"
+    ]
   },
   {
     "id": "book_3",
@@ -29,7 +56,19 @@
     "description": "Crucial guidance on dietary laws and physical health as a foundation for mental and spiritual elevation.",
     "pdfUrl": "https://archive.org/details/howtoeattolive00elij",
     "ia_id": "howtoeattolive00elij",
-    "localPath": "/content-library/how-to-eat-to-live-summary.md"
+    "localPath": "/content-library/how-to-eat-to-live-summary.md",
+    "tags": [
+      "food",
+      "health",
+      "body",
+      "nourishment",
+      "discipline"
+    ],
+    "relatedTo": [
+      "jewel_7",
+      "math_5",
+      "jewel_4"
+    ]
   },
   {
     "id": "book_4",
@@ -40,7 +79,20 @@
     "description": "A deep exploration of the science of self-mastery and the application of NGE principles in the modern world.",
     "pdfUrl": "https://archive.org/details/knowledgeofselfc0000unse",
     "ia_id": "knowledgeofselfc0000unse",
-    "localPath": "/content-library/knowledge-of-self-summary.md"
+    "localPath": "/content-library/knowledge-of-self-summary.md",
+    "tags": [
+      "knowledge",
+      "self",
+      "mastery",
+      "modern",
+      "application"
+    ],
+    "relatedTo": [
+      "math_1",
+      "alpha_S",
+      "alpha_K",
+      "jewel_1"
+    ]
   },
   {
     "id": "book_5",
@@ -50,7 +102,19 @@
     "category": "History",
     "description": "A detailed historical account of the rise of the Nation of Gods and Earths from the 1960s to the present day.",
     "pdfUrl": "https://archive.org/details/fivepercenters0000knig",
-    "ia_id": "fivepercenters0000knig"
+    "ia_id": "fivepercenters0000knig",
+    "tags": [
+      "history",
+      "origin",
+      "culture",
+      "harlem",
+      "movement"
+    ],
+    "relatedTo": [
+      "art_2",
+      "alpha_A",
+      "math_4"
+    ]
   },
   {
     "id": "vid_1",
@@ -60,7 +124,19 @@
     "category": "Education",
     "description": "Lord Jamar clarifies the distinction between religion and culture, explaining the core identity of the Gods and Earths.",
     "embedUrl": "https://www.youtube.com/embed/ED8hCPmUqq8",
-    "localPath": "/content-library/vid-1-summary.md"
+    "localPath": "/content-library/vid-1-summary.md",
+    "tags": [
+      "identity",
+      "culture",
+      "god",
+      "hiphop",
+      "education"
+    ],
+    "relatedTo": [
+      "alpha_G",
+      "math_4",
+      "art_1"
+    ]
   },
   {
     "id": "pod_1",
@@ -69,7 +145,19 @@
     "author": "The 5% Connection",
     "category": "Education",
     "description": "Hosted by Minister Freedom and IC. A foundational build on the current state and mission of the Nation.",
-    "embedUrl": "https://www.youtube.com/embed/YhS9nO-p40Y"
+    "embedUrl": "https://www.youtube.com/embed/YhS9nO-p40Y",
+    "tags": [
+      "foundation",
+      "mission",
+      "nation",
+      "build",
+      "community"
+    ],
+    "relatedTo": [
+      "pod_2",
+      "pod_3",
+      "math_1"
+    ]
   },
   {
     "id": "pod_2",
@@ -79,7 +167,21 @@
     "category": "Education",
     "description": "Episode 6: A deep dive into the meaning and application of Supreme Mathematics in the 5% culture.",
     "embedUrl": "https://www.youtube.com/embed/1rYg1mP6Bds",
-    "localPath": "/content-library/pod-1-summary.md"
+    "localPath": "/content-library/pod-1-summary.md",
+    "tags": [
+      "mathematics",
+      "application",
+      "culture",
+      "education",
+      "deepdive"
+    ],
+    "relatedTo": [
+      "math_1",
+      "math_2",
+      "math_3",
+      "math_0",
+      "book_2"
+    ]
   },
   {
     "id": "art_1",
@@ -88,7 +190,19 @@
     "author": "BET News",
     "category": "Culture",
     "description": "A comprehensive look at how NGE terminology and concepts became the linguistic backbone of Golden Era rap.",
-    "embedUrl": "https://www.bet.com/article/7v7z8x/artists-influenced-by-the-five-percent-nation"
+    "embedUrl": "https://www.bet.com/article/7v7z8x/artists-influenced-by-the-five-percent-nation",
+    "tags": [
+      "hiphop",
+      "culture",
+      "influence",
+      "music",
+      "goldenera"
+    ],
+    "relatedTo": [
+      "vid_1",
+      "art_4",
+      "math_4"
+    ]
   },
   {
     "id": "art_2",
@@ -97,7 +211,19 @@
     "author": "Face2Face Africa",
     "category": "History",
     "description": "An article detailing the life and cultural impact of Clarence 13X, known as Allah the Father.",
-    "embedUrl": "https://face2faceafrica.com/article/allah-the-father-the-korean-war-veteran-who-challenged-founder-of-noi-set-up-the-5-percent-nation-before-being-assassinated"
+    "embedUrl": "https://face2faceafrica.com/article/allah-the-father-the-korean-war-veteran-who-challenged-founder-of-noi-set-up-the-5-percent-nation-before-being-assassinated",
+    "tags": [
+      "history",
+      "father",
+      "origin",
+      "harlem",
+      "legacy"
+    ],
+    "relatedTo": [
+      "alpha_A",
+      "math_7",
+      "book_5"
+    ]
   },
   {
     "id": "doc_1",
@@ -106,7 +232,19 @@
     "author": "NGE Education",
     "category": "Education",
     "description": "An educational video explaining the history and purpose of the 120 lessons within the Nation.",
-    "embedUrl": "https://www.youtube.com/embed/6r6-P_A8r9o"
+    "embedUrl": "https://www.youtube.com/embed/6r6-P_A8r9o",
+    "tags": [
+      "lessons",
+      "history",
+      "education",
+      "origin",
+      "purpose"
+    ],
+    "relatedTo": [
+      "book_2",
+      "math_1",
+      "alpha_Z"
+    ]
   },
   {
     "id": "art_3",
@@ -115,7 +253,20 @@
     "author": "NGE Media",
     "category": "Core Text",
     "description": "A breakdown of the 12 Jewels: Knowledge, Wisdom, Understanding, Freedom, Justice, Equality, Food, Clothing, Shelter, Love, Peace, and Happiness.",
-    "embedUrl": "https://thefivepercentnation.wordpress.com/2012/03/12/12-jewels-of-islam/"
+    "embedUrl": "https://thefivepercentnation.wordpress.com/2012/03/12/12-jewels-of-islam/",
+    "tags": [
+      "jewels",
+      "knowledge",
+      "wisdom",
+      "understanding",
+      "happiness"
+    ],
+    "relatedTo": [
+      "jewel_1",
+      "jewel_2",
+      "jewel_3",
+      "jewel_12"
+    ]
   },
   {
     "id": "pod_3",
@@ -124,7 +275,19 @@
     "author": "God & Earth Radio",
     "category": "Culture",
     "description": "A focused discussion on the divinity and role of women (Earths) within the Nation of Gods and Earths.",
-    "embedUrl": "https://www.youtube.com/embed/S2Y_q3S7vF4"
+    "embedUrl": "https://www.youtube.com/embed/S2Y_q3S7vF4",
+    "tags": [
+      "earth",
+      "women",
+      "divinity",
+      "role",
+      "culture"
+    ],
+    "relatedTo": [
+      "alpha_Q",
+      "alpha_E",
+      "jewel_6"
+    ]
   },
   {
     "id": "book_7",
@@ -134,7 +297,19 @@
     "category": "Foundational",
     "description": "A guide to the social ethics and organizational structure of the Nation of Gods and Earths.",
     "pdfUrl": "https://archive.org/search?query=Nation+of+Gods+and+Earths+Supreme+Wisdom+Lessons",
-    "ia_id": "SOI-BookCollectionI"
+    "ia_id": "SOI-BookCollectionI",
+    "tags": [
+      "organization",
+      "ethics",
+      "structure",
+      "community",
+      "foundation"
+    ],
+    "relatedTo": [
+      "math_4",
+      "math_8",
+      "jewel_5"
+    ]
   },
   {
     "id": "art_4",
@@ -143,6 +318,18 @@
     "author": "PremiereHipHop",
     "category": "Culture",
     "description": "Sunez Allah discusses the deep intellectual and spiritual roots of the Five Percent Nation in the Hip Hop art form.",
-    "embedUrl": "https://premierehiphop.com/2014/02/26/buckshots-blast-through-duncan-hines-sunez/"
+    "embedUrl": "https://premierehiphop.com/2014/02/26/buckshots-blast-through-duncan-hines-sunez/",
+    "tags": [
+      "hiphop",
+      "intellectual",
+      "spiritual",
+      "roots",
+      "culture"
+    ],
+    "relatedTo": [
+      "art_1",
+      "vid_1",
+      "math_1"
+    ]
   }
 ]

@@ -10,7 +10,20 @@
       "Respect",
       "Awareness"
     ],
-    "application": "Gather facts before acting. Listen more than you speak. Establish a solid foundation for any new endeavor."
+    "application": "Gather facts before acting. Listen more than you speak. Establish a solid foundation for any new endeavor.",
+    "tags": [
+      "foundation",
+      "learning",
+      "observation",
+      "awareness",
+      "beginning"
+    ],
+    "relatedTo": [
+      "alpha_K",
+      "jewel_Knowledge",
+      "math_2",
+      "math_3"
+    ]
   },
   {
     "id": "math_2",
@@ -23,7 +36,19 @@
       "Discernment",
       "Movement"
     ],
-    "application": "Put what you know into action. Speak your truth. Demonstrate your knowledge through tangible deeds."
+    "application": "Put what you know into action. Speak your truth. Demonstrate your knowledge through tangible deeds.",
+    "tags": [
+      "action",
+      "speech",
+      "application",
+      "discernment"
+    ],
+    "relatedTo": [
+      "alpha_W",
+      "jewel_Wisdom",
+      "math_1",
+      "math_3"
+    ]
   },
   {
     "id": "math_3",
@@ -36,7 +61,20 @@
       "Comprehension",
       "Insight"
     ],
-    "application": "Seek clarity in all things. Ensure you are understood and that you understand others. Visualize the outcome before starting."
+    "application": "Seek clarity in all things. Ensure you are understood and that you understand others. Visualize the outcome before starting.",
+    "tags": [
+      "clarity",
+      "vision",
+      "comprehension",
+      "insight",
+      "mental"
+    ],
+    "relatedTo": [
+      "alpha_U",
+      "jewel_Understanding",
+      "math_1",
+      "math_2"
+    ]
   },
   {
     "id": "math_4",
@@ -49,7 +87,19 @@
       "Autonomy",
       "Tradition"
     ],
-    "application": "Practice your culture daily. Live freely by your own principles. Be self-determined in your choices and movements."
+    "application": "Practice your culture daily. Live freely by your own principles. Be self-determined in your choices and movements.",
+    "tags": [
+      "culture",
+      "freedom",
+      "lifestyle",
+      "autonomy",
+      "tradition"
+    ],
+    "relatedTo": [
+      "alpha_C",
+      "alpha_F",
+      "jewel_Freedom"
+    ]
   },
   {
     "id": "math_5",
@@ -62,7 +112,18 @@
       "Purification",
       "Elevation"
     ],
-    "application": "Refine your character and habits. Stand in your truth. Clean up your physical and mental environment to allow power to flow."
+    "application": "Refine your character and habits. Stand in your truth. Clean up your physical and mental environment to allow power to flow.",
+    "tags": [
+      "power",
+      "refinement",
+      "truth",
+      "purification",
+      "elevation"
+    ],
+    "relatedTo": [
+      "alpha_P",
+      "alpha_R"
+    ]
   },
   {
     "id": "math_6",
@@ -75,7 +136,21 @@
       "Sharing",
       "Harmony"
     ],
-    "application": "Treat others with fairness. Share knowledge with those who seek it. Maintain balance in your dealings and relationships."
+    "application": "Treat others with fairness. Share knowledge with those who seek it. Maintain balance in your dealings and relationships.",
+    "tags": [
+      "equality",
+      "balance",
+      "fairness",
+      "harmony",
+      "sharing"
+    ],
+    "relatedTo": [
+      "alpha_E",
+      "jewel_Equality",
+      "math_1",
+      "math_2",
+      "math_3"
+    ]
   },
   {
     "id": "math_7",
@@ -88,7 +163,18 @@
       "Leadership",
       "Creation"
     ],
-    "application": "Master yourself and your emotions. Take full responsibility for your world. Lead by example and create positive change."
+    "application": "Master yourself and your emotions. Take full responsibility for your world. Lead by example and create positive change.",
+    "tags": [
+      "god",
+      "mastery",
+      "leadership",
+      "responsibility",
+      "creation"
+    ],
+    "relatedTo": [
+      "alpha_G",
+      "alpha_A"
+    ]
   },
   {
     "id": "math_8",
@@ -101,7 +187,19 @@
       "Construction",
       "Evaluation"
     ],
-    "application": "Build something positive every day. Remove negativity and stagnation. Add value to every cipher you enter."
+    "application": "Build something positive every day. Remove negativity and stagnation. Add value to every cipher you enter.",
+    "tags": [
+      "build",
+      "destroy",
+      "growth",
+      "construction",
+      "development"
+    ],
+    "relatedTo": [
+      "alpha_B",
+      "alpha_D",
+      "math_9"
+    ]
   },
   {
     "id": "math_9",
@@ -114,7 +212,19 @@
       "Birth",
       "Reality"
     ],
-    "application": "Bring your ideas to completion. Manifest your goals into reality. Birth a new level of understanding or achievement."
+    "application": "Bring your ideas to completion. Manifest your goals into reality. Birth a new level of understanding or achievement.",
+    "tags": [
+      "born",
+      "manifestation",
+      "completion",
+      "birth",
+      "reality"
+    ],
+    "relatedTo": [
+      "alpha_B",
+      "math_0",
+      "math_8"
+    ]
   },
   {
     "id": "math_0",
@@ -127,6 +237,17 @@
       "Cycle",
       "Environment"
     ],
-    "application": "Complete your cycle. Encompass all things within your awareness. Protect your surroundings and keep your cipher clean."
+    "application": "Complete your cycle. Encompass all things within your awareness. Protect your surroundings and keep your cipher clean.",
+    "tags": [
+      "cipher",
+      "wholeness",
+      "cycle",
+      "completion",
+      "environment"
+    ],
+    "relatedTo": [
+      "alpha_C",
+      "math_9"
+    ]
   }
 ]

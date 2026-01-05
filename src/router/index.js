@@ -110,6 +110,12 @@ const routes = [
     name: 'flashcards',
     component: Flashcards,
     meta: { requiresAuth: true }
+  },
+  {
+    path: '/visual-map',
+    name: 'visual-map',
+    component: () => import( '../views/modules/VisualMap.vue' ),
+    meta: { requiresAuth: true }
   }
 ]
 

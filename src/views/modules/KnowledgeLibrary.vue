@@ -316,9 +316,12 @@
 
 <script setup>
 import { ref, reactive, computed, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useContentStore } from '../../stores/content'
 import KnowledgeViewer from '../../components/KnowledgeViewer.vue'
 
+const route = useRoute()
+const router = useRouter()
 const contentStore = useContentStore()
 const searchQuery = ref( '' )
 const selectedCategory = ref( 'All' )
@@ -373,10 +376,18 @@ const openLocal = ( book ) => {
   viewer.pdfUrl = book.pdfUrl || ''
   viewer.iaId = book.ia_id || ''
   viewer.isOpen = true
+  // Update URL with query param for deep linking
+  router.replace( { query: { open: book.id } } )
 }
 
-const performGlobalSearch = async () => {
-  if ( !searchQuery.value ) return
+const closeViewer = () => {
+  viewer.isOpen = false
+  // Clear query param when closing
+  router.replace( { query: {} } )
+}
+
+const globalSearch = async () => {
+  if ( !searchQuery.value.trim() ) return
 
   searchLoading.value = true
   isGlobalSearch.value = true
@@ -433,7 +444,16 @@ const getMediaIcon = ( type ) => {
   }
 }
 
-onMounted( () => {
-  contentStore.fetchAllContent()
+onMounted( async () => {
+  await contentStore.fetchAllContent()
+
+  // Check for query param to auto-open viewer
+  const openId = route.query.open
+  if ( openId ) {
+    const item = contentStore.library.find( lib => lib.id === openId )
+    if ( item ) {
+      openLocal( item )
+    }
+  }
 } )
 </script>

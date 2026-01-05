@@ -5,12 +5,13 @@ A modern, glassmorphic knowledge management system designed for the study and pr
 ## 🌟 Key Features
 
 *   **Premium Glassmorphic UI**: High-end aesthetic with vibrant gradients, backdrop blurs, and smooth micro-animations.
-*   **Integrated Knowledge Engine**: Canonical content for Supreme Mathematics, Supreme Alphabet, 12 Jewels, and 120 Lessons (Student Enrollment).
-*   **Interactive Quiz System**: Customizable quizzes with randomization, topic selection (Math, Alphabet, Lessons, Jewels), and real-time score tracking.
-*   **Real-time Persistence**: User progress, quiz results, and study logs are persisted to a Neon PostgreSQL database via Drizzle ORM.
+*   **Deep Attribute Builder**: Set an "Active Building Focus" for character growth. Manifest divine attributes (Knowledge, Wisdom, etc.) through targeted study and consistency tracking.
+*   **Knowledge Mastery Engine**: Automatic persistent tracking for Math and Alphabet. Earn "Mastered" badges after 5 correct answers, with immersive **Born Notifications** celebrating your manifestation.
+*   **Adaptive Quiz System**: Intelligent filtering that prioritizes unmastered subjects, ensuring study sessions are always directed toward personal elevation.
+*   **Media-Rich Library**: Integrated Archive.org API for global search, PDF reader for foundational books, and multi-media support for Watching, Listening, and Reading.
+*   **Real-time Persistence**: User progress, attribute levels, and mastery metrics are persisted to a Neon PostgreSQL database via Drizzle ORM.
 *   **Secure Authentication**: Fully integrated with Neon Auth, featuring secure sessions and developer-friendly local proxying.
-*   **Dynamic Theme System**: 5 curated themes (Vibrant, Professional, Afrocentric, Dark Academia, Neo-Brutalist) that instantly transform the interface.
-*   **Progress Dashboard**: Personalized "Journey" section tracking lessons completed, days active, and quizzes born.
+*   **Dynamic Theme System**: 5 curated themes that instantly transform the interface according to your mental state.
 
 ## 🛠 Technology Stack
 
@@ -67,12 +68,13 @@ five-percent-mentor/
 
 ## 📐 Implemented Modules
 
-*   **🔢 Supreme Mathematics**: Interactive degrees 1-10 with daily rotation.
-*   **🔤 Supreme Alphabet**: Interactive A-Z meanings.
+*   **🔢 Supreme Mathematics**: Interactive degrees 1-10 with persistent **Mastery Badges**.
+*   **🔤 Supreme Alphabet**: Interactive A-Z meanings with persistent **Mastery Badges**.
+*   **☀️ Attribute Builder**: Immersive character growth module for manifesting the 14 Attributes of a Righteous Person.
 *   **📖 120 Lessons**: Structured study flow for Student Enrollment 1-10.
-*   **🎯 Quizzes**: Data-driven assessment with randomized questions.
+*   **🎯 Quizzes**: Adaptive, data-driven assessment that prioritizes unmastered subjects.
+*   **📚 Knowledge Library**: Media-rich portal with Global Archive Search, PDF reader, and multi-media support (Watch/Listen/Read).
 *   **🎴 Flashcards**: Active recall tool for core principles.
-*   **📚 Knowledge Library**: Access to the [12 Jewels](public/content-packs/12-jewels.json) and curated readings.
 
 ---
 
