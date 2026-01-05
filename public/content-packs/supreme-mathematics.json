@@ -1,0 +1,132 @@
+[
+  {
+    "id": "math_1",
+    "number": 1,
+    "name": "Knowledge",
+    "meaning": "The foundation of all in existence. To look, listen, observe, and respect.",
+    "attributes": [
+      "Observation",
+      "Foundation",
+      "Respect",
+      "Awareness"
+    ],
+    "application": "Gather facts before acting. Listen more than you speak. Establish a solid foundation for any new endeavor."
+  },
+  {
+    "id": "math_2",
+    "number": 2,
+    "name": "Wisdom",
+    "meaning": "Wise words, ways, and actions. The application of knowledge.",
+    "attributes": [
+      "Action",
+      "Speech",
+      "Discernment",
+      "Movement"
+    ],
+    "application": "Put what you know into action. Speak your truth. Demonstrate your knowledge through tangible deeds."
+  },
+  {
+    "id": "math_3",
+    "number": 3,
+    "name": "Understanding",
+    "meaning": "The mental picture one draws of knowledge. To see things clearly.",
+    "attributes": [
+      "Clarity",
+      "Vision",
+      "Comprehension",
+      "Insight"
+    ],
+    "application": "Seek clarity in all things. Ensure you are understood and that you understand others. Visualize the outcome before starting."
+  },
+  {
+    "id": "math_4",
+    "number": 4,
+    "name": "Culture/Freedom",
+    "meaning": "One's way of life. Freedom is to be free from mental and physical slavery.",
+    "attributes": [
+      "Lifestyle",
+      "Self-Determination",
+      "Autonomy",
+      "Tradition"
+    ],
+    "application": "Practice your culture daily. Live freely by your own principles. Be self-determined in your choices and movements."
+  },
+  {
+    "id": "math_5",
+    "number": 5,
+    "name": "Power/Refinement",
+    "meaning": "The force of truth. To make manifest. Refinement is to be made pure.",
+    "attributes": [
+      "Truth",
+      "Force",
+      "Purification",
+      "Elevation"
+    ],
+    "application": "Refine your character and habits. Stand in your truth. Clean up your physical and mental environment to allow power to flow."
+  },
+  {
+    "id": "math_6",
+    "number": 6,
+    "name": "Equality",
+    "meaning": "To be equal in all things. Knowledge, Wisdom, and Understanding.",
+    "attributes": [
+      "Balance",
+      "Fairness",
+      "Sharing",
+      "Harmony"
+    ],
+    "application": "Treat others with fairness. Share knowledge with those who seek it. Maintain balance in your dealings and relationships."
+  },
+  {
+    "id": "math_7",
+    "number": 7,
+    "name": "God",
+    "meaning": "The original man. The black man of Asia. The supreme being.",
+    "attributes": [
+      "Mastery",
+      "Responsibility",
+      "Leadership",
+      "Creation"
+    ],
+    "application": "Master yourself and your emotions. Take full responsibility for your world. Lead by example and create positive change."
+  },
+  {
+    "id": "math_8",
+    "number": 8,
+    "name": "Build/Destroy",
+    "meaning": "To add on to or take away from. To build constitutes proper growth and development.",
+    "attributes": [
+      "Growth",
+      "Removal",
+      "Construction",
+      "Evaluation"
+    ],
+    "application": "Build something positive every day. Remove negativity and stagnation. Add value to every cipher you enter."
+  },
+  {
+    "id": "math_9",
+    "number": 9,
+    "name": "Born",
+    "meaning": "To be brought into existence. The completion of all things.",
+    "attributes": [
+      "Manifestation",
+      "Completion",
+      "Birth",
+      "Reality"
+    ],
+    "application": "Bring your ideas to completion. Manifest your goals into reality. Birth a new level of understanding or achievement."
+  },
+  {
+    "id": "math_0",
+    "number": 0,
+    "name": "Cipher",
+    "meaning": "A circle consisting of 360 degrees. A person, place, or thing. Completion.",
+    "attributes": [
+      "Wholeness",
+      "Protection",
+      "Cycle",
+      "Environment"
+    ],
+    "application": "Complete your cycle. Encompass all things within your awareness. Protect your surroundings and keep your cipher clean."
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "book_1",
+    "title": "The Message to the Blackman in America",
+    "author": "Elijah Muhammad",
+    "category": "Foundational",
+    "description": "A foundational text for the Nation of Islam and the Five Percenters, detailing the history and theology of the black man in America."
+  },
+  {
+    "id": "book_2",
+    "title": "The 120 Lessons",
+    "author": "The Nation of Gods and Earths",
+    "category": "Core Text",
+    "description": "The Book of Life. The compilation of Supreme Mathematics, Supreme Alphabet, and the Lost-Found Muslim Lessons."
+  },
+  {
+    "id": "book_3",
+    "title": "How to Eat to Live",
+    "author": "Elijah Muhammad",
+    "category": "Health",
+    "description": "Guidance on dietary practices and physical health for longevity and righteousness."
+  }
+]

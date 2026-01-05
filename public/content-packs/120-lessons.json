@@ -1,0 +1,88 @@
+[
+  {
+    "id": "lesson_1_10",
+    "title": "Student Enrollment (1-10)",
+    "description": "The first lesson of the 120 Lessons, consisting of 10 questions and answers.",
+    "questions": [
+      {
+        "id": "1-1",
+        "question": "Who is the Original Man?",
+        "answer": "The Original Man is the Asiatic Blackman, the Maker, the Owner, the Cream of the Planet Earth, Father of Civilization, and God of the Universe."
+      },
+      {
+        "id": "1-2",
+        "question": "Who is the Colored Man?",
+        "answer": "The Colored Man is the Caucasian (white man), or Yacub's grafted devil, the Skunk of the Planet Earth."
+      },
+      {
+        "id": "1-3",
+        "question": "What is the population of the Original Nation in the wilderness of North America, and all over the planet Earth?",
+        "answer": "The population of the Original Nation in the wilderness of North America is 17,000,000. With the 2,000,000 Indians makes it 19,000,000. All over the planet Earth is 4,400,000,000."
+      },
+      {
+        "id": "1-4",
+        "question": "What is the population of the Colored People in the wilderness of North America, and all over the planet Earth?",
+        "answer": "The population of the Colored People in the wilderness of North America is 103,000,000. All over the planet Earth is 400,000,000."
+      },
+      {
+        "id": "1-5",
+        "question": "What is the area in square miles of the planet Earth?",
+        "answer": "The square mileage of the Earth is 196,940,000 square miles."
+      },
+      {
+        "id": "1-6",
+        "question": "What are the exact square miles of the useful land that is used every day by the total population of the planet Earth?",
+        "answer": "The useful land that is used every day by the total population of the planet Earth is 29,000,000 square miles."
+      },
+      {
+        "id": "1-7",
+        "question": "What is the amount of the useful land that is used by the original man?",
+        "answer": "The original man uses 23,000,000 square miles."
+      },
+      {
+        "id": "1-8",
+        "question": "What is the amount of the useful land that is used by the colored man?",
+        "answer": "The colored man uses 6,000,000 square miles."
+      },
+      {
+        "id": "1-9",
+        "question": "What is the amount of the useful land that is used by the devil?",
+        "answer": "The devil uses 6,000,000 square miles."
+      },
+      {
+        "id": "1-10",
+        "question": "What is the main reason why the devil uses the useful land?",
+        "answer": "Because the devil is the skunk of the planet Earth."
+      }
+    ]
+  },
+  {
+    "id": "english_c1",
+    "title": "English Lesson No. C1",
+    "description": "Foundational lesson regarding the English language and usage.",
+    "questions": [
+      {
+        "id": "c1-1",
+        "question": "My name is W. F. Muhammad.",
+        "answer": "I came to North America by myself."
+      },
+      {
+        "id": "c1-2",
+        "question": "My uncle was brought over here by the trader three hundred seventy-nine years ago.",
+        "answer": "My uncle cannot talk his own language."
+      }
+    ]
+  },
+  {
+    "id": "lost_found_1",
+    "title": "Lost Found Muslim Lesson No. 1",
+    "description": "Questions and answers 1-14.",
+    "questions": []
+  },
+  {
+    "id": "lost_found_2",
+    "title": "Lost Found Muslim Lesson No. 2",
+    "description": "Questions and answers 1-40.",
+    "questions": []
+  }
+]
