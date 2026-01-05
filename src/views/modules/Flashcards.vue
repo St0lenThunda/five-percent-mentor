@@ -58,6 +58,24 @@
             <h3 class="text-2xl font-bold text-white mb-2">Supreme Alphabet</h3>
             <p class="text-purple-200">Test your knowledge of the 26 letters.</p>
           </button>
+
+          <button
+            @click="startDeck( 'jewels' )"
+            class="p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-gold-500 hover:scale-[1.02] transition-all group text-left"
+          >
+            <span class="text-4xl mb-4 block group-hover:scale-110 transition-transform w-fit">💎</span>
+            <h3 class="text-2xl font-bold text-white mb-2">12 Jewels</h3>
+            <p class="text-purple-200">Master the 12 foundational principles.</p>
+          </button>
+
+          <button
+            @click="startDeck( 'lessons' )"
+            class="p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-gold-500 hover:scale-[1.02] transition-all group text-left"
+          >
+            <span class="text-4xl mb-4 block group-hover:scale-110 transition-transform w-fit">📖</span>
+            <h3 class="text-2xl font-bold text-white mb-2">120 Lessons</h3>
+            <p class="text-purple-200">Study the questions and answers.</p>
+          </button>
         </div>
       </div>
 
@@ -87,7 +105,7 @@
               class="absolute inset-0 backface-hidden bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 rounded-3xl flex flex-col items-center justify-center p-8 text-center"
             >
               <span class="text-purple-400 text-sm font-bold uppercase tracking-widest mb-4">
-                {{ activeMode === 'mathematics' ? 'Degree' : 'Letter' }}
+                {{ cardLabel }}
               </span>
               <span
                 class="text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-gold-400 to-primary-500"
@@ -152,8 +170,39 @@ const currentDeck = computed( () => {
       title: a.name,
       back: a.meaning
     } ) )
+  } else if ( activeMode.value === 'jewels' ) {
+    return contentStore.jewels.map( j => ( {
+      front: j.name.charAt(0),
+      title: j.name,
+      back: j.description
+    } ) )
+  } else if ( activeMode.value === 'lessons' ) {
+    // Flatten all questions from all lesson sets
+    const allQuestions = []
+    contentStore.lessons.forEach( lesson => {
+      if ( lesson.questions && lesson.questions.length > 0 ) {
+        lesson.questions.forEach( q => {
+          allQuestions.push( {
+            front: '❓',
+            title: q.question,
+            back: q.answer
+          } )
+        } )
+      }
+    } )
+    return allQuestions
   }
   return []
+} )
+
+const cardLabel = computed( () => {
+  switch ( activeMode.value ) {
+    case 'mathematics': return 'Degree'
+    case 'alphabet': return 'Letter'
+    case 'jewels': return 'Jewel'
+    case 'lessons': return 'Question'
+    default: return ''
+  }
 } )
 
 const activeCard = computed( () => currentDeck.value[currentIndex.value] || {} )

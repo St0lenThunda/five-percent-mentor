@@ -83,30 +83,9 @@
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <MathBreakdownTool class="col-span-1 md:col-span-2 lg:col-span-1" />
-
-          <router-link
-            v-for=" tool in tools "
-            :key="tool.id"
-            :to="tool.route"
-            class="group backdrop-blur-lg rounded-2xl shadow-xl p-6 border transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-            :class="[currentTheme.dashboard.cardBg, currentTheme.dashboard.cardBorder, currentTheme.dashboard.cardHover]"
-          >
-            <div class="text-4xl mb-4 text-center">{{ tool.icon }}</div>
-            <h3
-              class="text-2xl font-bold mb-2 transition-colors text-center"
-              :class="currentTheme.dashboard.title"
-            >
-              {{ tool.name }}
-            </h3>
-            <p
-              class="text-sm mb-4 text-center"
-              :class="currentTheme.dashboard.description"
-            >
-              {{ tool.description }}
-            </p>
-          </router-link>
         </div>
       </div>
+
 
       <!-- Progress Overview -->
       <div class="mt-16 max-w-4xl mx-auto backdrop-blur-lg bg-white/5 rounded-2xl p-8 border border-white/10">
@@ -205,22 +184,6 @@ const modules = ref( [
   }
 ] )
 
-const tools = ref( [
-  {
-    id: 'flashcards',
-    name: 'Flashcards',
-    description: 'Master degrees with active recall',
-    route: '/flashcards',
-    icon: '🎴'
-  },
-  {
-    id: 'quizzes',
-    name: 'Quizzes',
-    description: 'Test your understanding',
-    route: '/quizzes',
-    icon: '🎯'
-  }
-] )
 
 
 

@@ -7,6 +7,9 @@ import { useUserStore } from './user'
 
 export const useProgressStore = defineStore( 'progress', () => {
   const quizCount = ref( 0 )
+  const flashcardCount = ref( 0 )
+  const masteredCount = ref( 0 )
+  const streakDays = ref( 0 )
   const completedContent = ref( [] )
   const isLoading = ref( false )
   const userStore = useUserStore()
@@ -89,6 +92,9 @@ export const useProgressStore = defineStore( 'progress', () => {
   return {
     completedContent,
     quizCount,
+    flashcardCount,
+    masteredCount,
+    streakDays,
     isLoading,
     fetchUserProgress,
     markComplete,

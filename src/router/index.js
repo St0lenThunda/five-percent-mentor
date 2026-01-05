@@ -105,8 +105,13 @@ const router = createRouter( {
 } )
 
 // Navigation guards
-router.beforeEach( ( to, from, next ) => {
+router.beforeEach( async ( to, from, next ) => {
   const userStore = useUserStore()
+
+  // Wait for the store to initialize if it hasn't yet
+  if ( !userStore.initialized ) {
+    await userStore.init()
+  }
 
   if ( to.meta.requiresAuth && !userStore.isAuthenticated ) {
     next( { name: 'login' } )
