@@ -10,9 +10,13 @@ export const useUserStore = defineStore( 'user', {
     currentUser: null,
     userProfile: null,
     isAuthenticated: false,
+    initialized: false,
     loading: false,
     error: null
   } ),
+  getters: {
+    user: ( state ) => state.userProfile
+  },
   actions: {
     async init () {
       this.loading = true
@@ -27,6 +31,12 @@ export const useUserStore = defineStore( 'user', {
           this.isAuthenticated = true
           // 2. Fetch or Create Profile
           await this.fetchUserProfile( neonUser.email )
+
+          // 3. Load progress if profile found
+          if ( this.userProfile ) {
+            const progressStore = useProgressStore()
+            await progressStore.fetchUserProgress()
+          }
         } else {
           console.warn( 'No active session found' )
           this.currentUser = null
@@ -40,6 +50,7 @@ export const useUserStore = defineStore( 'user', {
         this.isAuthenticated = false
       } finally {
         this.loading = false
+        this.initialized = true
       }
     },
 
@@ -59,7 +70,7 @@ export const useUserStore = defineStore( 'user', {
           currentModule: 'dashboard'
         } ).returning()
 
-        this.currentUser = { email } // Neon user mock/result
+        this.currentUser = authResult
         this.userProfile = profile
         this.isAuthenticated = true
 
@@ -82,7 +93,7 @@ export const useUserStore = defineStore( 'user', {
         if ( authResult.error ) throw new Error( authResult.error )
 
         // 2. Set State
-        this.currentUser = { email } // Or result from neonAuth
+        this.currentUser = authResult
         this.isAuthenticated = true
 
         // 3. Fetch Profile

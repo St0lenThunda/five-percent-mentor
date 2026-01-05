@@ -11,7 +11,5 @@ import { RouterView } from 'vue-router'
 
 const userStore = useUserStore()
 
-onMounted(() => {
-  userStore.init()
-})
+// Initial session check is now handled in main.js
 </script>

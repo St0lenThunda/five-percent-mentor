@@ -15,9 +15,14 @@ export default defineConfig( ( { mode } ) => {
       strictPort: true,
       proxy: {
         '/neondb/auth': {
-          target: 'https://ep-damp-block-a4y6qb9h.us-east-1.aws.neon.tech',
+          target: env.VITE_NEON_AUTH_URL || 'https://ep-damp-block-a4y6qb9h.neonauth.us-east-1.aws.neon.tech',
           changeOrigin: true,
-          secure: true
+          secure: true,
+          configure: ( proxy, options ) => {
+            proxy.on( 'proxyReq', ( proxyReq, req, res ) => {
+              proxyReq.setHeader( 'Origin', options.target );
+            } );
+          }
         }
       }
     },
