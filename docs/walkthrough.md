@@ -52,6 +52,10 @@ The **Five Percent Mentor** has transitioned from a UI prototype to a fully-real
 
 ## 🎉 Summary
 
-The **Five Percent Mentor** is a holistic tool for self-mastery, built with production-ready standards. With real-time database syncing, a randomized quiz engine, and a secure authentication layer, it provides a stable foundation for the student's journey.
+The **Five Percent Mentor** is a holistic tool for self-mastery, built with production-ready standards. 
+
+For detailed notes on recent updates, see:
+- [Knowledge Library Expansion & UI Optimization](file:///home/thunda/Dev/543_Tools/FiveOnIt/five-percent-mentor/docs/walkthroughs/knowledge-library-and-layout.md)
+- [Deep Attribute System & Knowledge Mastery](file:///home/thunda/Dev/543_Tools/FiveOnIt/five-percent-mentor/docs/walkthroughs/attribute-and-mastery-integration.md)
 
 **Self-knowledge is the key to life. Peace.** ✊🏿

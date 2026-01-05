@@ -1,0 +1,180 @@
+[
+  {
+    "id": "attr_1",
+    "name": "Truthfulness",
+    "meaning": "Honesty in Word and Action",
+    "power": "Truth is the foundation of all righteous manifestations.",
+    "refinement": "Speaking only what is verified and living without deception.",
+    "growthTriggers": [
+      "Honesty",
+      "Verification",
+      "Knowledge",
+      "Scientific Method"
+    ]
+  },
+  {
+    "id": "attr_2",
+    "name": "Justice",
+    "meaning": "Righteous Balance",
+    "power": "Applying the law of cause and effect with total fairness.",
+    "refinement": "Correcting errors in the Cipher through righteous action, not emotion.",
+    "growthTriggers": [
+      "Equality",
+      "Law",
+      "Balance",
+      "Justice"
+    ]
+  },
+  {
+    "id": "attr_3",
+    "name": "Equality",
+    "meaning": "Shared Status",
+    "power": "The state of being equal in all aspects of existence.",
+    "refinement": "Teaching all who are worthy without withhold, maintaining 6 in all ciphers.",
+    "growthTriggers": [
+      "Teaching",
+      "Equality",
+      "Civics",
+      "Social Responsibility"
+    ]
+  },
+  {
+    "id": "attr_4",
+    "name": "Love",
+    "meaning": "Supreme Attraction",
+    "power": "The highest expression of understanding and peace.",
+    "refinement": "Manifesting the 10th Jewel through selfless service to the nation.",
+    "growthTriggers": [
+      "Peace",
+      "Brotherhood",
+      "Community Service",
+      "12 Jewels"
+    ]
+  },
+  {
+    "id": "attr_5",
+    "name": "Mercy",
+    "meaning": "Compassionate Restraint",
+    "power": "Withholding destruction when growth is still possible.",
+    "refinement": "Giving the 85% a chance to see the Light if they show sincerity.",
+    "growthTriggers": [
+      "Tolerance",
+      "Patience",
+      "Empathy"
+    ]
+  },
+  {
+    "id": "attr_6",
+    "name": "Patience",
+    "meaning": "Disciplined Waiting",
+    "power": "The ability to endure with a clear mental picture.",
+    "refinement": "Understanding that growth (Born/9) takes a complete cycle of 360 degrees.",
+    "growthTriggers": [
+      "Persistence",
+      "Cycles",
+      "Time Management",
+      "Study Discipline"
+    ]
+  },
+  {
+    "id": "attr_7",
+    "name": "Humility",
+    "meaning": "Egoless Service",
+    "power": "Recognizing that the individual is but a part of the All (Allah).",
+    "refinement": "Listening (Knowledge/1) before speaking (Wisdom/2).",
+    "growthTriggers": [
+      "Knowledge",
+      "Listening",
+      "Ego Management"
+    ]
+  },
+  {
+    "id": "attr_8",
+    "name": "Knowledge",
+    "meaning": "The Foundation",
+    "power": "The gather of facts and principles of self.",
+    "refinement": "Constantly learning to refine the mind from trick knowledge.",
+    "growthTriggers": [
+      "General Study",
+      "Fact Gathering",
+      "Reading",
+      "History"
+    ]
+  },
+  {
+    "id": "attr_9",
+    "name": "Wisdom",
+    "meaning": "Applied Knowledge",
+    "power": "Wise words and deeds that manifest the truth.",
+    "refinement": "Walking the talk; ensuring actions align with the Mathematics.",
+    "growthTriggers": [
+      "Implementation",
+      "Teaching",
+      "Public Speaking",
+      "Conduct"
+    ]
+  },
+  {
+    "id": "attr_10",
+    "name": "Understanding",
+    "meaning": "Clear Comprehension",
+    "power": "The mental picture of knowledge and wisdom combined.",
+    "refinement": "Seeing clearly with the third eye, beyond the surface of things.",
+    "growthTriggers": [
+      "Abstract Thinking",
+      "Clarity",
+      "Vision",
+      "Synthesis"
+    ]
+  },
+  {
+    "id": "attr_11",
+    "name": "Consistency",
+    "meaning": "Reliable Action",
+    "power": "The power of keeping the cipher whole and unbroken.",
+    "refinement": "Building (8) daily without destroying progress through negligence.",
+    "growthTriggers": [
+      "Daily Streak",
+      "Habit Completion",
+      "Long-term Planning"
+    ]
+  },
+  {
+    "id": "attr_12",
+    "name": "Self-Respect",
+    "meaning": "Inner Honor",
+    "power": "Honoring the God within as the highest authority.",
+    "refinement": "Refining the body and mind (Power/5) to be a fit temple.",
+    "growthTriggers": [
+      "Health",
+      "Diet",
+      "Grooming",
+      "Self-Worth"
+    ]
+  },
+  {
+    "id": "attr_13",
+    "name": "Moral Courage",
+    "meaning": "Principled Force",
+    "power": "The strength to hold the truth against all opposition.",
+    "refinement": "Standing on the Mathematics even when the 85% mock the culture.",
+    "growthTriggers": [
+      "Ethics",
+      "Bravery",
+      "Integrity",
+      "Public Stand"
+    ]
+  },
+  {
+    "id": "attr_14",
+    "name": "Unselfishness",
+    "meaning": "Sacrificial Growth",
+    "power": "Putting the elevation of the nation above personal desire.",
+    "refinement": "Sharing the Bread of Life (Knowledge) freely with those who seek it.",
+    "growthTriggers": [
+      "Charity",
+      "Mentorship",
+      "Collaboration"
+    ]
+  }
+]

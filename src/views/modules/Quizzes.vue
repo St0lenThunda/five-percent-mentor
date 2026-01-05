@@ -15,12 +15,20 @@
               </h1>
             </div>
           </router-link>
-          <router-link
-            to="/"
-            class="px-6 py-2 bg-white/5 hover:bg-white/10 border border-white/20 rounded-lg transition-colors text-purple-200 hover:text-white"
-          >
-            ← Dashboard
-          </router-link>
+          <div class="flex items-center gap-3">
+            <router-link
+              to="/quiz-history"
+              class="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/20 rounded-lg transition-colors text-purple-200 hover:text-white flex items-center gap-2"
+            >
+              <span>📊</span> View History
+            </router-link>
+            <router-link
+              to="/"
+              class="px-6 py-2 bg-white/5 hover:bg-white/10 border border-white/20 rounded-lg transition-colors text-purple-200 hover:text-white"
+            >
+              ← Dashboard
+            </router-link>
+          </div>
         </div>
       </div>
     </header>
@@ -157,6 +165,7 @@
             class="text-red-400 mt-2 text-sm"
           >Select at least one topic.</p>
         </div>
+
       </div>
 
       <!-- Quiz View -->
@@ -254,6 +263,7 @@
 import { ref, computed, onMounted, reactive } from 'vue'
 import { useContentStore } from '../../stores/content'
 import { useProgressStore } from '../../stores/progress'
+import { useAttributesStore } from '../../stores/attributes'
 
 const contentStore = useContentStore()
 const progressStore = useProgressStore()
@@ -264,6 +274,7 @@ const currentQuestionIndex = ref( 0 )
 const score = ref( 0 )
 const showFeedback = ref( false )
 const selectedAnswer = ref( null )
+const correctItems = ref( [] ) // Array of { id, type, name }
 
 const settings = reactive( {
   topics: ['math', 'alphabet'], // default
@@ -278,29 +289,39 @@ const startQuiz = () => {
 
   // 1. Math Questions
   if ( settings.topics.includes( 'math' ) && contentStore.mathematics.length ) {
-    contentStore.mathematics.forEach( m => {
+    const unmasteredMath = contentStore.mathematics.filter( m => !progressStore.isMastered( m.id ) )
+    const mathPool = unmasteredMath.length > 0 ? unmasteredMath : contentStore.mathematics
+
+    mathPool.forEach( m => {
       // Q1: Number -> Meaning
       allQuestions.push( {
         text: `What is the meaning of the number ${m.number}?`,
         correct: m.name,
         options: generateDistractors( m.name, contentStore.mathematics.map( x => x.name ) ),
         topicLabel: 'Supreme Mathematics',
-        sourceId: `math_${m.number}`,
-        type: 'meaning'
+        sourceId: m.id,
+        type: 'meaning',
+        contentType: 'mathematics',
+        itemName: m.name
       } )
     } )
   }
 
   // 2. Alphabet Questions
   if ( settings.topics.includes( 'alphabet' ) && contentStore.alphabet.length ) {
-    contentStore.alphabet.forEach( a => {
+    const unmasteredAlpha = contentStore.alphabet.filter( a => !progressStore.isMastered( a.id ) )
+    const alphaPool = unmasteredAlpha.length > 0 ? unmasteredAlpha : contentStore.alphabet
+
+    alphaPool.forEach( a => {
       allQuestions.push( {
         text: `What does the letter '${a.letter}' stand for?`,
         correct: a.name,
         options: generateDistractors( a.name, contentStore.alphabet.map( x => x.name ) ),
         topicLabel: 'Supreme Alphabet',
-        sourceId: `alpha_${a.letter}`,
-        type: 'meaning'
+        sourceId: a.id,
+        type: 'meaning',
+        contentType: 'alphabet',
+        itemName: a.name
       } )
     } )
   }
@@ -381,6 +402,15 @@ const handleAnswer = ( option ) => {
 
   if ( option === currentQuestion.value.correct ) {
     score.value++
+    // Record correct item for mastery tracking
+    const item = {
+      id: currentQuestion.value.sourceId,
+      type: currentQuestion.value.contentType,
+      name: currentQuestion.value.itemName
+    }
+    if ( item.id && !correctItems.value.some( i => i.id === item.id ) ) {
+      correctItems.value.push( item )
+    }
   }
 
   setTimeout( () => {
@@ -396,13 +426,25 @@ const handleAnswer = ( option ) => {
 
 const finishQuiz = async () => {
   gameState.value = 'results'
-  // Save Result
+
+  // 1. Save Result
   await progressStore.saveQuizResult( {
     score: score.value,
     totalQuestions: totalQuestions.value,
     topics: settings.topics,
     details: { /* could add breakdown here */ }
   } )
+
+  // 2. Impact Attributes if mastery is achieved ( > 70% )
+  if ( ( score.value / totalQuestions.value ) >= 0.7 ) {
+    const attributesStore = useAttributesStore()
+    await attributesStore.processTopicImpact( settings.topics )
+  }
+
+  // 3. Record individual item mastery progress
+  for ( const item of correctItems.value ) {
+    await progressStore.recordCorrectAnswer( item.id, item.type, item.name )
+  }
 }
 
 const getOptionClass = ( option ) => {
@@ -414,7 +456,9 @@ const getOptionClass = ( option ) => {
   return 'bg-white/5 border-white/10 opacity-50 text-white'
 }
 
+
 onMounted( () => {
   contentStore.fetchAllContent()
+  progressStore.fetchUserProgress()
 } )
 </script>

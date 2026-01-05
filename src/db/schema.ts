@@ -69,3 +69,21 @@ export const quizLogs = pgTable( 'quiz_logs', {
   details: text( 'details' ),
   createdAt: timestamp( 'created_at' ).defaultNow()
 } )
+export const userAttributes = pgTable( 'user_attributes', {
+  id: uuid( 'id' ).primaryKey().defaultRandom(),
+  userId: uuid( 'user_id' ).references( () => userProfiles.id, { onDelete: 'cascade' } ),
+  attributeId: text( 'attribute_id' ).notNull(),
+  level: integer( 'level' ).default( 0 ),
+  isBuilding: boolean( 'is_building' ).default( false ),
+  updatedAt: timestamp( 'updated_at' ).defaultNow()
+} )
+
+export const masteryMetrics = pgTable( 'mastery_metrics', {
+  id: uuid( 'id' ).primaryKey().defaultRandom(),
+  userId: uuid( 'user_id' ).references( () => userProfiles.id, { onDelete: 'cascade' } ),
+  contentId: text( 'content_id' ).notNull(),
+  contentType: text( 'content_type' ).notNull(),
+  correctCount: integer( 'correct_count' ).default( 0 ),
+  mastered: boolean( 'mastered' ).default( false ),
+  updatedAt: timestamp( 'updated_at' ).defaultNow()
+} )

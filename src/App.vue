@@ -1,6 +1,7 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-gray-900">
+  <div class="min-h-screen">
     <RouterView />
+    <BornNotification />
   </div>
 </template>
 
@@ -8,6 +9,7 @@
 import { ref, onMounted } from 'vue'
 import { useUserStore } from './stores/user'
 import { RouterView } from 'vue-router'
+import BornNotification from './components/BornNotification.vue'
 
 const userStore = useUserStore()
 

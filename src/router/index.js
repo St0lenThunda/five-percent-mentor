@@ -17,6 +17,8 @@ const AttributeBuilder = () => import( '../views/modules/AttributeBuilder.vue' )
 const SelfAssessment = () => import( '../views/modules/SelfAssessment.vue' )
 const Quizzes = () => import( '../views/modules/Quizzes.vue' )
 const Flashcards = () => import( '../views/modules/Flashcards.vue' )
+const JournalHistory = () => import( '../views/modules/JournalHistory.vue' )
+const QuizHistory = () => import( '../views/modules/QuizHistory.vue' )
 
 const routes = [
   {
@@ -68,6 +70,12 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
+    path: '/journal-history',
+    name: 'journal-history',
+    component: JournalHistory,
+    meta: { requiresAuth: true }
+  },
+  {
     path: '/knowledge-library',
     name: 'knowledge-library',
     component: KnowledgeLibrary,
@@ -89,6 +97,12 @@ const routes = [
     path: '/quizzes',
     name: 'quizzes',
     component: Quizzes,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/quiz-history',
+    name: 'quiz-history',
+    component: QuizHistory,
     meta: { requiresAuth: true }
   },
   {

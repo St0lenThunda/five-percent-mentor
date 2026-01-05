@@ -43,13 +43,14 @@ export const useContentStore = defineStore( 'content', () => {
     mathematics,
     alphabet,
     jewels,
+    lessons,
+    library,
     isLoading,
     error,
     fetchAllContent,
     getMathByNumber,
     getLetterByChar,
     getJewelByName,
-    lessons,
     getLessonById: ( id ) => lessons.value.find( l => l.id === id )
   }
 } )
