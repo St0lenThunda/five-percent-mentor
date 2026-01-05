@@ -1,97 +1,79 @@
-# Unified 5% Knowledge System (Vue 3 + Vite)
+# Five Percent Mentor (Vue 3 + Neon)
 
-A modern, glassmorphic web application designed to facilitate the study and practice of the 5% Nation's knowledge system. This front-end application serves as a mentor and tracker for students, built with Vue 3, Vite, and Tailwind CSS.
+A modern, glassmorphic knowledge management system designed for the study and practice of the Nation of Gods and Earths (NGE) knowledge. Built with Vue 3, Neon Postgres, and Tailwind CSS.
 
-## 🌟 Features
+## 🌟 Key Features
 
-*   **Modern Glassmorphic UI**: A stunning, premium interface with glass effects, dynamic gradients, and smooth interactions.
-*   **Dynamic Theme System**: Choose from 5 distinct aesthetic themes:
-    *   **Current (Vibrant)**: Purple/Gold/Indigo gradient.
-    *   **Minimalist Professional**: Clean slate/gray tones for focus.
-    *   **Elegant Afrocentric**: Rich terracotta/earth tones with authentic styling.
-    *   **Dark Academia**: Aged paper, stone, and dramatic shadows.
-    *   **Neo-Brutalist**: High-contrast black & white with bold typography.
-*   **Mock Authentication**: Built-in demo mode allowing seamless exploration without a backend connection.
-*   **Interactive Dashboard**: Central hub tracking progress across modules.
-*   **User Dropdown**: Integrated user management with theme switcher and sign-out.
-*   **Responsive Design**: Mobile-first architecture ensuring access on any device.
+*   **Premium Glassmorphic UI**: High-end aesthetic with vibrant gradients, backdrop blurs, and smooth micro-animations.
+*   **Integrated Knowledge Engine**: Canonical content for Supreme Mathematics, Supreme Alphabet, 12 Jewels, and 120 Lessons (Student Enrollment).
+*   **Interactive Quiz System**: Customizable quizzes with randomization, topic selection (Math, Alphabet, Lessons, Jewels), and real-time score tracking.
+*   **Real-time Persistence**: User progress, quiz results, and study logs are persisted to a Neon PostgreSQL database via Drizzle ORM.
+*   **Secure Authentication**: Fully integrated with Neon Auth, featuring secure sessions and developer-friendly local proxying.
+*   **Dynamic Theme System**: 5 curated themes (Vibrant, Professional, Afrocentric, Dark Academia, Neo-Brutalist) that instantly transform the interface.
+*   **Progress Dashboard**: Personalized "Journey" section tracking lessons completed, days active, and quizzes born.
 
 ## 🛠 Technology Stack
 
-*   **Framework**: [Vue 3](https://vuejs.org/) (Script Setup)
-*   **Build Tool**: [Vite](https://vitejs.dev/)
-*   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+*   **Core**: [Vue 3](https://vuejs.org/) (Composition API)
+*   **Database/ORM**: [Neon Postgres](https://neon.tech/) + [Drizzle ORM](https://orm.drizzle.team/)
 *   **State Management**: [Pinia](https://pinia.vuejs.org/)
+*   **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
 *   **Routing**: [Vue Router](https://router.vuejs.org/)
+*   **Bundling**: [Vite](https://vitejs.dev/)
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-
-*   Node.js (v16.0 or higher)
-*   npm or yarn
+*   Node.js (v18.0+)
+*   Neon Database URL (with Auth enabled)
 
 ### Installation
 
 1.  **Clone the repository**:
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/St0lenThunda/five-percent-mentor.git
     cd five-percent-mentor
     ```
 
-2.  **Install dependencies**:
+2.  **Configure Environment**:
+    Create a `.env` file based on `.env.example`:
+    ```bash
+    VITE_NEON_AUTH_URL=your_neon_auth_url
+    DATABASE_URL=your_postgres_connection_string
+    ```
+
+3.  **Install & Start**:
     ```bash
     npm install
-    ```
-
-3.  **Start the development server**:
-    ```bash
     npm run dev
     ```
-
-4.  **Open in Browser**:
-    Navigate to `http://localhost:5173` (or the URL shown in your terminal).
-
-## 🔑 Authentication (Demo Mode)
-
-The application currently runs in **Mock Authentication Mode**, allowing you to explore all features without a backend database.
-
-*   **Sign Up**: Enter any email/password to create a new session.
-*   **Log In**: Use the following demo credentials (or any you "signed up" with):
-    *   **Email**: `demo@example.com`
-    *   **Password**: `password123` (or anything)
-
-*Your session is persisted in `localStorage`, so you will remain logged in even after refreshing.*
-
-## 🎨 Theme Customization
-
-The application includes a robust theme system accessible via the **User Dropdown** in the top-right corner.
-
-1.  Click your **User Profile** icon in the header.
-2.  Expand the **Theme** submenu.
-3.  Select any of the 5 available themes to instantly transform the application's look and feel.
 
 ## 📂 Project Structure
 
 ```
-src/
-├── auth/           # Authentication services (MockAuth & NeonAuth)
-├── components/     // Reusable UI components (UserDropdown, etc.)
-├── config/         # App configuration (Theme definitions)
-├── stores/         # Pinia state stores (User, Theme)
-├── views/          # Page views (Login, Signup, Dashboard)
-├── assets/         # Static assets
-└── style.css       # Global styles & Tailwind directives
+five-percent-mentor/
+├── docs/               # System walkthrough and design logs
+├── public/
+│   └── content-packs/  # Canonical JSON data (Math, Alphabet, etc.)
+├── src/
+│   ├── auth/           # Neon Auth client & session management
+│   ├── db/             # Drizzle schema and client config
+│   ├── stores/         # Pinia modules (User, Progress, Content)
+│   ├── views/          # Module pages and Dashboard
+│   └── components/     # AppLogo, UserDropdown, ModuleTemplates
+├── drizzle/            # Database migrations
+└── vite.config.js      # Dev proxy & build configuration
 ```
 
-## 📐 Knowledge Modules (Upcoming)
+## 📐 Implemented Modules
 
-*   **Supreme Mathematics**: Daily lessons on 1-10.
-*   **Supreme Alphabet**: Daily lessons on A-Z.
-*   **120 Lessons**: Structured study companion.
-*   **Cipher Builder**: Collaborative discussion tools.
-*   **Born Day Journal**: Daily reflections.
+*   **🔢 Supreme Mathematics**: Interactive degrees 1-10 with daily rotation.
+*   **🔤 Supreme Alphabet**: Interactive A-Z meanings.
+*   **📖 120 Lessons**: Structured study flow for Student Enrollment 1-10.
+*   **🎯 Quizzes**: Data-driven assessment with randomized questions.
+*   **🎴 Flashcards**: Active recall tool for core principles.
+*   **📚 Knowledge Library**: Access to the [12 Jewels](public/content-packs/12-jewels.json) and curated readings.
 
 ---
 
-**Peace.** ✊🏿
+**Knowledge is the foundation. Peace.** ✊🏿
