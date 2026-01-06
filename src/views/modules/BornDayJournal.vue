@@ -57,6 +57,31 @@
           <form @submit.prevent="saveJournal" class="space-y-6">
             <!-- Guided Prompts -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <!-- Culture Prompt (Special) -->
+              <button
+                v-if=" culturePrompt "
+                type="button"
+                @click="insertPrompt( culturePrompt.prompt )"
+                class="md:col-span-2 p-4 text-left rounded-2xl bg-primary-500/10 border border-primary-500/30 hover:border-primary-500 hover:bg-primary-500/20 transition-all group relative overflow-hidden"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-primary-500/20 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform"
+                  >
+                    {{ culturePrompt.letter }}
+                  </div>
+                  <div>
+                    <div class="text-xs text-primary-400 font-black uppercase tracking-widest mb-1">Culture Prompt:
+                      {{ culturePrompt.name }}
+                    </div>
+                    <p class="text-sm text-white font-medium italic leading-relaxed">{{ culturePrompt.prompt }}</p>
+                  </div>
+                </div>
+                <div
+                  class="absolute top-2 right-4 text-[10px] font-black text-primary-500/40 uppercase tracking-widest">
+                  Build Choice</div>
+              </button>
+
               <button
                 v-for="(prompt, index) in todayPrompts"
                 :key="index"
@@ -128,8 +153,10 @@
 import { ref, computed, onMounted } from 'vue'
 import { useMathematics } from '../../composables/useMathematics'
 import { useJournalStore } from '../../stores/journal'
+import { useContentStore } from '../../stores/content'
 
 const journalStore = useJournalStore()
+const contentStore = useContentStore()
 const { dayMath, fullDateMath, getDayAndMonth } = useMathematics()
 
 // Form state
@@ -144,6 +171,17 @@ const todayPrompts = computed(() => [
   `What lesson did the universe teach you about ${dayMath.value.name} today?`,
   `How will you use ${dayMath.value.name} to build toward ${fullDateMath.value.name}?`
 ])
+
+const culturePrompt = computed( () => {
+  if ( !contentStore.alphabet || contentStore.alphabet.length === 0 ) return null
+  const dayOfMonth = new Date().getDate()
+  const alpha = contentStore.alphabet[( dayOfMonth - 1 ) % contentStore.alphabet.length]
+  return {
+    letter: alpha.letter,
+    name: alpha.name,
+    prompt: `How does the principle of ${alpha.name} (${alpha.letter}) influence your current Culture and way of life?`
+  }
+} )
 
 const todayEntry = computed(() => journalStore.getTodayEntry())
 
@@ -191,5 +229,8 @@ const saveJournal = async () => {
   intention.value = ''
 }
 
-onMounted(() => journalStore.fetchEntries())
+onMounted( async () => {
+  await contentStore.fetchAllContent()
+  journalStore.fetchEntries()
+} )
 </script>

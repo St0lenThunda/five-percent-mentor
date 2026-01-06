@@ -76,6 +76,24 @@
             <h3 class="text-2xl font-bold text-white mb-2">120 Lessons</h3>
             <p class="text-purple-200">Study the questions and answers.</p>
           </button>
+
+          <button
+            @click="startDeck( 'actualFacts' )"
+            class="p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-emerald-500 hover:scale-[1.02] transition-all group text-left"
+          >
+            <span class="text-4xl mb-4 block group-hover:scale-110 transition-transform w-fit">🌍</span>
+            <h3 class="text-2xl font-bold text-white mb-2">Actual Facts</h3>
+            <p class="text-purple-200">13 facts about the planet Earth.</p>
+          </button>
+
+          <button
+            @click="startDeck( 'solarFacts' )"
+            class="p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-yellow-500 hover:scale-[1.02] transition-all group text-left"
+          >
+            <span class="text-4xl mb-4 block group-hover:scale-110 transition-transform w-fit">☀️</span>
+            <h3 class="text-2xl font-bold text-white mb-2">Solar Facts</h3>
+            <p class="text-purple-200">9 planetary distances from the Sun.</p>
+          </button>
         </div>
       </div>
 
@@ -108,18 +126,18 @@
                 {{ cardLabel }}
               </span>
               <span
-                class="text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-gold-400 to-primary-500"
+                class="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-gold-400 to-primary-500 mb-4"
               >
                 {{ activeCard.front }}
               </span>
-              <p class="mt-8 text-purple-200 opacity-50 text-sm">Tap to flip</p>
+              <h3 class="text-3xl font-bold text-white">{{ activeCard.title }}</h3>
+              <p class="mt-6 text-purple-200 opacity-50 text-sm">Tap to flip</p>
             </div>
 
             <!-- Back -->
             <div
               class="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-primary-900/40 to-gray-900 border border-primary-500/30 rounded-3xl flex flex-col items-center justify-center p-8 text-center"
             >
-              <h3 class="text-4xl font-bold text-white mb-4">{{ activeCard.title }}</h3>
               <p class="text-xl text-purple-100 leading-relaxed">{{ activeCard.back }}</p>
             </div>
           </div>
@@ -172,7 +190,7 @@ const currentDeck = computed( () => {
     } ) )
   } else if ( activeMode.value === 'jewels' ) {
     return contentStore.jewels.map( j => ( {
-      front: j.name.charAt(0),
+      front: '💎',
       title: j.name,
       back: j.description
     } ) )
@@ -191,6 +209,18 @@ const currentDeck = computed( () => {
       }
     } )
     return allQuestions
+  } else if ( activeMode.value === 'actualFacts' ) {
+    return ( contentStore.actualFacts || [] ).map( f => ( {
+      front: `#${f.number}`,
+      title: f.question,
+      back: f.answer
+    } ) )
+  } else if ( activeMode.value === 'solarFacts' ) {
+    return ( contentStore.solarFacts || [] ).map( f => ( {
+      front: f.number,
+      title: f.planet,
+      back: f.fact
+    } ) )
   }
   return []
 } )
@@ -201,6 +231,8 @@ const cardLabel = computed( () => {
     case 'alphabet': return 'Letter'
     case 'jewels': return 'Jewel'
     case 'lessons': return 'Question'
+    case 'actualFacts': return 'Actual Fact'
+    case 'solarFacts': return 'Solar Fact'
     default: return ''
   }
 } )

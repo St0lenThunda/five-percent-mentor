@@ -1,0 +1,339 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - link "📚 Knowledge Library Curated NGE Readings" [ref=e8] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e9]: 📚
+        - generic [ref=e10]:
+          - heading "Knowledge Library" [level=1] [ref=e11]
+          - paragraph [ref=e12]: Curated NGE Readings
+      - link "← Dashboard" [ref=e13] [cursor=pointer]:
+        - /url: /
+  - main [ref=e14]:
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - heading "Required Reading" [level=2] [ref=e17]
+        - paragraph [ref=e18]: Expand your cipher with these foundational and historical NGE texts.
+      - generic [ref=e19]:
+        - generic [ref=e21]:
+          - textbox "Search Knowledge Library..." [ref=e22]
+          - generic [ref=e23]: 🔍
+        - generic [ref=e24]:
+          - generic [ref=e25]:
+            - generic [ref=e26]: Categories
+            - button "All" [ref=e27] [cursor=pointer]
+            - button "Foundational" [ref=e28] [cursor=pointer]
+            - button "Core Text" [ref=e29] [cursor=pointer]
+            - button "Health" [ref=e30] [cursor=pointer]
+            - button "Modern Classic" [ref=e31] [cursor=pointer]
+            - button "History" [ref=e32] [cursor=pointer]
+            - button "Education" [ref=e33] [cursor=pointer]
+            - button "Culture" [ref=e34] [cursor=pointer]
+          - generic [ref=e35]:
+            - generic [ref=e36]: Media Format
+            - button "All" [ref=e37] [cursor=pointer]
+            - button "book" [ref=e38] [cursor=pointer]
+            - button "video" [ref=e39] [cursor=pointer]
+            - button "podcast" [ref=e40] [cursor=pointer]
+            - button "documentary" [ref=e41] [cursor=pointer]
+            - button "article" [ref=e42] [cursor=pointer]
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic [ref=e47]: 📖
+          - generic [ref=e48]:
+            - generic [ref=e49]: Foundational
+            - generic [ref=e50]: book
+          - heading "The Message to the Blackman in America" [level=3] [ref=e51]
+          - paragraph [ref=e52]: by Elijah Muhammad
+          - paragraph [ref=e53]: A foundational text detailing the history and theology of the original man, compiled from the teachings of the Honorable Elijah Muhammad.
+          - generic [ref=e54]:
+            - button "Read Locally" [active] [ref=e55] [cursor=pointer]:
+              - generic [ref=e56]: Read Locally
+            - button "📖 Read Full Text (PDF)" [ref=e57] [cursor=pointer]:
+              - generic [ref=e58]: 📖
+              - generic [ref=e59]: Read Full Text (PDF)
+            - button "🌐 External Discovery" [ref=e60] [cursor=pointer]:
+              - generic [ref=e61]:
+                - generic [ref=e62]: 🌐
+                - text: External Discovery
+        - generic [ref=e63]:
+          - generic [ref=e66]: 📖
+          - generic [ref=e67]:
+            - generic [ref=e68]: Core Text
+            - generic [ref=e69]: book
+          - heading "The 120 Lessons" [level=3] [ref=e70]
+          - paragraph [ref=e71]: by The Nation of Gods and Earths
+          - paragraph [ref=e72]: The 'Book of Life' for the NGE. A compilation of the Supreme Wisdom lessons, Supreme Mathematics, and Supreme Alphabet.
+          - generic [ref=e73]:
+            - button "Read Locally" [ref=e74] [cursor=pointer]:
+              - generic [ref=e75]: Read Locally
+            - button "📖 Read Full Text (PDF)" [ref=e76] [cursor=pointer]:
+              - generic [ref=e77]: 📖
+              - generic [ref=e78]: Read Full Text (PDF)
+            - button "🌐 External Discovery" [ref=e79] [cursor=pointer]:
+              - generic [ref=e80]:
+                - generic [ref=e81]: 🌐
+                - text: External Discovery
+        - generic [ref=e82]:
+          - generic [ref=e85]: 📖
+          - generic [ref=e86]:
+            - generic [ref=e87]: Health
+            - generic [ref=e88]: book
+          - heading "How to Eat to Live" [level=3] [ref=e89]
+          - paragraph [ref=e90]: by Elijah Muhammad
+          - paragraph [ref=e91]: Crucial guidance on dietary laws and physical health as a foundation for mental and spiritual elevation.
+          - generic [ref=e92]:
+            - button "Read Locally" [ref=e93] [cursor=pointer]:
+              - generic [ref=e94]: Read Locally
+            - button "📖 Read Full Text (PDF)" [ref=e95] [cursor=pointer]:
+              - generic [ref=e96]: 📖
+              - generic [ref=e97]: Read Full Text (PDF)
+            - button "🌐 External Discovery" [ref=e98] [cursor=pointer]:
+              - generic [ref=e99]:
+                - generic [ref=e100]: 🌐
+                - text: External Discovery
+        - generic [ref=e101]:
+          - generic [ref=e104]: 📖
+          - generic [ref=e105]:
+            - generic [ref=e106]: Modern Classic
+            - generic [ref=e107]: book
+          - heading "Knowledge of Self" [level=3] [ref=e108]
+          - paragraph [ref=e109]: by Supreme Understanding
+          - paragraph [ref=e110]: A deep exploration of the science of self-mastery and the application of NGE principles in the modern world.
+          - generic [ref=e111]:
+            - button "Read Locally" [ref=e112] [cursor=pointer]:
+              - generic [ref=e113]: Read Locally
+            - button "📖 Read Full Text (PDF)" [ref=e114] [cursor=pointer]:
+              - generic [ref=e115]: 📖
+              - generic [ref=e116]: Read Full Text (PDF)
+            - button "🌐 External Discovery" [ref=e117] [cursor=pointer]:
+              - generic [ref=e118]:
+                - generic [ref=e119]: 🌐
+                - text: External Discovery
+        - generic [ref=e120]:
+          - generic [ref=e123]: 📖
+          - generic [ref=e124]:
+            - generic [ref=e125]: History
+            - generic [ref=e126]: book
+          - heading "The Five Percenters" [level=3] [ref=e127]
+          - paragraph [ref=e128]: by Michael Muhammad Knight
+          - paragraph [ref=e129]: A detailed historical account of the rise of the Nation of Gods and Earths from the 1960s to the present day.
+          - generic [ref=e130]:
+            - button "📖 Read Full Text (PDF)" [ref=e131] [cursor=pointer]:
+              - generic [ref=e132]: 📖
+              - generic [ref=e133]: Read Full Text (PDF)
+            - button "🌐 External Discovery" [ref=e134] [cursor=pointer]:
+              - generic [ref=e135]:
+                - generic [ref=e136]: 🌐
+                - text: External Discovery
+        - generic [ref=e137]:
+          - generic [ref=e140]: 📽️
+          - generic [ref=e141]:
+            - generic [ref=e142]: Education
+            - generic [ref=e143]: video
+          - heading "Lord Jamar on 5% Identity" [level=3] [ref=e144]
+          - paragraph [ref=e145]: by VladTV
+          - paragraph [ref=e146]: Lord Jamar clarifies the distinction between religion and culture, explaining the core identity of the Gods and Earths.
+          - generic [ref=e147]:
+            - button "Watch Locally" [ref=e148] [cursor=pointer]:
+              - generic [ref=e149]: Watch Locally
+            - button "🌐 External Discovery" [ref=e150] [cursor=pointer]:
+              - generic [ref=e151]:
+                - generic [ref=e152]: 🌐
+                - text: External Discovery
+        - generic [ref=e153]:
+          - generic [ref=e156]: 🎙️
+          - generic [ref=e157]:
+            - generic [ref=e158]: Education
+            - generic [ref=e159]: podcast
+          - 'heading "The GOD & EARTH Hour: Episode 1" [level=3] [ref=e160]'
+          - paragraph [ref=e161]: by The 5% Connection
+          - paragraph [ref=e162]: Hosted by Minister Freedom and IC. A foundational build on the current state and mission of the Nation.
+          - generic [ref=e163]:
+            - button "Listen Locally" [ref=e164] [cursor=pointer]:
+              - generic [ref=e165]: Listen Locally
+            - button "🌐 External Discovery" [ref=e166] [cursor=pointer]:
+              - generic [ref=e167]:
+                - generic [ref=e168]: 🌐
+                - text: External Discovery
+        - generic [ref=e169]:
+          - generic [ref=e172]: 🎙️
+          - generic [ref=e173]:
+            - generic [ref=e174]: Education
+            - generic [ref=e175]: podcast
+          - 'heading "The GOD & EARTH Hour: Supreme Mathematics" [level=3] [ref=e176]'
+          - paragraph [ref=e177]: by The 5% Connection
+          - paragraph [ref=e178]: "Episode 6: A deep dive into the meaning and application of Supreme Mathematics in the 5% culture."
+          - generic [ref=e179]:
+            - button "Listen Locally" [ref=e180] [cursor=pointer]:
+              - generic [ref=e181]: Listen Locally
+            - button "🌐 External Discovery" [ref=e182] [cursor=pointer]:
+              - generic [ref=e183]:
+                - generic [ref=e184]: 🌐
+                - text: External Discovery
+        - generic [ref=e185]:
+          - generic [ref=e188]: 📰
+          - generic [ref=e189]:
+            - generic [ref=e190]: Culture
+            - generic [ref=e191]: article
+          - heading "The 5% Influence on Hip-Hop" [level=3] [ref=e192]
+          - paragraph [ref=e193]: by BET News
+          - paragraph [ref=e194]: A comprehensive look at how NGE terminology and concepts became the linguistic backbone of Golden Era rap.
+          - generic [ref=e195]:
+            - button "Read Article" [ref=e196] [cursor=pointer]:
+              - generic [ref=e197]: Read Article
+            - button "🌐 External Discovery" [ref=e198] [cursor=pointer]:
+              - generic [ref=e199]:
+                - generic [ref=e200]: 🌐
+                - text: External Discovery
+        - generic [ref=e201]:
+          - generic [ref=e204]: 📰
+          - generic [ref=e205]:
+            - generic [ref=e206]: History
+            - generic [ref=e207]: article
+          - 'heading "Harlem''s God: The Legacy of Father Allah" [level=3] [ref=e208]'
+          - paragraph [ref=e209]: by Face2Face Africa
+          - paragraph [ref=e210]: An article detailing the life and cultural impact of Clarence 13X, known as Allah the Father.
+          - generic [ref=e211]:
+            - button "Read Article" [ref=e212] [cursor=pointer]:
+              - generic [ref=e213]: Read Article
+            - button "🌐 External Discovery" [ref=e214] [cursor=pointer]:
+              - generic [ref=e215]:
+                - generic [ref=e216]: 🌐
+                - text: External Discovery
+        - generic [ref=e217]:
+          - generic [ref=e220]: 🎬
+          - generic [ref=e221]:
+            - generic [ref=e222]: Education
+            - generic [ref=e223]: documentary
+          - heading "The Origin of 120 Lessons" [level=3] [ref=e224]
+          - paragraph [ref=e225]: by NGE Education
+          - paragraph [ref=e226]: An educational video explaining the history and purpose of the 120 lessons within the Nation.
+          - generic [ref=e227]:
+            - button "Watch Locally" [ref=e228] [cursor=pointer]:
+              - generic [ref=e229]: Watch Locally
+            - button "🌐 External Discovery" [ref=e230] [cursor=pointer]:
+              - generic [ref=e231]:
+                - generic [ref=e232]: 🌐
+                - text: External Discovery
+        - generic [ref=e233]:
+          - generic [ref=e236]: 📰
+          - generic [ref=e237]:
+            - generic [ref=e238]: Core Text
+            - generic [ref=e239]: article
+          - heading "The 12 Jewels of Life" [level=3] [ref=e240]
+          - paragraph [ref=e241]: by NGE Media
+          - paragraph [ref=e242]: "A breakdown of the 12 Jewels: Knowledge, Wisdom, Understanding, Freedom, Justice, Equality, Food, Clothing, Shelter, Love, Peace, and Happiness."
+          - generic [ref=e243]:
+            - button "Read Article" [ref=e244] [cursor=pointer]:
+              - generic [ref=e245]: Read Article
+            - button "🌐 External Discovery" [ref=e246] [cursor=pointer]:
+              - generic [ref=e247]:
+                - generic [ref=e248]: 🌐
+                - text: External Discovery
+        - generic [ref=e249]:
+          - generic [ref=e252]: 🎙️
+          - generic [ref=e253]:
+            - generic [ref=e254]: Culture
+            - generic [ref=e255]: podcast
+          - heading "The Role of the Earth" [level=3] [ref=e256]
+          - paragraph [ref=e257]: by God & Earth Radio
+          - paragraph [ref=e258]: A focused discussion on the divinity and role of women (Earths) within the Nation of Gods and Earths.
+          - generic [ref=e259]:
+            - button "Listen Locally" [ref=e260] [cursor=pointer]:
+              - generic [ref=e261]: Listen Locally
+            - button "🌐 External Discovery" [ref=e262] [cursor=pointer]:
+              - generic [ref=e263]:
+                - generic [ref=e264]: 🌐
+                - text: External Discovery
+        - generic [ref=e265]:
+          - generic [ref=e268]: 📖
+          - generic [ref=e269]:
+            - generic [ref=e270]: Foundational
+            - generic [ref=e271]: book
+          - heading "NGE Operational Manual" [level=3] [ref=e272]
+          - paragraph [ref=e273]: by NGE Archives
+          - paragraph [ref=e274]: A guide to the social ethics and organizational structure of the Nation of Gods and Earths.
+          - generic [ref=e275]:
+            - button "📖 Read Full Text (PDF)" [ref=e276] [cursor=pointer]:
+              - generic [ref=e277]: 📖
+              - generic [ref=e278]: Read Full Text (PDF)
+            - button "🌐 External Discovery" [ref=e279] [cursor=pointer]:
+              - generic [ref=e280]:
+                - generic [ref=e281]: 🌐
+                - text: External Discovery
+        - generic [ref=e282]:
+          - generic [ref=e285]: 📰
+          - generic [ref=e286]:
+            - generic [ref=e287]: Culture
+            - generic [ref=e288]: article
+          - heading "Sunez on 5% in Hip Hop" [level=3] [ref=e289]
+          - paragraph [ref=e290]: by PremiereHipHop
+          - paragraph [ref=e291]: Sunez Allah discusses the deep intellectual and spiritual roots of the Five Percent Nation in the Hip Hop art form.
+          - generic [ref=e292]:
+            - button "Read Article" [ref=e293] [cursor=pointer]:
+              - generic [ref=e294]: Read Article
+            - button "🌐 External Discovery" [ref=e295] [cursor=pointer]:
+              - generic [ref=e296]:
+                - generic [ref=e297]: 🌐
+                - text: External Discovery
+  - generic [ref=e300]:
+    - generic [ref=e301]:
+      - generic [ref=e302]:
+        - img "The Message to the Blackman in America" [ref=e304]
+        - generic [ref=e305]:
+          - heading "The Message to the Blackman in America" [level=2] [ref=e306]
+          - paragraph [ref=e307]: Elijah Muhammad • book
+      - button [ref=e308] [cursor=pointer]:
+        - img [ref=e309]
+    - generic [ref=e314]:
+      - generic [ref=e316]:
+        - generic [ref=e317]: 📖
+        - generic [ref=e318]:
+          - heading "Primary Source Document" [level=4] [ref=e319]
+          - paragraph [ref=e320]: The original full-text version of this work is available for deep research and verification.
+        - button "Activate Reader" [ref=e321] [cursor=pointer]:
+          - generic [ref=e322]: Activate Reader
+          - img [ref=e323]
+      - generic [ref=e325]:
+        - 'heading "The 120 Lessons: An Overview" [level=1] [ref=e326]'
+        - paragraph [ref=e327]:
+          - text: The
+          - strong [ref=e328]: 120 Lessons
+          - text: ", also known as the"
+          - strong [ref=e329]: Book of Life
+          - text: ", are the foundational curriculum of the Nation of Gods and Earths. They consist of three main sets of lessons that were originally developed from the teachings of the Nation of Islam, but were interpreted and expanded upon by"
+          - strong [ref=e330]: Allah the Father
+          - text: (Clarence 13X).
+        - heading "Core Components" [level=2] [ref=e331]
+        - heading "1. Student Enrollment (1-10)" [level=3] [ref=e332]
+        - paragraph [ref=e333]: Ten questions and answers that establish the identity of the original people and the reality of the world. Key questions include "Who is the Original Man?" and "Who is the 5% in the world?"
+        - heading "2. Lost-Found Muslim Lessons No. 1 & 2" [level=3] [ref=e334]
+        - paragraph [ref=e335]: These lessons dive deeper into history, mathematics, and the nature of the "trickster" or the "85%". They emphasize the science of everything in life through numerical and logical proof.
+        - heading "3. English Lesson No. C1" [level=3] [ref=e336]
+        - paragraph [ref=e337]: Advanced symbolic and numerical teachings that refine the understanding of the previous lessons.
+        - heading "Practical Application" [level=2] [ref=e338]
+        - paragraph [ref=e339]:
+          - text: For a Five Percenter, the lessons are not just for memorization; they are for
+          - strong [ref=e340]: comprehension
+          - text: and
+          - strong [ref=e341]: application
+          - text: .
+        - list [ref=e342]:
+          - listitem [ref=e343]:
+            - strong [ref=e344]: Knowledge (1)
+            - text: ": Study the letter."
+          - listitem [ref=e345]:
+            - strong [ref=e346]: Wisdom (2)
+            - text: ": Apply the meaning in your actions."
+          - listitem [ref=e347]:
+            - strong [ref=e348]: Understanding (3)
+            - text: ": Manifest the clear picture in your life."
+        - paragraph [ref=e349]:
+          - emphasis [ref=e350]: "\"Study to show thyself approved.\""
+          - text: ✊🏿
+    - button "Close Viewer" [ref=e352] [cursor=pointer]
+```

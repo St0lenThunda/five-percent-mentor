@@ -1,65 +1,97 @@
 [
   {
-    "id": "lesson_1_10",
+    "id": "student_enrollment",
     "title": "Student Enrollment (1-10)",
-    "description": "The first lesson of the 120 Lessons, consisting of 10 questions and answers.",
+    "description": "The first lesson of the 120 Lessons, consisting of 10 questions and answers about the Original Man and the planet Earth.",
+    "tags": [
+      "foundation",
+      "identity",
+      "original",
+      "population",
+      "geography"
+    ],
+    "relatedTo": [
+      "math_1",
+      "alpha_A",
+      "alpha_G",
+      "actual_1",
+      "english_c1"
+    ],
     "questions": [
       {
-        "id": "1-1",
+        "id": "se-1",
         "question": "Who is the Original Man?",
         "answer": "The Original Man is the Asiatic Blackman, the Maker, the Owner, the Cream of the Planet Earth, Father of Civilization, and God of the Universe."
       },
       {
-        "id": "1-2",
+        "id": "se-2",
         "question": "Who is the Colored Man?",
         "answer": "The Colored Man is the Caucasian (white man), or Yacub's grafted devil, the Skunk of the Planet Earth."
       },
       {
-        "id": "1-3",
+        "id": "se-3",
         "question": "What is the population of the Original Nation in the wilderness of North America, and all over the planet Earth?",
         "answer": "The population of the Original Nation in the wilderness of North America is 17,000,000. With the 2,000,000 Indians makes it 19,000,000. All over the planet Earth is 4,400,000,000."
       },
       {
-        "id": "1-4",
+        "id": "se-4",
         "question": "What is the population of the Colored People in the wilderness of North America, and all over the planet Earth?",
         "answer": "The population of the Colored People in the wilderness of North America is 103,000,000. All over the planet Earth is 400,000,000."
       },
       {
-        "id": "1-5",
-        "question": "What is the area in square miles of the planet Earth?",
-        "answer": "The square mileage of the Earth is 196,940,000 square miles."
+        "id": "se-5",
+        "question": "What is the area in square miles of the planet Earth? How much is land? How much is water?",
+        "answer": "The square mileage of the Earth is 196,940,000 square miles. 57,255,000 square miles of land. 139,685,000 square miles of water."
       },
       {
-        "id": "1-6",
+        "id": "se-6",
         "question": "What are the exact square miles of the useful land that is used every day by the total population of the planet Earth?",
         "answer": "The useful land that is used every day by the total population of the planet Earth is 29,000,000 square miles."
       },
       {
-        "id": "1-7",
-        "question": "What is the amount of the useful land that is used by the original man?",
+        "id": "se-7",
+        "question": "How much of the useful land is used by the Original Man?",
         "answer": "The original man uses 23,000,000 square miles."
       },
       {
-        "id": "1-8",
-        "question": "What is the amount of the useful land that is used by the colored man?",
+        "id": "se-8",
+        "question": "How much of the useful land is used by the colored man?",
         "answer": "The colored man uses 6,000,000 square miles."
       },
       {
-        "id": "1-9",
-        "question": "What is the amount of the useful land that is used by the devil?",
-        "answer": "The devil uses 6,000,000 square miles."
+        "id": "se-9",
+        "question": "What is the birth record of said, nation of Islam?",
+        "answer": "The said, nation of Islam has no birth record; it has no beginning and no end."
       },
       {
-        "id": "1-10",
-        "question": "What is the main reason why the devil uses the useful land?",
-        "answer": "Because the devil is the skunk of the planet Earth."
+        "id": "se-10",
+        "question": "What is the birth record of said, nation of colored man?",
+        "answer": "The said, nation of colored man has a birth record of 6,000 years. It started from grafting from the original man."
       }
     ]
   },
   {
     "id": "english_c1",
-    "title": "English Lesson No. C1",
-    "description": "Foundational lesson regarding the English language and usage.",
+    "title": "English Lesson No. C-1 (1-36)",
+    "description": "36 statements from W.F. Muhammad teaching identity, history, and truth. Given by Master Fard Muhammad to Elijah Muhammad.",
+    "tags": [
+      "identity",
+      "history",
+      "truth",
+      "85",
+      "10",
+      "5",
+      "civilization",
+      "muslim"
+    ],
+    "relatedTo": [
+      "student_enrollment",
+      "math_1",
+      "math_2",
+      "math_3",
+      "lost_found_1",
+      "alpha_I"
+    ],
     "questions": [
       {
         "id": "c1-1",
@@ -70,19 +102,493 @@
         "id": "c1-2",
         "question": "My uncle was brought over here by the trader three hundred seventy-nine years ago.",
         "answer": "My uncle cannot talk his own language."
+      },
+      {
+        "id": "c1-3",
+        "question": "He does not know that he is my uncle.",
+        "answer": "He likes the devil because the devil gives him nothing."
+      },
+      {
+        "id": "c1-4",
+        "question": "Why does he like the devil?",
+        "answer": "Because the devil put fear in him when he was a little boy."
+      },
+      {
+        "id": "c1-5",
+        "question": "Why does he fear, now, since he is a big man?",
+        "answer": "Because the devil taught him to eat the wrong food."
+      },
+      {
+        "id": "c1-6",
+        "question": "Does that have anything to do with the above question, No. 5?",
+        "answer": "Yes sir! If he eats the right kind of food he would not have a guilty conscience."
+      },
+      {
+        "id": "c1-7",
+        "question": "What is his own food?",
+        "answer": "His own food is vegetables, and fruit, and wheat."
+      },
+      {
+        "id": "c1-8",
+        "question": "What is the wrong food?",
+        "answer": "Wrong food is hog, duck, chicken, corn bread, beans, collard greens, and possum."
+      },
+      {
+        "id": "c1-9",
+        "question": "Do you know this before today?",
+        "answer": "Yes sir!"
+      },
+      {
+        "id": "c1-10",
+        "question": "Why didn't he teach us?",
+        "answer": "Because he ate the wrong food himself, and it made him other than his own self."
+      },
+      {
+        "id": "c1-11",
+        "question": "What do you mean by other than his own self?",
+        "answer": "By reading the wrong literature and eating hog and drinking drinks (alcohol), this has poisoned the blood and now his brain cannot function well."
+      },
+      {
+        "id": "c1-12",
+        "question": "Who is the 85%?",
+        "answer": "The uncivilized people, poison animal eaters, slaves from mental death and power, people who do not know the living God or their origin in this world."
+      },
+      {
+        "id": "c1-13",
+        "question": "Who is the 10%?",
+        "answer": "The rich slave makers of the poor who teach the poor lies to believe that the almighty true and living God is a spook and cannot be seen by the physical eye. Otherwise known as the blood-suckers of the poor."
+      },
+      {
+        "id": "c1-14",
+        "question": "Who is the 5% in the Poor Part of the Planet Earth?",
+        "answer": "They are the poor, righteous Teachers, who do not believe in the teachings of the 10%, and are all-wise and know who the Living God is."
+      },
+      {
+        "id": "c1-15",
+        "question": "What is the duty of a civilized person?",
+        "answer": "To teach the uncivilized people civilization, righteousness, the knowledge of himself, the science of everything in life, love, peace and happiness."
+      },
+      {
+        "id": "c1-16",
+        "question": "What is the meaning of civilization?",
+        "answer": "One having knowledge, wisdom, understanding, culture, refinement and is not savage."
+      },
+      {
+        "id": "c1-17",
+        "question": "What is the meaning of a savage?",
+        "answer": "A person who has lost the knowledge of himself and is living a beast life."
+      },
+      {
+        "id": "c1-18",
+        "question": "How many Muslim sons are there in North America?",
+        "answer": "Approximately three million."
+      },
+      {
+        "id": "c1-19",
+        "question": "How many original Muslims are there in North America?",
+        "answer": "A little over seventeen million."
+      },
+      {
+        "id": "c1-20",
+        "question": "What is a Muslim?",
+        "answer": "A Muslim is one who submits to the will of God."
+      },
+      {
+        "id": "c1-21",
+        "question": "What is a righteous Muslim?",
+        "answer": "A righteous Muslim is one who has knowledge, wisdom and understanding, who practices it."
+      },
+      {
+        "id": "c1-22",
+        "question": "Can the devil fool a Muslim?",
+        "answer": "Not nowadays."
+      },
+      {
+        "id": "c1-23",
+        "question": "Have you not learned that your word shall be bond regardless of whom or what?",
+        "answer": "Yes sir! My word is bond and bond is life and I will give my life before my word shall fail."
+      },
+      {
+        "id": "c1-24",
+        "question": "Do you know how the trader made an agreement by trick knowledge?",
+        "answer": "Yes sir! He told us there were some gold and good farmland to be sought. He promised he would bring us back home."
+      },
+      {
+        "id": "c1-25",
+        "question": "Then what happened?",
+        "answer": "He put us in chains and brought us over to North America where we have been for 379 years."
+      },
+      {
+        "id": "c1-26",
+        "question": "Why can't my uncle return to his own country?",
+        "answer": "Because the trader captured his mind with a strong grip to such extent that he cannot recognize himself or his own country."
+      },
+      {
+        "id": "c1-27",
+        "question": "When did his own people discover him?",
+        "answer": "In 1930."
+      },
+      {
+        "id": "c1-28",
+        "question": "Who discovered him?",
+        "answer": "Master Fard Muhammad, the great Mahdi, the one we been looking for 2,000 years."
+      },
+      {
+        "id": "c1-29",
+        "question": "Who is Master Fard Muhammad?",
+        "answer": "He is the Son of Man, the God in person, the Supreme Being, Allah in person."
+      },
+      {
+        "id": "c1-30",
+        "question": "What is his mission?",
+        "answer": "His mission is to save the lost-found nation of Islam in the wilderness of North America."
+      },
+      {
+        "id": "c1-31",
+        "question": "What is he going to do?",
+        "answer": "He is going to teach us knowledge of our own selves."
+      },
+      {
+        "id": "c1-32",
+        "question": "What more?",
+        "answer": "He is going to take us back to our own country among our own people."
+      },
+      {
+        "id": "c1-33",
+        "question": "Why does Muhammad and any Muslim murder the devil?",
+        "answer": "Because he is 100% wicked and will not keep and obey the laws of Islam. His ways and actions are like those of a snake of the grafted type."
+      },
+      {
+        "id": "c1-34",
+        "question": "What is the duty of each Muslim in regard to four Devils?",
+        "answer": "To clean him up, and if he will not clean up, then to remove him from the planet."
+      },
+      {
+        "id": "c1-35",
+        "question": "What reward does a Muslim receive by presenting the four Devils at one time?",
+        "answer": "A button to wear on the lapel of his coat, also a free transportation to the Holy City, Mecca, to see Brother Muhammad."
+      },
+      {
+        "id": "c1-36",
+        "question": "What is the meaning of Islam?",
+        "answer": "I-Self-Lord-And-Master. Also: Mathematics. Also: Peace."
       }
     ]
   },
   {
     "id": "lost_found_1",
-    "title": "Lost Found Muslim Lesson No. 1",
-    "description": "Questions and answers 1-14.",
-    "questions": []
+    "title": "Lost Found Muslim Lesson No. 1 (1-14)",
+    "description": "14 questions and answers regarding the history of the original man and the devil's removal from civilization.",
+    "tags": [
+      "history",
+      "civilization",
+      "devil",
+      "mecca",
+      "FOI",
+      "MGT"
+    ],
+    "relatedTo": [
+      "english_c1",
+      "lost_found_2",
+      "student_enrollment",
+      "math_4",
+      "alpha_C"
+    ],
+    "questions": [
+      {
+        "id": "lf1-1",
+        "question": "Why isn't the Devil settled on the Best Part of the Planet Earth?",
+        "answer": "Because the Earth belongs to the original Black man. Knowing that the Devil was wicked and there would not be any peace among them, the original man put him out in the worst part of the Earth and kept the best part preserved for himself. The best part is in Arabia, at the Holy City of Mecca."
+      },
+      {
+        "id": "lf1-2",
+        "question": "Why did Musa have a hard time civilizing the Devil in the year 2000 B.C.?",
+        "answer": "Because he was a savage. Savage means a person who has lost the knowledge of himself and is living a beast life. Musa was a half original man and a prophet. Civilized means to teach the knowledge and wisdom of the human family of the planet Earth."
+      },
+      {
+        "id": "lf1-3",
+        "question": "Why did we let a half original man like Columbus discover the poor part of the planet Earth?",
+        "answer": "Because the original Black man is God and owner of the planet Earth, and knowing every square inch of it, he has chosen for himself the best part; he didn't care about the poor part. Columbus was a half original man who was born in Italy."
+      },
+      {
+        "id": "lf1-4",
+        "question": "Why did we run Yacub and his made Devil from the root of civilization over the hot Arabian Desert into the caves of West Asia?",
+        "answer": "Because they started making trouble among the righteous people, accusing them of telling lies, causing them to fight and kill one another. Yacub was an original Black man and was the father of the Devil. The root of civilization is in Arabia at the Holy City of Mecca."
+      },
+      {
+        "id": "lf1-5",
+        "question": "Why did we let the Devil make a graveyard out of Jerusalem?",
+        "answer": "Because one of our righteous brothers, who was a prophet by the name of Jesus, was buried there. They used his name to shield their dirty religion called Christianity. Jesus' teachings were not Christianity; they were Freedom, Justice, and Equality."
+      },
+      {
+        "id": "lf1-6",
+        "question": "Why does the Devil keep our people illiterate?",
+        "answer": "To make our people of North America believe that they are the only people they have and are all savages. He brought a trading post in the jungles of that continent. The original people call this continent Asia, but the Devil calls it Africa to try to divide them."
+      },
+      {
+        "id": "lf1-7",
+        "question": "Why does the Devil keep our people apart from his social equality?",
+        "answer": "Because he does not want us to know how filthy he is in all his affairs. He is afraid because when we learn about him, we will run him from among us. Socialist means to advocate a society of men or groups of men for one common cause."
+      },
+      {
+        "id": "lf1-8",
+        "question": "Why does Muhammad make the Devil study from 35 to 50 years before he can call himself a Muslim son?",
+        "answer": "So that he can clean himself up. A Muslim does not love the Devil regardless of how long he studies. After he has devoted 35 or 50 years trying to learn and do like the original man, he could come and do trading among us."
+      },
+      {
+        "id": "lf1-9",
+        "question": "Why does Muhammad and any Muslim murder the devil?",
+        "answer": "Because the Devil is 100% wicked and will not keep and obey the Laws of Islam. His ways and actions are like those of a snake of the grafted type. So Muhammad learned that he could not reform the Devils, so they had to be murdered."
+      },
+      {
+        "id": "lf1-10",
+        "question": "Have you not heard that your word shall be bond regardless of whom or what?",
+        "answer": "Yes, my word is bond, and bond is life, and I will give my life before my word shall fail."
+      },
+      {
+        "id": "lf1-11",
+        "question": "What is the meaning of FOI?",
+        "answer": "Fruit of Islam. The military training of men who belong to Islam in North America."
+      },
+      {
+        "id": "lf1-12",
+        "question": "What is the meaning of MGT & GCC?",
+        "answer": "Muslim Girls Training and General Civilization Class. This is the training of women and girls in North America how to keep a home and raise children, and how to act at home and abroad."
+      },
+      {
+        "id": "lf1-13",
+        "question": "What is the meaning of Civilized?",
+        "answer": "One having knowledge, wisdom, understanding, culture, refinement and is not savage."
+      },
+      {
+        "id": "lf1-14",
+        "question": "What is the duty of a civilized person?",
+        "answer": "To teach the uncivilized who are savage—civilization, righteousness, knowledge of his or herself, and the science of everything in life, love, peace and happiness."
+      }
+    ]
   },
   {
     "id": "lost_found_2",
-    "title": "Lost Found Muslim Lesson No. 2",
-    "description": "Questions and answers 1-40.",
-    "questions": []
+    "title": "Lost Found Muslim Lesson No. 2 (1-40)",
+    "description": "40 questions and answers given by Master Fard Muhammad to Elijah Muhammad on February 20, 1934.",
+    "tags": [
+      "history",
+      "yakub",
+      "devil",
+      "85",
+      "10",
+      "5",
+      "civilization",
+      "science"
+    ],
+    "relatedTo": [
+      "lost_found_1",
+      "english_c1",
+      "actual_1",
+      "solar_3",
+      "math_6"
+    ],
+    "questions": [
+      {
+        "id": "lf2-1",
+        "question": "Who made the Holy Koran or Bible? How long ago? Will you tell us why does Islam renew her history every twenty-five thousand years?",
+        "answer": "The Holy Koran or Bible is made by the original people, who is Allah, the supreme being, or Black man of Asia. The Koran will expire in the Year twenty-five thousand. The Nation of Islam is all-wise and does everything right and exact. The planet earth is approximately twenty-five thousand miles in circumference. So the wise man of the East makes history or Koran to equal his home circumference—a year to every mile."
+      },
+      {
+        "id": "lf2-2",
+        "question": "What is the Circumference of the Planet Earth?",
+        "answer": "24,896 miles (approximately 25,000 miles)."
+      },
+      {
+        "id": "lf2-3",
+        "question": "What is the diameter of the Planet Earth?",
+        "answer": "7,926 miles."
+      },
+      {
+        "id": "lf2-4",
+        "question": "What is the total square mileage of the Planet Earth?",
+        "answer": "196,940,000 square miles."
+      },
+      {
+        "id": "lf2-5",
+        "question": "How much is the land and water of the Planet Earth?",
+        "answer": "57,255,000 square miles of land. 139,685,000 square miles of water."
+      },
+      {
+        "id": "lf2-6",
+        "question": "What is the total weight of our planet?",
+        "answer": "6 sextillion tons—a unit followed by twenty-one ciphers."
+      },
+      {
+        "id": "lf2-7",
+        "question": "How fast does our Planet travel per hour?",
+        "answer": "1,037 1/3 miles per hour."
+      },
+      {
+        "id": "lf2-8",
+        "question": "Why does the Devil teach that God is a spook and cannot be seen by the physical eye?",
+        "answer": "To conceal the True God, which is the Son of man, and make slaves out of the 85% by keeping them worshipping something he knows they cannot see. The 85% does not try to learn who causes the rain, hail and snow by letting the 5% teach them. He believes in the 10% on face value."
+      },
+      {
+        "id": "lf2-9",
+        "question": "What is that mystery God?",
+        "answer": "There is not a mystery God. The Son of man has searched for that mystery God for trillions of years and was unable to find a mystery God."
+      },
+      {
+        "id": "lf2-10",
+        "question": "Will you sit at home and wait for that mystery God to bring you food?",
+        "answer": "Emphatically No! Me and my people, who have been lost from home for three hundred and seventy-nine years, have tried this so-called mystery God for bread, clothing and a home, and received nothing but hard times, hunger, naked and out-of-doors. No relief came until the Son of Man came to our aid, by the name of our Prophet, W.D. Fard."
+      },
+      {
+        "id": "lf2-11",
+        "question": "Why does the Devil not teach that?",
+        "answer": "Because he is 100% wicked and will not keep and obey the Laws of Islam. His ways and actions are like those of a snake of the grafted type."
+      },
+      {
+        "id": "lf2-12",
+        "question": "What brings rain, hail, snow and Earthquakes?",
+        "answer": "The Devils continue daily to teach the 85% that all they see and hear such as rain, hail, snow, and earthquakes comes from that mystery god who no one will be able to see until he dies. This is believed by the 85%."
+      },
+      {
+        "id": "lf2-13",
+        "question": "Who is the 85%?",
+        "answer": "The uncivilized people, poison animal eaters, slaves from mental death and power, people who do not know the living God or their origin in this world, and they worship that they know not. They are easily led in the wrong direction, but hard to lead into the right direction."
+      },
+      {
+        "id": "lf2-14",
+        "question": "Who is the 10%?",
+        "answer": "The rich slave makers of the poor who teach the poor lies to believe that the almighty true and living God is a spook and cannot be seen by the physical eye. Otherwise known as the blood-suckers of the poor."
+      },
+      {
+        "id": "lf2-15",
+        "question": "Who is the 5% in the Poor Part of the Planet Earth?",
+        "answer": "They are the poor, righteous Teachers, who do not believe in the teachings of the 10%, and are all-wise; and know who the Living God is; and Teach that the Living God is the Son of man, the supreme being, the Black man of Asia; and Teach Freedom, Justice and Equality to all the human family of the planet Earth. Otherwise known as: Civilized People, Muslims and Muslim Sons."
+      },
+      {
+        "id": "lf2-16",
+        "question": "What is the meaning of Civilization?",
+        "answer": "One having knowledge, wisdom, understanding, culture, refinement and is not savage."
+      },
+      {
+        "id": "lf2-17",
+        "question": "What is the duty of a civilized person?",
+        "answer": "To teach he who is savage civilization, righteousness, the knowledge of himself, and the science of everything in life, love, peace and happiness."
+      },
+      {
+        "id": "lf2-18",
+        "question": "If a civilized person does not perform his Duty, what must be done?",
+        "answer": "If a civilized person does not perform his Duty, which is Teaching civilization to others, they should be punished with a severe punishment."
+      },
+      {
+        "id": "lf2-19",
+        "question": "What is the prescribed Law of Islam of said person of that Ability?",
+        "answer": "That the civilized person is held responsible for the uncivilized and he must be punished by the Nation of Islam."
+      },
+      {
+        "id": "lf2-20",
+        "question": "Who was the Founder of Unalike Attract and Like Repel?",
+        "answer": "An original man who was a scientist by the name of Yakub, born 20 miles from the holy city Mecca in the year 8400."
+      },
+      {
+        "id": "lf2-21",
+        "question": "How old was the Founder when he found it?",
+        "answer": "When Yakub was 6 years old, while playing with two pieces of steel, he discovered one piece had magnetic in it and the other piece did not. Then he learned that the piece with magnetic attracted the piece that did not have magnetic in it."
+      },
+      {
+        "id": "lf2-22",
+        "question": "Tell us what he promised his nation he would do.",
+        "answer": "That he would make a devil, graft him from his own people and that he would teach them how to rule his people for 6,000 years."
+      },
+      {
+        "id": "lf2-23",
+        "question": "What was his idea of making devil?",
+        "answer": "It was predicted of him that he would make devil 8,400 years before he was born, so he was born with a determined idea to make a people to rule for 6,000 years."
+      },
+      {
+        "id": "lf2-24",
+        "question": "How long did it take him to make the devil?",
+        "answer": "600 years he was engrafting devil or making him from the black man."
+      },
+      {
+        "id": "lf2-25",
+        "question": "What year was that?",
+        "answer": "It was in the year 8400, which means from the date of our present history of Quran, or about 2,600 years before the birth of the prophet Musa."
+      },
+      {
+        "id": "lf2-26",
+        "question": "What was the name of the place where he manufactured the devil?",
+        "answer": "Patmos, an island that is situated in the Aegean Sea."
+      },
+      {
+        "id": "lf2-27",
+        "question": "What kind of rules and regulations enforced while manufacturing the devil?",
+        "answer": "Yakub's first rule was to see that all his followers were healthy, strong and good breeders. If not, he sent them back."
+      },
+      {
+        "id": "lf2-28",
+        "question": "Tell us why he was successful in all his undertakings.",
+        "answer": "Because the people who followed him were 100% with him. He told those who followed him that he would make a people who would rule the original people for 6,000 years; and everyone believed him because he had made the study for many years prior to his making."
+      },
+      {
+        "id": "lf2-29",
+        "question": "Tell us what and how the devil is made.",
+        "answer": "The devil is made from the original people by grafting, by separating the germ. In the black man there are two germs—one a black germ and one a brown germ. Yakub's method was to graft from the black, getting rid of the black and weaker germ."
+      },
+      {
+        "id": "lf2-30",
+        "question": "Tell us the exact time the Devil has been on our planet.",
+        "answer": "6,020 years, 72,241 months, and 2,197,351 days at the date of this writing."
+      },
+      {
+        "id": "lf2-31",
+        "question": "What is the exact date of the Devil's civilization?",
+        "answer": "The exact date of the Devil's civilization is dated from the time he was ran out of the root of civilization to the caves of West Asia, which was 6,020 years ago."
+      },
+      {
+        "id": "lf2-32",
+        "question": "Can you reform devil?",
+        "answer": "No. All the prophets have tried to reform him but were unable. So they have agreed that it cannot be done unless we graft him back to the original man, which takes six hundred years. So instead of losing time grafting him back, they have decided to take him off the planet."
+      },
+      {
+        "id": "lf2-33",
+        "question": "Tell us the exact date of the expiration of the devil's civilization.",
+        "answer": "Expired in 1914."
+      },
+      {
+        "id": "lf2-34",
+        "question": "Tell us the exact number of years, months and days of devil being on the planet.",
+        "answer": "6,020 years, 72,241 months and 2,197,351 days at the date of this writing."
+      },
+      {
+        "id": "lf2-35",
+        "question": "Tell us why does the devil teach that God is a righteous and unseen being existing everywhere?",
+        "answer": "Allah is God in the earth and heavens above, and is just and true; and there is no unrighteousness in him, but he is not unseen; for he is seen and heard everywhere, for he is all eye seeing."
+      },
+      {
+        "id": "lf2-36",
+        "question": "Then why did God make devil?",
+        "answer": "To show forth and prove his power that he is all wise and righteous, and could make devil which is weak and wicked, give the power to rule for 6,000 years, then destroy him in one day without falling victim to the devil civilization."
+      },
+      {
+        "id": "lf2-37",
+        "question": "Tell us, would you hope to live to see the gods take the devil into hell in the very near future?",
+        "answer": "Yes, I fast and pray Allah that I may live to see the hereafter."
+      },
+      {
+        "id": "lf2-38",
+        "question": "What will be your reward in regards to the destruction of the devil?",
+        "answer": "Peace and happiness. I will give all I have and all within my power to see this day for which I have waited—379 years."
+      },
+      {
+        "id": "lf2-39",
+        "question": "What is the science of music?",
+        "answer": "Sound waves. The music of the original man is the sun, moon and stars making order. This is the music of the universe."
+      },
+      {
+        "id": "lf2-40",
+        "question": "What is the final conclusion of the lessons?",
+        "answer": "Peace. In the name of Allah, who came in the person of Master Fard Muhammad, to whom all holy praises are due, the Lord of all the worlds."
+      }
+    ]
   }
 ]

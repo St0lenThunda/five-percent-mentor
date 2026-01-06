@@ -7,6 +7,8 @@ export const useContentStore = defineStore( 'content', () => {
   const jewels = ref( [] )
   const lessons = ref( [] )
   const library = ref( [] )
+  const actualFacts = ref( [] )
+  const solarFacts = ref( [] )
   const isLoading = ref( false )
   const error = ref( null )
 
@@ -14,12 +16,14 @@ export const useContentStore = defineStore( 'content', () => {
     isLoading.value = true
     error.value = null
     try {
-      const [mathRes, alphaRes, jewelsRes, lessonsRes, libraryRes] = await Promise.all( [
+      const [mathRes, alphaRes, jewelsRes, lessonsRes, libraryRes, actualRes, solarRes] = await Promise.all( [
         fetch( '/content-packs/supreme-mathematics.json' ),
         fetch( '/content-packs/supreme-alphabet.json' ),
         fetch( '/content-packs/12-jewels.json' ),
         fetch( '/content-packs/120-lessons.json' ),
-        fetch( '/content-packs/knowledge-library.json' )
+        fetch( '/content-packs/knowledge-library.json' ),
+        fetch( '/content-packs/actual-facts.json' ),
+        fetch( '/content-packs/solar-facts.json' )
       ] )
 
       if ( mathRes.ok ) mathematics.value = await mathRes.json()
@@ -27,6 +31,8 @@ export const useContentStore = defineStore( 'content', () => {
       if ( jewelsRes.ok ) jewels.value = await jewelsRes.json()
       if ( lessonsRes.ok ) lessons.value = await lessonsRes.json()
       if ( libraryRes.ok ) library.value = await libraryRes.json()
+      if ( actualRes.ok ) actualFacts.value = await actualRes.json()
+      if ( solarRes.ok ) solarFacts.value = await solarRes.json()
     } catch ( e ) {
       console.error( 'Content fetch error:', e )
       error.value = e.message
@@ -38,6 +44,8 @@ export const useContentStore = defineStore( 'content', () => {
   const getMathByNumber = ( num ) => mathematics.value.find( m => m.number === Number( num ) )
   const getLetterByChar = ( char ) => alphabet.value.find( l => l.letter === char.toUpperCase() )
   const getJewelByName = ( name ) => jewels.value.find( j => j.name.toLowerCase() === name.toLowerCase() )
+  const getActualFactByNumber = ( num ) => actualFacts.value.find( f => f.number === Number( num ) )
+  const getSolarFactByNumber = ( num ) => solarFacts.value.find( f => f.number === Number( num ) )
 
   // Correlation Helpers
   const getCorrelatedAlphabet = ( name ) => {
@@ -86,12 +94,16 @@ export const useContentStore = defineStore( 'content', () => {
     jewels,
     lessons,
     library,
+    actualFacts,
+    solarFacts,
     isLoading,
     error,
     fetchAllContent,
     getMathByNumber,
     getLetterByChar,
     getJewelByName,
+    getActualFactByNumber,
+    getSolarFactByNumber,
     getLessonById: ( id ) => lessons.value.find( l => l.id === id ),
     getCorrelatedAlphabet,
     getCorrelatedJewels,

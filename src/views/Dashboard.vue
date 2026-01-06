@@ -111,14 +111,29 @@
       <!-- Mathematics of the Day -->
       <MathematicsOfTheDay class="max-w-6xl mx-auto mb-16" />
 
-      <!-- Modules Section -->
+      <!-- Core Curriculum Section -->
+      <div class="max-w-6xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-white flex items-center gap-3">
+          <span class="text-primary-400">📜</span> The 120: Core Curriculum
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <CurriculumCard
+            v-for=" unit in curriculumUnits "
+            :key="unit.id"
+            v-bind="unit"
+            :progress="getUnitProgress( unit.id )"
+          />
+        </div>
+      </div>
+
+      <!-- Tools Section -->
       <div class="max-w-6xl mx-auto mb-16">
         <h2 class="text-3xl font-bold mb-6 text-white flex items-center gap-3">
-          <span class="text-primary-400">📚</span> Knowledge Modules
+          <span class="text-primary-400">🔧</span> Builder's Toolbox
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <router-link
-            v-for=" module in modules "
+            v-for=" module in toolModules "
             :key="module.id"
             :to="module.route"
             class="group perspective-1000 block"
@@ -146,7 +161,7 @@
               <div
                 class="flex items-center text-primary-400 text-xs font-black tracking-widest uppercase gap-2 transition-all group-hover:gap-4"
               >
-                <span>Begin Path</span>
+                <span>Open Tool</span>
                 <span class="text-lg">→</span>
               </div>
             </div>
@@ -154,13 +169,15 @@
         </div>
       </div>
 
-      <!-- Tools Section -->
+      <!-- Quick Actions Section -->
       <div class="max-w-6xl mx-auto mb-16">
         <h2 class="text-3xl font-bold mb-6 text-white flex items-center gap-3">
-          <span class="text-primary-400">🔧</span> Builder Tools
+          <span class="text-primary-400">⚡</span> Quick Actions
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <MathBreakdownTool class="col-span-1 md:col-span-2 lg:col-span-1" />
+          <JewelTrackerTool />
+          <FactHighlightTool />
+          <MathBreakdownTool />
         </div>
       </div>
 
@@ -192,7 +209,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '../stores/user'
 import { useProgressStore } from '../stores/progress'
@@ -203,6 +220,9 @@ import UserDropdown from '../components/UserDropdown.vue'
 import AppLogo from '../components/AppLogo.vue'
 import MathematicsOfTheDay from '../components/MathematicsOfTheDay.vue'
 import MathBreakdownTool from '../components/tools/MathBreakdownTool.vue'
+import CurriculumCard from '../components/CurriculumCard.vue'
+import JewelTrackerTool from '../components/tools/JewelTrackerTool.vue'
+import FactHighlightTool from '../components/tools/FactHighlightTool.vue'
 
 const router = useRouter()
 const userStore = useUserStore()
@@ -222,48 +242,91 @@ const buildingAttribute = computed( () => {
   return buildingProgress.value ? attributesStore.staticAttributes.find( a => a.id === buildingProgress.value.id ) : null
 } )
 
-const modules = ref( [
+const curriculumUnits = [
   {
-    id: 1,
+    id: 'math',
     name: 'Supreme Mathematics',
-    description: 'Daily lessons on 1-10',
+    title: 'Supreme Mathematics',
+    subtitle: 'The foundation of all things in existence (1-10).',
+    icon: '🔢',
     route: '/supreme-mathematics'
   },
   {
-    id: 2,
+    id: 'alphabet',
     name: 'Supreme Alphabet',
-    description: 'Daily lessons on A-Z',
+    title: 'Supreme Alphabet',
+    subtitle: 'The system of letters and meanings (A-Z).',
+    icon: '🔠',
     route: '/supreme-alphabet'
   },
   {
-    id: 3,
-    name: '120 Lessons',
-    description: 'Structured study companion',
-    route: '/120-lessons'
+    id: 'student_enrollment',
+    name: 'Student Enrollment',
+    title: 'Student Enrollment',
+    subtitle: 'The first 10 questions regarding the Original Man.',
+    icon: '📜',
+    route: '/120-lessons?lesson=student_enrollment'
   },
   {
-    id: 4,
-    name: 'Cipher Builder',
-    description: 'Collaborative discussions',
-    route: '/cipher-builder'
+    id: 'english_c1',
+    name: 'English Lesson C-1',
+    title: 'English Lesson C-1',
+    subtitle: '36 statements teaching identity and history.',
+    icon: '📝',
+    route: '/120-lessons?lesson=english_c1'
   },
   {
-    id: 5,
-    name: 'Born Day Journal',
-    description: 'Daily reflections',
-    route: '/born-day-journal'
+    id: 'lost_found_1',
+    name: 'Lost-Found No. 1',
+    title: 'Lost-Found No. 1',
+    subtitle: '14 questions on history and civilization.',
+    icon: '🌍',
+    route: '/120-lessons?lesson=lost_found_1'
   },
   {
-    id: 6,
-    name: 'Knowledge Library',
-    description: 'Curated readings',
-    route: '/knowledge-library'
+    id: 'lost_found_2',
+    name: 'Lost-Found No. 2',
+    title: 'Lost-Found No. 2',
+    subtitle: '40 questions given by Master Fard Muhammad.',
+    icon: '🛡️',
+    route: '/120-lessons?lesson=lost_found_2'
   },
+  {
+    id: 'actual_facts',
+    name: 'Actual Facts',
+    title: 'Actual Facts',
+    subtitle: '13 essential facts about the Planet Earth.',
+    icon: '🧪',
+    route: '/120-lessons?lesson=actual_facts'
+  },
+  {
+    id: 'solar_facts',
+    name: 'Solar Facts',
+    title: 'Solar Facts',
+    subtitle: '9 planetary distances from the Sun.',
+    icon: '☀️',
+    route: '/120-lessons?lesson=solar_facts'
+  }
+]
+
+const toolModules = [
   {
     id: 7,
     name: 'Attribute Builder',
     description: 'Master the 14 attributes of a righteous person',
     route: '/attribute-builder'
+  },
+  {
+    id: 4,
+    name: 'Cipher Builder',
+    description: 'Collaborative discussions (Under Construction)',
+    route: '/cipher-builder'
+  },
+  {
+    id: 9,
+    name: 'Visual Map',
+    description: '3D Knowledge Graph exploration',
+    route: '/visual-map'
   },
   {
     id: 8,
@@ -272,24 +335,65 @@ const modules = ref( [
     route: '/self-assessment'
   },
   {
-    id: 9,
-    name: 'Visual Map',
-    description: '3D Knowledge Graph exploration',
-    route: '/visual-map'
+    id: 6,
+    name: 'Knowledge Library',
+    description: 'Curated readings',
+    route: '/knowledge-library'
+  },
+  {
+    id: 5,
+    name: 'Born Day Journal',
+    description: 'Daily reflections',
+    route: '/born-day-journal'
+  },
+  {
+    id: 10,
+    name: 'Flashcards',
+    description: 'Study and master the curriculum',
+    route: '/flashcards'
   }
-] )
+]
 
+const getUnitProgress = ( id ) => {
+  const metrics = progressStore.masteryMetrics || []
+  let mastered = 0
+  let total = 1
 
+  if ( id === 'math' ) {
+    total = 10
+    mastered = metrics.filter( m => m.contentType === 'mathematics' && m.mastered ).length
+  } else if ( id === 'alphabet' ) {
+    total = 26
+    mastered = metrics.filter( m => m.contentType === 'alphabet' && m.mastered ).length
+  } else if ( id === 'student_enrollment' ) {
+    total = 10
+    mastered = metrics.filter( m => m.contentId.startsWith( 'se-' ) && m.mastered ).length
+  } else if ( id === 'english_c1' ) {
+    total = 36
+    mastered = metrics.filter( m => m.contentId.startsWith( 'c1-' ) && m.mastered ).length
+  } else if ( id === 'lost_found_1' ) {
+    total = 14
+    mastered = metrics.filter( m => m.contentId.startsWith( 'lf1-' ) && m.mastered ).length
+  } else if ( id === 'lost_found_2' ) {
+    total = 40
+    mastered = metrics.filter( m => m.contentId.startsWith( 'lf2-' ) && m.mastered ).length
+  } else if ( id === 'actual_facts' ) {
+    total = 13
+    mastered = metrics.filter( m => m.contentId.startsWith( 'actual_' ) && m.mastered ).length
+  } else if ( id === 'solar_facts' ) {
+    total = 9
+    mastered = metrics.filter( m => m.contentId.startsWith( 'solar_' ) && m.mastered ).length
+  }
 
+  return ( mastered / total ) * 100
+}
 
-// Mock stats - will be replaced with real data from progress store
-const stats = ref( {
-  lessonsCompleted: 0,
-  daysActive: 1,
-  cipherSessions: 0
-} )
-
-import { onMounted } from 'vue'
+// Stats computed from progress store
+const stats = computed( () => ( {
+  lessonsCompleted: progressStore.completedContent.length,
+  daysActive: progressStore.streakDays || 1,
+  cipherSessions: 0 // To be implemented with cipher builder
+} ) )
 
 onMounted( () => {
   progressStore.fetchUserProgress()

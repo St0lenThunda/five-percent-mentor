@@ -87,7 +87,12 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
 import { useProgressStore } from '../../stores/progress'
 
 const progressStore = useProgressStore()
+
+onMounted( () => {
+  progressStore.fetchUserProgress()
+} )
 </script>

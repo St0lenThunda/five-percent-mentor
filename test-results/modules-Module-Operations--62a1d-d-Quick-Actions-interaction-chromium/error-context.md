@@ -1,0 +1,270 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - img "Five Percenter Logo" [ref=e9]
+        - generic [ref=e10]:
+          - heading "Unified NGE Knowledge System" [level=1] [ref=e11]
+          - paragraph [ref=e12]: Knowledge → Wisdom → Understanding
+      - button "👤 User test@example.com" [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: 👤
+        - generic [ref=e16]:
+          - generic [ref=e17]: User
+          - generic [ref=e18]: test@example.com
+        - img [ref=e19]
+  - main [ref=e21]:
+    - generic [ref=e22]:
+      - heading "Peace ✊🏿" [level=2] [ref=e23]
+      - paragraph [ref=e24]: Welcome, Builder
+      - paragraph [ref=e25]: Choose your path to Knowledge of Self
+    - link "Knowledge without action is incomplete Select an Attribute to begin Building Consistency ✊🏿" [ref=e27] [cursor=pointer]:
+      - /url: /attribute-builder
+      - generic [ref=e28]: Knowledge without action is incomplete
+      - heading "Select an Attribute to begin Building Consistency ✊🏿" [level=3] [ref=e29]
+    - 'button "📅 Mathematics of the Day Monday, January 5, 2026 Day: 5 (Power/Refinement) Full: 7 (God)" [ref=e31] [cursor=pointer]':
+      - generic [ref=e32]:
+        - generic [ref=e33]: 📅
+        - generic [ref=e34]:
+          - heading "Mathematics of the Day" [level=3] [ref=e35]
+          - paragraph [ref=e36]: Monday, January 5, 2026
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]: "Day:"
+          - generic [ref=e40]: 5 (Power/Refinement)
+        - generic [ref=e42]:
+          - generic [ref=e43]: "Full:"
+          - generic [ref=e44]: 7 (God)
+      - img [ref=e45]
+    - generic [ref=e47]:
+      - 'heading "📜 The 120: Core Curriculum" [level=2] [ref=e48]':
+        - generic [ref=e49]: 📜
+        - text: "The 120: Core Curriculum"
+      - generic [ref=e50]:
+        - link "🔢 0% Supreme Mathematics The foundation of all things in existence (1-10). Mastery Status Building" [ref=e51] [cursor=pointer]:
+          - /url: /supreme-mathematics
+          - generic [ref=e52]:
+            - generic [ref=e54]:
+              - generic [ref=e55]: 🔢
+              - generic [ref=e56]:
+                - img [ref=e57]
+                - generic [ref=e60]: 0%
+            - heading "Supreme Mathematics" [level=3] [ref=e61]
+            - paragraph [ref=e62]: The foundation of all things in existence (1-10).
+            - generic [ref=e64]:
+              - generic [ref=e65]: Mastery Status
+              - generic [ref=e66]: Building
+        - link "🔠 0% Supreme Alphabet The system of letters and meanings (A-Z). Mastery Status Building" [ref=e68] [cursor=pointer]:
+          - /url: /supreme-alphabet
+          - generic [ref=e69]:
+            - generic [ref=e71]:
+              - generic [ref=e72]: 🔠
+              - generic [ref=e73]:
+                - img [ref=e74]
+                - generic [ref=e77]: 0%
+            - heading "Supreme Alphabet" [level=3] [ref=e78]
+            - paragraph [ref=e79]: The system of letters and meanings (A-Z).
+            - generic [ref=e81]:
+              - generic [ref=e82]: Mastery Status
+              - generic [ref=e83]: Building
+        - link "📜 0% Student Enrollment The first 10 questions regarding the Original Man. Mastery Status Building" [ref=e85] [cursor=pointer]:
+          - /url: /120-lessons?lesson=student_enrollment
+          - generic [ref=e86]:
+            - generic [ref=e88]:
+              - generic [ref=e89]: 📜
+              - generic [ref=e90]:
+                - img [ref=e91]
+                - generic [ref=e94]: 0%
+            - heading "Student Enrollment" [level=3] [ref=e95]
+            - paragraph [ref=e96]: The first 10 questions regarding the Original Man.
+            - generic [ref=e98]:
+              - generic [ref=e99]: Mastery Status
+              - generic [ref=e100]: Building
+        - link "📝 0% English Lesson C-1 36 statements teaching identity and history. Mastery Status Building" [ref=e102] [cursor=pointer]:
+          - /url: /120-lessons?lesson=english_c1
+          - generic [ref=e103]:
+            - generic [ref=e105]:
+              - generic [ref=e106]: 📝
+              - generic [ref=e107]:
+                - img [ref=e108]
+                - generic [ref=e111]: 0%
+            - heading "English Lesson C-1" [level=3] [ref=e112]
+            - paragraph [ref=e113]: 36 statements teaching identity and history.
+            - generic [ref=e115]:
+              - generic [ref=e116]: Mastery Status
+              - generic [ref=e117]: Building
+        - link "🌍 0% Lost-Found No. 1 14 questions on history and civilization. Mastery Status Building" [ref=e119] [cursor=pointer]:
+          - /url: /120-lessons?lesson=lost_found_1
+          - generic [ref=e120]:
+            - generic [ref=e122]:
+              - generic [ref=e123]: 🌍
+              - generic [ref=e124]:
+                - img [ref=e125]
+                - generic [ref=e128]: 0%
+            - heading "Lost-Found No. 1" [level=3] [ref=e129]
+            - paragraph [ref=e130]: 14 questions on history and civilization.
+            - generic [ref=e132]:
+              - generic [ref=e133]: Mastery Status
+              - generic [ref=e134]: Building
+        - link "🛡️ 0% Lost-Found No. 2 40 questions given by Master Fard Muhammad. Mastery Status Building" [ref=e136] [cursor=pointer]:
+          - /url: /120-lessons?lesson=lost_found_2
+          - generic [ref=e137]:
+            - generic [ref=e139]:
+              - generic [ref=e140]: 🛡️
+              - generic [ref=e141]:
+                - img [ref=e142]
+                - generic [ref=e145]: 0%
+            - heading "Lost-Found No. 2" [level=3] [ref=e146]
+            - paragraph [ref=e147]: 40 questions given by Master Fard Muhammad.
+            - generic [ref=e149]:
+              - generic [ref=e150]: Mastery Status
+              - generic [ref=e151]: Building
+        - link "🧪 0% Actual Facts 13 essential facts about the Planet Earth. Mastery Status Building" [ref=e153] [cursor=pointer]:
+          - /url: /120-lessons?lesson=actual_facts
+          - generic [ref=e154]:
+            - generic [ref=e156]:
+              - generic [ref=e157]: 🧪
+              - generic [ref=e158]:
+                - img [ref=e159]
+                - generic [ref=e162]: 0%
+            - heading "Actual Facts" [level=3] [ref=e163]
+            - paragraph [ref=e164]: 13 essential facts about the Planet Earth.
+            - generic [ref=e166]:
+              - generic [ref=e167]: Mastery Status
+              - generic [ref=e168]: Building
+        - link "☀️ 0% Solar Facts 9 planetary distances from the Sun. Mastery Status Building" [ref=e170] [cursor=pointer]:
+          - /url: /120-lessons?lesson=solar_facts
+          - generic [ref=e171]:
+            - generic [ref=e173]:
+              - generic [ref=e174]: ☀️
+              - generic [ref=e175]:
+                - img [ref=e176]
+                - generic [ref=e179]: 0%
+            - heading "Solar Facts" [level=3] [ref=e180]
+            - paragraph [ref=e181]: 9 planetary distances from the Sun.
+            - generic [ref=e183]:
+              - generic [ref=e184]: Mastery Status
+              - generic [ref=e185]: Building
+    - generic [ref=e187]:
+      - heading "🔧 Builder's Toolbox" [level=2] [ref=e188]:
+        - generic [ref=e189]: 🔧
+        - text: Builder's Toolbox
+      - generic [ref=e190]:
+        - link "⭐ Attribute Builder Master the 14 attributes of a righteous person Open Tool →" [ref=e191] [cursor=pointer]:
+          - /url: /attribute-builder
+          - generic [ref=e192]:
+            - generic [ref=e193]: ⭐
+            - heading "Attribute Builder" [level=3] [ref=e194]
+            - paragraph [ref=e195]: Master the 14 attributes of a righteous person
+            - generic [ref=e196]:
+              - generic [ref=e197]: Open Tool
+              - generic [ref=e198]: →
+        - link "💬 Cipher Builder Collaborative discussions (Under Construction) Open Tool →" [ref=e199] [cursor=pointer]:
+          - /url: /cipher-builder
+          - generic [ref=e200]:
+            - generic [ref=e201]: 💬
+            - heading "Cipher Builder" [level=3] [ref=e202]
+            - paragraph [ref=e203]: Collaborative discussions (Under Construction)
+            - generic [ref=e204]:
+              - generic [ref=e205]: Open Tool
+              - generic [ref=e206]: →
+        - link "🗺️ Visual Map 3D Knowledge Graph exploration Open Tool →" [ref=e207] [cursor=pointer]:
+          - /url: /visual-map
+          - generic [ref=e208]:
+            - generic [ref=e209]: 🗺️
+            - heading "Visual Map" [level=3] [ref=e210]
+            - paragraph [ref=e211]: 3D Knowledge Graph exploration
+            - generic [ref=e212]:
+              - generic [ref=e213]: Open Tool
+              - generic [ref=e214]: →
+        - link "✍️ Self Assessment Knowledge of self quizzes Open Tool →" [ref=e215] [cursor=pointer]:
+          - /url: /self-assessment
+          - generic [ref=e216]:
+            - generic [ref=e217]: ✍️
+            - heading "Self Assessment" [level=3] [ref=e218]
+            - paragraph [ref=e219]: Knowledge of self quizzes
+            - generic [ref=e220]:
+              - generic [ref=e221]: Open Tool
+              - generic [ref=e222]: →
+        - link "📚 Knowledge Library Curated readings Open Tool →" [ref=e223] [cursor=pointer]:
+          - /url: /knowledge-library
+          - generic [ref=e224]:
+            - generic [ref=e225]: 📚
+            - heading "Knowledge Library" [level=3] [ref=e226]
+            - paragraph [ref=e227]: Curated readings
+            - generic [ref=e228]:
+              - generic [ref=e229]: Open Tool
+              - generic [ref=e230]: →
+        - link "📔 Born Day Journal Daily reflections Open Tool →" [ref=e231] [cursor=pointer]:
+          - /url: /born-day-journal
+          - generic [ref=e232]:
+            - generic [ref=e233]: 📔
+            - heading "Born Day Journal" [level=3] [ref=e234]
+            - paragraph [ref=e235]: Daily reflections
+            - generic [ref=e236]:
+              - generic [ref=e237]: Open Tool
+              - generic [ref=e238]: →
+        - link "Flashcards Study and master the curriculum Open Tool →" [ref=e239] [cursor=pointer]:
+          - /url: /flashcards
+          - generic [ref=e240]:
+            - heading "Flashcards" [level=3] [ref=e241]
+            - paragraph [ref=e242]: Study and master the curriculum
+            - generic [ref=e243]:
+              - generic [ref=e244]: Open Tool
+              - generic [ref=e245]: →
+    - generic [ref=e246]:
+      - heading "⚡ Quick Actions" [level=2] [ref=e247]:
+        - generic [ref=e248]: ⚡
+        - text: Quick Actions
+      - generic [ref=e249]:
+        - generic [ref=e250]:
+          - generic [ref=e251]:
+            - generic [ref=e252]:
+              - paragraph [ref=e253]: Daily Jewel
+              - heading "Equality" [level=3] [ref=e254]
+            - generic [ref=e255]: 💎
+          - generic [ref=e256]:
+            - generic [ref=e257]: ✨
+            - paragraph [ref=e258]: Jewel Secured
+            - paragraph [ref=e259]: Consistency Manifested ✊🏿
+        - generic [ref=e261]:
+          - generic [ref=e262]:
+            - generic [ref=e263]:
+              - paragraph [ref=e264]: Knowledge Drop
+              - heading "Did You Know?" [level=3] [ref=e265]
+            - generic [ref=e266]: 🌍
+          - button "🔄" [ref=e267] [cursor=pointer]:
+            - generic [ref=e268]: 🔄
+        - generic [ref=e269]:
+          - generic [ref=e270]:
+            - generic [ref=e271]:
+              - generic [ref=e272]: 🧮
+              - heading "Mathematics Calculator" [level=3] [ref=e273]
+            - generic [ref=e274]:
+              - button "Word" [ref=e275] [cursor=pointer]
+              - button "Date" [ref=e276] [cursor=pointer]
+          - generic [ref=e277]:
+            - generic [ref=e278]:
+              - textbox "Enter a word (e.g., PEACE)" [ref=e279]
+              - button "Build" [ref=e280] [cursor=pointer]
+            - generic [ref=e281]:
+              - generic [ref=e282]: 🔭
+              - paragraph [ref=e283]: Enter data to reveal the mathematics
+    - generic [ref=e284]:
+      - heading "Your Journey" [level=3] [ref=e285]
+      - generic [ref=e286]:
+        - generic [ref=e287]:
+          - generic [ref=e288]: "0"
+          - generic [ref=e289]: Lessons Completed
+        - generic [ref=e290]:
+          - generic [ref=e291]: "1"
+          - generic [ref=e292]: Days Active
+        - generic [ref=e293]:
+          - generic [ref=e294]: "0"
+          - generic [ref=e295]: Cipher Sessions
+        - generic [ref=e296]:
+          - generic [ref=e297]: "0"
+          - generic [ref=e298]: Quizzes Completed
+```

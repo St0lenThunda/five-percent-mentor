@@ -1,0 +1,83 @@
+[
+  {
+    "id": "solar_1",
+    "number": 1,
+    "planet": "Mercury",
+    "fact": "Mercury is 36,000,000 miles from the Sun.",
+    "distance": "36,000,000 miles",
+    "tags": ["solar", "planets", "distance"],
+    "relatedTo": ["solar_2"]
+  },
+  {
+    "id": "solar_2",
+    "number": 2,
+    "planet": "Venus",
+    "fact": "Venus is 67,000,000 miles from the Sun.",
+    "distance": "67,000,000 miles",
+    "tags": ["solar", "planets", "distance"],
+    "relatedTo": ["solar_1", "solar_3"]
+  },
+  {
+    "id": "solar_3",
+    "number": 3,
+    "planet": "Earth",
+    "fact": "Earth is 93,000,000 miles from the Sun.",
+    "distance": "93,000,000 miles",
+    "tags": ["solar", "planets", "distance", "home"],
+    "relatedTo": ["solar_2", "solar_4", "actual_3"]
+  },
+  {
+    "id": "solar_4",
+    "number": 4,
+    "planet": "Mars",
+    "fact": "Mars is 142,000,000 miles from the Sun.",
+    "distance": "142,000,000 miles",
+    "tags": ["solar", "planets", "distance"],
+    "relatedTo": ["solar_3", "solar_5"]
+  },
+  {
+    "id": "solar_5",
+    "number": 5,
+    "planet": "Jupiter",
+    "fact": "Jupiter is 483,000,000 miles from the Sun.",
+    "distance": "483,000,000 miles",
+    "tags": ["solar", "planets", "distance"],
+    "relatedTo": ["solar_4", "solar_6"]
+  },
+  {
+    "id": "solar_6",
+    "number": 6,
+    "planet": "Saturn",
+    "fact": "Saturn is 886,000,000 miles from the Sun.",
+    "distance": "886,000,000 miles",
+    "tags": ["solar", "planets", "distance"],
+    "relatedTo": ["solar_5", "solar_7"]
+  },
+  {
+    "id": "solar_7",
+    "number": 7,
+    "planet": "Uranus",
+    "fact": "Uranus is 1,783,000,000 miles from the Sun.",
+    "distance": "1,783,000,000 miles",
+    "tags": ["solar", "planets", "distance"],
+    "relatedTo": ["solar_6", "solar_8"]
+  },
+  {
+    "id": "solar_8",
+    "number": 8,
+    "planet": "Neptune",
+    "fact": "Neptune is 2,793,000,000 miles from the Sun.",
+    "distance": "2,793,000,000 miles",
+    "tags": ["solar", "planets", "distance"],
+    "relatedTo": ["solar_7", "solar_9"]
+  },
+  {
+    "id": "solar_9",
+    "number": 9,
+    "planet": "Pluto",
+    "fact": "Pluto is 3,680,000,000 miles from the Sun.",
+    "distance": "3,680,000,000 miles",
+    "tags": ["solar", "planets", "distance", "outer"],
+    "relatedTo": ["solar_8"]
+  }
+]

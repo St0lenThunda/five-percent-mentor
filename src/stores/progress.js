@@ -44,6 +44,49 @@ export const useProgressStore = defineStore( 'progress', () => {
         .where( eq( masteryTable.userId, userStore.user.id ) )
       masteryMetrics.value = mastery
 
+      // 4. Compute derived metrics
+      // flashcardCount = sum of all correctCount from mastery metrics
+      flashcardCount.value = mastery.reduce( ( sum, m ) => sum + ( m.correctCount || 0 ), 0 )
+
+      // masteredCount = count of mastered items
+      masteredCount.value = mastery.filter( m => m.mastered ).length
+
+      // streakDays = calculate consecutive days with activity
+      if ( quizzes.length > 0 ) {
+        const today = new Date()
+        today.setHours( 0, 0, 0, 0 )
+        let streak = 0
+        let checkDate = new Date( today )
+
+        // Sort quizzes by date descending and get unique dates
+        const uniqueDates = [...new Set( quizzes.map( q => {
+          const d = new Date( q.createdAt )
+          d.setHours( 0, 0, 0, 0 )
+          return d.getTime()
+        } ) )].sort( ( a, b ) => b - a )
+
+        // Check if most recent activity is today or yesterday
+        const mostRecent = uniqueDates[0]
+        const dayDiff = Math.floor( ( today.getTime() - mostRecent ) / ( 1000 * 60 * 60 * 24 ) )
+        if ( dayDiff > 1 ) {
+          streakDays.value = 0
+        } else {
+          // Count consecutive days
+          for ( let i = 0; i < uniqueDates.length; i++ ) {
+            const expectedDate = new Date( today )
+            expectedDate.setDate( expectedDate.getDate() - i - ( dayDiff === 1 ? 1 : 0 ) )
+            expectedDate.setHours( 0, 0, 0, 0 )
+
+            if ( uniqueDates.includes( expectedDate.getTime() ) ) {
+              streak++
+            } else {
+              break
+            }
+          }
+          streakDays.value = streak
+        }
+      }
+
     } catch ( error ) {
       console.error( 'Failed to fetch progress:', error )
     } finally {

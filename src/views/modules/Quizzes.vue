@@ -133,6 +133,44 @@
               >
               <span class="text-lg text-white">120 Lessons</span>
             </label>
+
+            <label class="flex items-center gap-4 cursor-pointer group opacity-90 hover:opacity-100">
+              <div
+                class="w-6 h-6 rounded border flex items-center justify-center transition-colors"
+                :class="settings.topics.includes( 'actualFacts' ) ? 'bg-emerald-500 border-emerald-500' : 'border-white/30 group-hover:border-white/50'"
+              >
+                <span
+                  v-if=" settings.topics.includes( 'actualFacts' ) "
+                  class="text-white text-sm"
+                >✓</span>
+              </div>
+              <input
+                type="checkbox"
+                value="actualFacts"
+                v-model="settings.topics"
+                class="hidden"
+              >
+              <span class="text-lg text-white">Actual Facts</span>
+            </label>
+
+            <label class="flex items-center gap-4 cursor-pointer group opacity-90 hover:opacity-100">
+              <div
+                class="w-6 h-6 rounded border flex items-center justify-center transition-colors"
+                :class="settings.topics.includes( 'solarFacts' ) ? 'bg-yellow-500 border-yellow-500' : 'border-white/30 group-hover:border-white/50'"
+              >
+                <span
+                  v-if=" settings.topics.includes( 'solarFacts' ) "
+                  class="text-black text-sm font-bold"
+                >✓</span>
+              </div>
+              <input
+                type="checkbox"
+                value="solarFacts"
+                v-model="settings.topics"
+                class="hidden"
+              >
+              <span class="text-lg text-white">Solar Facts</span>
+            </label>
           </div>
 
           <!-- Question Count -->
@@ -143,10 +181,39 @@
                 v-for=" count in [5, 10, 20, 50] "
                 :key="count"
                 @click="settings.count = count"
-                class="flex-1 py-3 rounded-xl border transition-all"
+                :disabled="settings.isSpeedRun"
+                class="flex-1 py-3 rounded-xl border transition-all disabled:opacity-30 disabled:cursor-not-allowed"
                 :class="settings.count === count ? 'bg-white text-black font-bold border-white' : 'bg-white/5 text-purple-200 border-white/10 hover:bg-white/10'"
               >
                 {{ count }}
+              </button>
+            </div>
+
+            <div class="pt-6">
+              <h3 class="text-xl font-bold text-white border-b border-white/10 pb-2 mb-4">Specialized Mode</h3>
+              <button
+                @click="settings.isSpeedRun = !settings.isSpeedRun"
+                class="w-full p-6 rounded-2xl border transition-all relative overflow-hidden group"
+                :class="settings.isSpeedRun ? 'bg-primary-500/20 border-primary-500 text-white' : 'bg-white/5 border-white/10 text-purple-200 hover:bg-white/10'"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="text-3xl">⚡</div>
+                  <div class="text-left">
+                    <div class="font-black uppercase tracking-widest text-xs mb-1">Mastery Speed-Run</div>
+                    <div class="text-[10px] opacity-70">60 seconds to answer as many unmastered items as possible.</div>
+                  </div>
+                  <div class="ml-auto">
+                    <div
+                      class="w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors"
+                      :class="settings.isSpeedRun ? 'border-primary-500 bg-primary-500' : 'border-white/20'"
+                    >
+                      <span
+                        v-if=" settings.isSpeedRun "
+                        class="text-xs"
+                      >✓</span>
+                    </div>
+                  </div>
+                </div>
               </button>
             </div>
           </div>
@@ -174,8 +241,19 @@
         class="max-w-2xl mx-auto"
       >
         <div class="flex justify-between items-center mb-8">
-          <div class="text-sm text-purple-300">Question {{ currentQuestionIndex + 1 }} / {{ totalQuestions }}</div>
-          <div class="text-sm font-bold text-gold-400">Score: {{ score }}</div>
+          <div class="text-sm text-purple-300">Question {{ currentQuestionIndex + 1 }}
+            {{ settings.isSpeedRun ? '' : `/ ${totalQuestions}` }}
+          </div>
+          <div class="flex items-center gap-6">
+            <div
+              v-if=" settings.isSpeedRun "
+              class="text-xl font-bold"
+              :class="timeLeft < 10 ? 'text-red-500 animate-pulse' : 'text-primary-400'"
+            >
+              ⏱ {{ timeLeft }}s
+            </div>
+            <div class="text-sm font-bold text-gold-400">Score: {{ score }}</div>
+          </div>
         </div>
 
         <!-- Progress Bar -->
@@ -260,7 +338,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, reactive } from 'vue'
+import { ref, computed, onMounted, onUnmounted, reactive } from 'vue'
 import { useContentStore } from '../../stores/content'
 import { useProgressStore } from '../../stores/progress'
 import { useAttributesStore } from '../../stores/attributes'
@@ -275,10 +353,13 @@ const score = ref( 0 )
 const showFeedback = ref( false )
 const selectedAnswer = ref( null )
 const correctItems = ref( [] ) // Array of { id, type, name }
+const timeLeft = ref( 60 )
+let timerInterval = null
 
 const settings = reactive( {
   topics: ['math', 'alphabet'], // default
-  count: 10
+  count: 10,
+  isSpeedRun: false
 } )
 
 const totalQuestions = computed( () => currentQuestions.value.length )
@@ -367,10 +448,42 @@ const startQuiz = () => {
     } )
   }
 
+  // 5. Actual Facts Questions
+  if ( settings.topics.includes( 'actualFacts' ) && contentStore.actualFacts?.length ) {
+    contentStore.actualFacts.forEach( f => {
+      allQuestions.push( {
+        text: f.question,
+        correct: f.answer,
+        options: generateDistractors( f.answer, contentStore.actualFacts.filter( x => x.id !== f.id ).map( x => x.answer ) ),
+        topicLabel: 'Actual Facts',
+        sourceId: f.id,
+        type: 'qa',
+        contentType: 'actualFacts',
+        itemName: `AF #${f.number}`
+      } )
+    } )
+  }
+
+  // 6. Solar Facts Questions
+  if ( settings.topics.includes( 'solarFacts' ) && contentStore.solarFacts?.length ) {
+    contentStore.solarFacts.forEach( f => {
+      allQuestions.push( {
+        text: `What is the distance of ${f.planet} from the Sun?`,
+        correct: f.fact,
+        options: generateDistractors( f.fact, contentStore.solarFacts.filter( x => x.id !== f.id ).map( x => x.fact ) ),
+        topicLabel: 'Solar Facts',
+        sourceId: f.id,
+        type: 'qa',
+        contentType: 'solarFacts',
+        itemName: `SF #${f.number}`
+      } )
+    } )
+  }
+
 
   // Shuffle and Slice
   const shuffled = allQuestions.sort( () => Math.random() - 0.5 )
-  currentQuestions.value = shuffled.slice( 0, settings.count )
+  currentQuestions.value = settings.isSpeedRun ? shuffled : shuffled.slice( 0, settings.count )
 
   if ( currentQuestions.value.length === 0 ) {
     alert( "No questions available for selected topics." )
@@ -380,6 +493,17 @@ const startQuiz = () => {
   score.value = 0
   currentQuestionIndex.value = 0
   gameState.value = 'playing'
+
+  if ( settings.isSpeedRun ) {
+    timeLeft.value = 60
+    timerInterval = setInterval( () => {
+      timeLeft.value--
+      if ( timeLeft.value <= 0 ) {
+        clearInterval( timerInterval )
+        finishQuiz()
+      }
+    }, 1000 )
+  }
 }
 
 const generateDistractors = ( correct, pool ) => {
@@ -421,10 +545,11 @@ const handleAnswer = ( option ) => {
     } else {
       finishQuiz()
     }
-  }, 1500 )
+  }, settings.isSpeedRun ? 500 : 1500 )
 }
 
 const finishQuiz = async () => {
+  if ( timerInterval ) clearInterval( timerInterval )
   gameState.value = 'results'
 
   // 1. Save Result
@@ -460,5 +585,9 @@ const getOptionClass = ( option ) => {
 onMounted( () => {
   contentStore.fetchAllContent()
   progressStore.fetchUserProgress()
+} )
+
+onUnmounted( () => {
+  if ( timerInterval ) clearInterval( timerInterval )
 } )
 </script>

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "actual_1",
+    "number": 1,
+    "question": "What is the total area of the land and water of the planet Earth?",
+    "answer": "Land: 57,255,000 square miles. Water: 139,685,000 square miles.",
+    "tags": ["earth", "geography", "land", "water"],
+    "relatedTo": ["actual_2", "math_0"]
+  },
+  {
+    "id": "actual_2",
+    "number": 2,
+    "question": "What is the total area of the useful land?",
+    "answer": "29,000,000 square miles.",
+    "tags": ["earth", "geography", "land"],
+    "relatedTo": ["actual_1", "actual_3"]
+  },
+  {
+    "id": "actual_3",
+    "number": 3,
+    "question": "What is the total area of the planet Earth?",
+    "answer": "196,940,000 square miles.",
+    "tags": ["earth", "geography", "area"],
+    "relatedTo": ["actual_2", "actual_4", "solar_3"]
+  },
+  {
+    "id": "actual_4",
+    "number": 4,
+    "question": "What is the circumference of the Earth?",
+    "answer": "24,896 miles (approximately 25,000 miles).",
+    "tags": ["earth", "geography", "circumference"],
+    "relatedTo": ["actual_3", "actual_5"]
+  },
+  {
+    "id": "actual_5",
+    "number": 5,
+    "question": "What is the diameter of the Earth?",
+    "answer": "7,926 miles.",
+    "tags": ["earth", "geography", "diameter"],
+    "relatedTo": ["actual_4", "actual_6"]
+  },
+  {
+    "id": "actual_6",
+    "number": 6,
+    "question": "What is the total weight of the planet Earth?",
+    "answer": "6 sextillion tons (a unit followed by 21 ciphers).",
+    "tags": ["earth", "science", "weight"],
+    "relatedTo": ["actual_5", "actual_7"]
+  },
+  {
+    "id": "actual_7",
+    "number": 7,
+    "question": "How fast does the planet Earth travel per hour?",
+    "answer": "1,037 1/3 miles per hour.",
+    "tags": ["earth", "science", "speed", "rotation"],
+    "relatedTo": ["actual_6", "actual_8"]
+  },
+  {
+    "id": "actual_8",
+    "number": 8,
+    "question": "What is the drag of the Sun?",
+    "answer": "The Sun draws 16,000 miles per hour.",
+    "tags": ["sun", "science", "speed"],
+    "relatedTo": ["actual_7", "actual_9", "solar_3"]
+  },
+  {
+    "id": "actual_9",
+    "number": 9,
+    "question": "How far is the Moon from the Earth?",
+    "answer": "238,857 miles.",
+    "tags": ["moon", "distance", "science"],
+    "relatedTo": ["actual_8", "actual_10"]
+  },
+  {
+    "id": "actual_10",
+    "number": 10,
+    "question": "How fast does the Moon travel per hour?",
+    "answer": "1,036 miles per hour.",
+    "tags": ["moon", "speed", "science"],
+    "relatedTo": ["actual_9", "actual_11"]
+  },
+  {
+    "id": "actual_11",
+    "number": 11,
+    "question": "What is the diameter of the Moon?",
+    "answer": "2,160 miles.",
+    "tags": ["moon", "diameter", "science"],
+    "relatedTo": ["actual_10", "actual_12"]
+  },
+  {
+    "id": "actual_12",
+    "number": 12,
+    "question": "What is the total square miles of the deserts on the planet Earth?",
+    "answer": "4,861,000 square miles.",
+    "tags": ["earth", "geography", "desert"],
+    "relatedTo": ["actual_11", "actual_13"]
+  },
+  {
+    "id": "actual_13",
+    "number": 13,
+    "question": "What is the total area of the hills and mountains on the planet Earth?",
+    "answer": "14,003,000 square miles.",
+    "tags": ["earth", "geography", "mountains"],
+    "relatedTo": ["actual_12", "actual_1"]
+  }
+]

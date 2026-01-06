@@ -53,6 +53,15 @@
               class="absolute -inset-24 bg-primary-500/5 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity"
             ></div>
 
+            <!-- Under Construction Badge -->
+            <div
+              v-if=" underConstruction "
+              class="absolute top-6 right-6 flex items-center gap-2 px-4 py-2 bg-yellow-500/20 border border-yellow-500/40 rounded-full"
+            >
+              <span class="text-xl">🚧</span>
+              <span class="text-xs font-bold text-yellow-400 uppercase tracking-wider">Under Construction</span>
+            </div>
+
             <div class="text-9xl mb-8 relative drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] animate-float">{{ icon }}
             </div>
             <h2 class="text-5xl font-black mb-6 text-white tracking-tighter">{{ title }}</h2>
@@ -62,7 +71,8 @@
               class="inline-flex items-center gap-3 px-8 py-4 bg-primary-500/10 rounded-2xl border border-primary-500/20 backdrop-blur-md"
             >
               <div class="w-2 h-2 rounded-full bg-primary-500 animate-ping"></div>
-              <p class="text-sm font-black text-primary-400 tracking-widest uppercase">Building the Knowledge Foundation
+              <p class="text-sm font-black text-primary-400 tracking-widest uppercase">
+                {{ underConstruction ? 'Coming Soon' : 'Building the Knowledge Foundation' }}
               </p>
             </div>
           </div>
@@ -91,6 +101,10 @@ export default {
     description: {
       type: String,
       required: true
+    },
+    underConstruction: {
+      type: Boolean,
+      default: false
     }
   }
 }

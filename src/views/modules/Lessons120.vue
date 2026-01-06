@@ -46,7 +46,7 @@
           <!-- Lesson Sidebar -->
           <div class="lg:col-span-1 space-y-4">
             <div
-              v-for=" lesson in contentStore.lessons "
+              v-for=" lesson in allLessons "
               :key="lesson.id"
               @click="activeLesson = lesson"
               class="cursor-pointer p-4 rounded-xl border border-white/10 transition-all duration-300 hover:scale-105"
@@ -76,7 +76,33 @@
                 <div class="flex justify-between items-start mb-8 border-b border-white/10 pb-6">
                   <div>
                     <h2 class="text-3xl font-bold text-white mb-2">{{ activeLesson.title }}</h2>
-                    <p class="text-purple-200">{{ activeLesson.description }}</p>
+                    <p class="text-purple-200 mb-4">{{ activeLesson.description }}</p>
+
+                    <!-- Tags and Links -->
+                    <div class="flex flex-wrap gap-2 mb-2">
+                      <span
+                        v-for=" tag in activeLesson.tags "
+                        :key="tag"
+                        class="px-2 py-0.5 rounded bg-primary-500/10 border border-primary-500/20 text-[10px] text-primary-400 font-bold uppercase tracking-widest"
+                      >
+                        #{{ tag }}
+                      </span>
+                    </div>
+
+                    <div
+                      v-if=" activeLesson.relatedTo && activeLesson.relatedTo.length > 0 "
+                      class="flex flex-wrap gap-4 items-center"
+                    >
+                      <span class="text-[10px] text-purple-400 font-bold uppercase tracking-widest">Related:</span>
+                      <button
+                        v-for=" relId in activeLesson.relatedTo "
+                        :key="relId"
+                        @click="activeLesson = allLessons.find( l => l.id === relId ) || activeLesson"
+                        class="text-xs text-primary-400 hover:text-primary-300 underline transition-colors"
+                      >
+                        {{allLessons.find( l => l.id === relId )?.title || relId}}
+                      </button>
+                    </div>
                   </div>
                   <!-- Master Lesson Button (Optional future feature for whole lesson) -->
                 </div>
@@ -132,17 +158,73 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { useContentStore } from '../../stores/content'
 
+const route = useRoute()
 const contentStore = useContentStore()
 const activeLesson = ref( null )
 
+const allLessons = computed( () => {
+  const baseLessons = ( contentStore.lessons || [] ).map( l => ( {
+    ...l,
+    tags: l.tags || [],
+    relatedTo: l.relatedTo || []
+  } ) )
+
+  const additional = []
+
+  if ( contentStore.actualFacts && contentStore.actualFacts.length > 0 ) {
+    additional.push( {
+      id: 'actual_facts',
+      title: 'Actual Facts',
+      description: '13 essential facts about the Planet Earth, its geography, and its mechanics.',
+      tags: ['earth', 'science', 'geography'],
+      relatedTo: ['solar_facts'],
+      questions: contentStore.actualFacts.map( f => ( {
+        id: f.id,
+        question: f.question,
+        answer: f.answer
+      } ) )
+    } )
+  }
+
+  if ( contentStore.solarFacts && contentStore.solarFacts.length > 0 ) {
+    additional.push( {
+      id: 'solar_facts',
+      title: 'Solar Facts',
+      description: 'The 9 planetary distances from the Sun, representing the breadth of our solar system.',
+      tags: ['solar', 'planets', 'distance'],
+      relatedTo: ['actual_facts'],
+      questions: contentStore.solarFacts.map( f => ( {
+        id: f.id,
+        question: `What is the distance of ${f.planet} from the Sun?`,
+        answer: f.fact
+      } ) )
+    } )
+  }
+
+  return [...baseLessons, ...additional]
+} )
+
 onMounted( async () => {
   await contentStore.fetchAllContent()
-  // Auto-select first lesson if available
-  if ( contentStore.lessons.length > 0 ) {
-    activeLesson.value = contentStore.lessons[0]
-  }
 } )
+
+watch( [allLessons, () => route.query.lesson], ( [newLessons, lessonId] ) => {
+  if ( newLessons.length > 0 ) {
+    if ( lessonId ) {
+      const found = newLessons.find( l => l.id === lessonId )
+      if ( found ) {
+        activeLesson.value = found
+        return
+      }
+    }
+
+    if ( !activeLesson.value ) {
+      activeLesson.value = newLessons[0]
+    }
+  }
+}, { immediate: true } )
 </script>
