@@ -1,8 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { db } from '../db/client'
-import { userProgress, quizLogs, masteryMetrics as masteryTable } from '../db/schema'
-import { eq, desc, and } from 'drizzle-orm'
+import { api } from '../utils/api-client'
 import { useUserStore } from './user'
 
 export const useProgressStore = defineStore( 'progress', () => {
@@ -22,70 +20,21 @@ export const useProgressStore = defineStore( 'progress', () => {
 
     isLoading.value = true
     try {
-      // 1. Fetch regular progress
-      const progress = await db.select()
-        .from( userProgress )
-        .where( eq( userProgress.userId, userStore.user.id ) )
+      // Fetch progress from API
+      const progress = await api.getProgress( userStore.user.id )
+      completedContent.value = progress || []
 
-      completedContent.value = progress
+      // Fetch mastery metrics from API
+      const mastery = await api.getMasteryMetrics( userStore.user.id )
+      masteryMetrics.value = mastery || []
 
-      // 2. Fetch Quiz History
-      const quizzes = await db.select()
-        .from( quizLogs )
-        .where( eq( quizLogs.userId, userStore.user.id ) )
-        .orderBy( desc( quizLogs.createdAt ) )
-
-      quizHistory.value = quizzes
-      quizCount.value = quizzes.length
-
-      // 3. Fetch Mastery Metrics
-      const mastery = await db.select()
-        .from( masteryTable )
-        .where( eq( masteryTable.userId, userStore.user.id ) )
-      masteryMetrics.value = mastery
-
-      // 4. Compute derived metrics
-      // flashcardCount = sum of all correctCount from mastery metrics
+      // Compute derived metrics
       flashcardCount.value = mastery.reduce( ( sum, m ) => sum + ( m.correctCount || 0 ), 0 )
-
-      // masteredCount = count of mastered items
       masteredCount.value = mastery.filter( m => m.mastered ).length
 
-      // streakDays = calculate consecutive days with activity
-      if ( quizzes.length > 0 ) {
-        const today = new Date()
-        today.setHours( 0, 0, 0, 0 )
-        let streak = 0
-        let checkDate = new Date( today )
-
-        // Sort quizzes by date descending and get unique dates
-        const uniqueDates = [...new Set( quizzes.map( q => {
-          const d = new Date( q.createdAt )
-          d.setHours( 0, 0, 0, 0 )
-          return d.getTime()
-        } ) )].sort( ( a, b ) => b - a )
-
-        // Check if most recent activity is today or yesterday
-        const mostRecent = uniqueDates[0]
-        const dayDiff = Math.floor( ( today.getTime() - mostRecent ) / ( 1000 * 60 * 60 * 24 ) )
-        if ( dayDiff > 1 ) {
-          streakDays.value = 0
-        } else {
-          // Count consecutive days
-          for ( let i = 0; i < uniqueDates.length; i++ ) {
-            const expectedDate = new Date( today )
-            expectedDate.setDate( expectedDate.getDate() - i - ( dayDiff === 1 ? 1 : 0 ) )
-            expectedDate.setHours( 0, 0, 0, 0 )
-
-            if ( uniqueDates.includes( expectedDate.getTime() ) ) {
-              streak++
-            } else {
-              break
-            }
-          }
-          streakDays.value = streak
-        }
-      }
+      // Calculate streak (simplified - can enhance based on quiz logs if needed)
+      streakDays.value = 0 // TODO: Implement streak calculation when quiz logs are available
+      quizCount.value = 0 // TODO: Fetch quiz logs from API
 
     } catch ( error ) {
       console.error( 'Failed to fetch progress:', error )
@@ -96,42 +45,31 @@ export const useProgressStore = defineStore( 'progress', () => {
 
   const recordCorrectAnswer = async ( contentId, contentType, name ) => {
     if ( !userStore.user?.id ) return
-    try {
-      const existing = await db.select().from( masteryTable )
-        .where( and(
-          eq( masteryTable.userId, userStore.user.id ),
-          eq( masteryTable.contentId, contentId )
-        ) )
 
-      let newCount = 1
-      if ( existing.length > 0 ) {
-        newCount = ( existing[0].correctCount || 0 ) + 1
-        await db.update( masteryTable )
-          .set( { correctCount: newCount, updatedAt: new Date() } )
-          .where( eq( masteryTable.id, existing[0].id ) )
-      } else {
-        await db.insert( masteryTable )
-          .values( {
-            userId: userStore.user.id,
-            contentId,
-            contentType,
-            correctCount: 1
-          } )
-      }
+    try {
+      // Find existing metric
+      const existing = masteryMetrics.value.find( m => m.contentId === contentId )
+      const newCount = existing ? ( existing.correctCount + 1 ) : 1
+
+      // Update via API
+      const updated = await api.updateMasteryMetric( {
+        userId: userStore.user.id,
+        contentId,
+        contentType,
+        correctCount: newCount
+      } )
 
       // Update local state
       const metricIdx = masteryMetrics.value.findIndex( m => m.contentId === contentId )
       if ( metricIdx >= 0 ) {
-        masteryMetrics.value[metricIdx].correctCount = newCount
+        masteryMetrics.value[metricIdx] = updated
       } else {
-        masteryMetrics.value.push( { contentId, contentType, correctCount: newCount, mastered: false } )
+        masteryMetrics.value.push( updated )
       }
 
       // Check for Mastery Born (Threshold = 5)
-      if ( newCount === 5 ) {
-        await db.update( masteryTable )
-          .set( { mastered: true } )
-          .where( and( eq( masteryTable.userId, userStore.user.id ), eq( masteryTable.contentId, contentId ) ) )
+      if ( newCount === 5 && !updated.mastered ) {
+        await api.markAsMastered( updated.id, true )
 
         const metric = masteryMetrics.value.find( m => m.contentId === contentId )
         if ( metric ) metric.mastered = true
@@ -162,21 +100,16 @@ export const useProgressStore = defineStore( 'progress', () => {
     if ( !userStore.user?.id ) return
 
     try {
-      // Optimistic update
-      completedContent.value.push( {
-        userId: userStore.user.id,
-        contentId,
-        contentType,
-        score,
-        completedAt: new Date()
-      } )
-
-      await db.insert( userProgress ).values( {
+      // Create progress entry via API
+      const newProgress = await api.createProgress( {
         userId: userStore.user.id,
         contentId,
         contentType,
         score
       } )
+
+      // Optimistic update
+      completedContent.value.push( newProgress )
     } catch ( error ) {
       console.error( 'Failed to save progress:', error )
       // Revert optimistic update if needed
@@ -186,17 +119,19 @@ export const useProgressStore = defineStore( 'progress', () => {
 
   const saveQuizResult = async ( { score, totalQuestions, topics, details } ) => {
     if ( !userStore.user?.id ) return
+
     try {
       // Optimistic update
       quizCount.value++
 
-      await db.insert( quizLogs ).values( {
-        userId: userStore.user.id,
-        score,
-        totalQuestions,
-        topics,
-        details: JSON.stringify( details )
-      } )
+      // TODO: Create quiz log API endpoint and call it here
+      // await api.createQuizLog( {
+      //   userId: userStore.user.id,
+      //   score,
+      //   totalQuestions,
+      //   topics,
+      //   details: JSON.stringify( details )
+      // } )
     } catch ( error ) {
       console.error( 'Failed to save quiz log:', error )
       quizCount.value-- // Revert

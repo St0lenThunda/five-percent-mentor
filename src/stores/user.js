@@ -1,8 +1,5 @@
 import { defineStore } from 'pinia'
-import { neonAuth } from '../auth/neon-auth'
-import { db } from '../db/client'
-import { userProfiles } from '../db/schema'
-import { eq } from 'drizzle-orm'
+import { api } from '../utils/api-client'
 import { useProgressStore } from './progress'
 
 export const useUserStore = defineStore( 'user', {
@@ -21,22 +18,21 @@ export const useUserStore = defineStore( 'user', {
     async init () {
       this.loading = true
       try {
-        // 1. Check Neon Auth Session
-        console.log( 'Checking Neon Auth Session...' )
-        const neonUser = await neonAuth.getCurrentUser()
-        console.log( 'Neon User Session:', neonUser )
+        // Check session via backend API
+        console.log( 'Checking session...' )
+        const sessionData = await api.getSession()
+        console.log( 'Session data:', sessionData )
 
-        if ( neonUser ) {
-          this.currentUser = neonUser
+        if ( sessionData && sessionData.user ) {
+          this.currentUser = sessionData.user
           this.isAuthenticated = true
-          // 2. Fetch or Create Profile
-          await this.fetchUserProfile( neonUser.email )
 
-          // 3. Load progress if profile found
-          if ( this.userProfile ) {
-            const progressStore = useProgressStore()
-            await progressStore.fetchUserProgress()
-          }
+          // Fetch user profile (assuming it's included in session or needs separate call)
+          this.userProfile = sessionData.user
+
+          // Load progress
+          const progressStore = useProgressStore()
+          await progressStore.fetchUserProgress()
         } else {
           console.warn( 'No active session found' )
           this.currentUser = null
@@ -58,23 +54,16 @@ export const useUserStore = defineStore( 'user', {
       this.loading = true
       this.error = null
       try {
-        // 1. Create Neon Auth User
-        const authResult = await neonAuth.signUp( email, password )
-        if ( authResult.error ) throw new Error( authResult.error )
+        // Sign up via backend API
+        const result = await api.signUp( email, password, username )
 
-        // 2. Create DB Profile
-        const [profile] = await db.insert( userProfiles ).values( {
-          username,
-          email,
-          themePreference: 'current', // Default theme
-          currentModule: 'dashboard'
-        } ).returning()
+        if ( result && result.user ) {
+          this.currentUser = result.user
+          this.userProfile = result.user
+          this.isAuthenticated = true
 
-        this.currentUser = authResult
-        this.userProfile = profile
-        this.isAuthenticated = true
-
-        return profile
+          return result.user
+        }
       } catch ( error ) {
         console.error( 'Sign Up Error:', error )
         this.error = error.message
@@ -88,21 +77,18 @@ export const useUserStore = defineStore( 'user', {
       this.loading = true
       this.error = null
       try {
-        // 1. Neon Auth Sign In
-        const authResult = await neonAuth.signIn( email, password )
-        if ( authResult.error ) throw new Error( authResult.error )
+        // Sign in via backend API
+        const result = await api.signIn( email, password )
 
-        // 2. Set State
-        this.currentUser = authResult
-        this.isAuthenticated = true
+        if ( result && result.user ) {
+          this.currentUser = result.user
+          this.userProfile = result.user
+          this.isAuthenticated = true
 
-        // 3. Fetch Profile
-        await this.fetchUserProfile( email )
-
-        // 4. Load User Progress
-        const progressStore = useProgressStore()
-        await progressStore.fetchUserProgress()
-
+          // Load user progress
+          const progressStore = useProgressStore()
+          await progressStore.fetchUserProgress()
+        }
       } catch ( error ) {
         console.error( 'Sign In Error:', error )
         this.error = error.message
@@ -115,7 +101,7 @@ export const useUserStore = defineStore( 'user', {
     async signOut () {
       this.loading = true
       try {
-        await neonAuth.signOut()
+        await api.signOut()
         this.currentUser = null
         this.userProfile = null
         this.isAuthenticated = false
@@ -123,20 +109,6 @@ export const useUserStore = defineStore( 'user', {
         console.error( 'Sign Out Error:', error )
       } finally {
         this.loading = false
-      }
-    },
-
-    async fetchUserProfile ( email ) {
-      try {
-        const [profile] = await db.select()
-          .from( userProfiles )
-          .where( eq( userProfiles.email, email ) )
-
-        if ( profile ) {
-          this.userProfile = profile
-        }
-      } catch ( error ) {
-        console.error( 'Fetch Profile Error:', error )
       }
     }
   }
