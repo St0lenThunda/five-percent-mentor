@@ -110,11 +110,6 @@ router.post( '/sign-out', async ( req, res ) => {
       headers: { 'Cookie': req.headers.cookie || '' }
     } )
     forwardCookies( response, res )
-    const response = await fetch( `${authUrl}/neondb/auth/sign-out`, {
-      method: 'POST',
-      headers: { 'Cookie': req.headers.cookie || '' }
-    } )
-    forwardCookies( response, res )
     res.json( { success: true } )
   } catch ( error ) {
     console.error( 'Sign-out error:', error )
@@ -129,13 +124,9 @@ router.get( '/session', async ( req, res ) => {
     const response = await fetch( `${authUrl}/neondb/auth/get-session`, {
       headers: { 'Cookie': req.headers.cookie || '' }
     } )
-    const response = await fetch( `${authUrl}/neondb/auth/get-session`, {
-      headers: { 'Cookie': req.headers.cookie || '' }
-    } )
 
     // If not logged in, return 200 with user: null to avoid console errors
     if ( response.status === 401 || response.status === 404 ) {
-      return res.json( { user: null } )
       return res.json( { user: null } )
     }
 
@@ -145,10 +136,8 @@ router.get( '/session', async ( req, res ) => {
       return res.json( { user: null } )
     }
 
-    res.json( data )
   } catch ( error ) {
     console.error( 'Session check error:', error )
-    res.json( { user: null } )
     res.json( { user: null } )
   }
 } )
