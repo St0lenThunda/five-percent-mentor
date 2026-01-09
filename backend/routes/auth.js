@@ -102,8 +102,11 @@ router.post( '/sign-in', async ( req, res ) => {
       return res.status( 400 ).json( { error: 'Email and password are required' } )
     }
 
-    const authUrl = process.env.NEON_AUTH_URL
+    const authUrl = getAuthUrl()
     console.log( `Attempting sign-in proxy to: ${authUrl}` )
+    if ( !authUrl ) {
+      throw new Error( 'NEON_AUTH_URL is not configured in environment variables' )
+    }
 
     const response = await fetch( `${authUrl}/neondb/auth/sign-in/email`, {
       method: 'POST',
