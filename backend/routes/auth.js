@@ -3,6 +3,20 @@ import { Router } from 'express'
 
 const router = Router()
 
+// Helper to sanitize and prepare the Auth URL
+const getAuthUrl = () => {
+  let url = process.env.NEON_AUTH_URL
+  if ( !url ) return null
+
+  // Ensure it has a protocol
+  if ( !url.startsWith( 'http' ) ) {
+    url = `https://${url}`
+  }
+
+  // Remove trailing slash
+  return url.replace( /\/+$/, '' )
+}
+
 /**
  * Auth Endpoints - Proxy to Neon Auth service
  * Following NGE Knowledge (1) -> Wisdom (2) -> Understanding (3)
@@ -50,7 +64,11 @@ router.post( '/sign-up', async ( req, res ) => {
       return res.status( 400 ).json( { error: 'Email and password are required' } )
     }
 
-    const authUrl = process.env.NEON_AUTH_URL
+    const authUrl = getAuthUrl()
+    if ( !authUrl ) {
+      throw new Error( 'NEON_AUTH_URL is not configured' )
+    }
+
     const response = await fetch( `${authUrl}/neondb/auth/sign-up/email`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -67,7 +85,11 @@ router.post( '/sign-up', async ( req, res ) => {
     res.json( result || { success: true } )
   } catch ( error ) {
     console.error( 'Sign-up error:', error )
-    res.status( 500 ).json( { error: 'Internal server error', details: error.message } )
+    res.status( 500 ).json( {
+      error: 'Internal server error',
+      details: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+    } )
   }
 } )
 
@@ -100,14 +122,23 @@ router.post( '/sign-in', async ( req, res ) => {
     res.json( result )
   } catch ( error ) {
     console.error( 'Sign-in error:', error )
-    res.status( 500 ).json( { error: 'Internal server error', details: error.message } )
+    res.status( 500 ).json( {
+      error: 'Internal server error',
+      details: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+    } )
   }
 } )
 
 // POST /api/auth/sign-out
 router.post( '/sign-out', async ( req, res ) => {
   try {
-    const authUrl = process.env.NEON_AUTH_URL
+    const authUrl = getAuthUrl()
+    console.log( `Sign-out proxy to: ${authUrl}` )
+    if ( !authUrl ) {
+      throw new Error( 'NEON_AUTH_URL is not configured' )
+    }
+
     const response = await fetch( `${authUrl}/neondb/auth/sign-out`, {
       method: 'POST',
       headers: { 'Cookie': req.headers.cookie || '' }
@@ -123,7 +154,12 @@ router.post( '/sign-out', async ( req, res ) => {
 // GET /api/auth/session
 router.get( '/session', async ( req, res ) => {
   try {
-    const authUrl = process.env.NEON_AUTH_URL
+    const authUrl = getAuthUrl()
+    if ( !authUrl ) {
+      console.error( 'Session check failed: NEON_AUTH_URL not configured' )
+      return res.json( { user: null } )
+    }
+
     const response = await fetch( `${authUrl}/neondb/auth/get-session`, {
       headers: { 'Cookie': req.headers.cookie || '' }
     } )

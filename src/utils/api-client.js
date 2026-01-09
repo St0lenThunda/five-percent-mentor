@@ -25,7 +25,9 @@ class ApiClient {
       
       if ( !response.ok ) {
         const errorData = await response.json().catch( () => ( {} ) )
-        const errorMessage = errorData.error || errorData.details || `Error ${response.status}: ${response.statusText}`
+        // Prioritize details/message from the backend
+        const errorMessage = errorData.details || errorData.error || errorData.message || `Error ${response.status}: ${response.statusText}`
+        console.error( 'Full API Error Data:', errorData )
         throw new Error( errorMessage )
       }
 
