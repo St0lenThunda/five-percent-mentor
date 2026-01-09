@@ -7,8 +7,39 @@ const router = Router()
  * Auth Endpoints - Proxy to Neon Auth service
  * Following NGE Knowledge (1) -> Wisdom (2) -> Understanding (3)
  * 
- * Note: Neon Auth service requires the database name in the path.
+ * Note: We forward cookies between the client and Neon Auth to maintain sessions.
  */
+
+// Helper to forward cookies from Neon Auth response to our client correctly
+// Node fetch joins multiple Set-Cookie headers with a comma, which is invalid
+// for Set-Cookie. We need to handle this properly.
+const forwardCookies = ( neonResponse, res ) => {
+  // If using Node 20+ native fetch, we can use getSetCookie()
+  if ( typeof neonResponse.headers.getSetCookie === 'function' ) {
+    const cookies = neonResponse.headers.getSetCookie()
+    if ( cookies && cookies.length > 0 ) {
+      res.setHeader( 'Set-Cookie', cookies )
+    }
+    return
+  }
+
+  // Fallback for older environments or when getSetCookie is missing
+  const setCookie = neonResponse.headers.get( 'set-cookie' )
+  if ( setCookie ) {
+    // Note: This is less reliable as cookies can contain commas
+    res.setHeader( 'Set-Cookie', setCookie )
+  }
+}
+
+// Helper to parse JSON safely
+const safeJson = async ( response ) => {
+  try {
+    const text = await response.text()
+    return text ? JSON.parse( text ) : null
+  } catch ( e ) {
+    return null
+  }
+}
 
 // POST /api/auth/sign-up
 router.post( '/sign-up', async ( req, res ) => {
@@ -19,7 +50,6 @@ router.post( '/sign-up', async ( req, res ) => {
       return res.status( 400 ).json( { error: 'Email and password are required' } )
     }
 
-    // Proxy to Neon Auth service
     const authUrl = process.env.NEON_AUTH_URL
     const response = await fetch( `${authUrl}/neondb/auth/sign-up/email`, {
       method: 'POST',
@@ -27,18 +57,17 @@ router.post( '/sign-up', async ( req, res ) => {
       body: JSON.stringify( { email, password, name } )
     } )
 
+    const result = await safeJson( response )
+
     if ( !response.ok ) {
-      const error = await response.json()
-      return res.status( response.status ).json( error )
+      return res.status( response.status ).json( result || { error: 'Auth service error' } )
     }
 
-    const text = await response.text()
-    const result = text ? JSON.parse( text ) : { success: true }
-    
-    res.json( result )
+    forwardCookies( response, res )
+    res.json( result || { success: true } )
   } catch ( error ) {
     console.error( 'Sign-up error:', error )
-    res.status( 500 ).json( { error: 'Internal server error' } )
+    res.status( 500 ).json( { error: 'Internal server error', details: error.message } )
   }
 } )
 
@@ -58,16 +87,17 @@ router.post( '/sign-in', async ( req, res ) => {
       body: JSON.stringify( { email, password } )
     } )
 
+    const result = await safeJson( response )
+
     if ( !response.ok ) {
-      const error = await response.json()
-      return res.status( response.status ).json( error )
+      return res.status( response.status ).json( result || { error: 'Auth service error' } )
     }
 
-    const result = await response.json()
+    forwardCookies( response, res )
     res.json( result )
   } catch ( error ) {
     console.error( 'Sign-in error:', error )
-    res.status( 500 ).json( { error: 'Internal server error' } )
+    res.status( 500 ).json( { error: 'Internal server error', details: error.message } )
   }
 } )
 
@@ -75,7 +105,11 @@ router.post( '/sign-in', async ( req, res ) => {
 router.post( '/sign-out', async ( req, res ) => {
   try {
     const authUrl = process.env.NEON_AUTH_URL
-    await fetch( `${authUrl}/neondb/auth/sign-out`, { method: 'POST' } )
+    const response = await fetch( `${authUrl}/neondb/auth/sign-out`, {
+      method: 'POST',
+      headers: { 'Cookie': req.headers.cookie || '' }
+    } )
+    forwardCookies( response, res )
     res.json( { success: true } )
   } catch ( error ) {
     console.error( 'Sign-out error:', error )
@@ -87,25 +121,24 @@ router.post( '/sign-out', async ( req, res ) => {
 router.get( '/session', async ( req, res ) => {
   try {
     const authUrl = process.env.NEON_AUTH_URL
-    const response = await fetch( `${authUrl}/neondb/auth/get-session` )
+    const response = await fetch( `${authUrl}/neondb/auth/get-session`, {
+      headers: { 'Cookie': req.headers.cookie || '' }
+    } )
 
     if ( response.status === 401 || response.status === 404 ) {
-      return res.status( 401 ).json( { user: null } )
+      return res.json( { user: null } )
     }
 
-    if ( !response.ok ) {
-      const text = await response.text()
-      if ( text === 'null' ) {
-        return res.status( 401 ).json( { user: null } )
-      }
-      throw new Error( 'Failed to fetch session' )
+    const data = await safeJson( response )
+
+    if ( !response.ok || !data ) {
+      return res.json( { user: null } )
     }
 
-    const data = await response.json()
     res.json( data )
   } catch ( error ) {
     console.error( 'Session check error:', error )
-    res.status( 401 ).json( { user: null } )
+    res.json( { user: null } )
   }
 } )
 
