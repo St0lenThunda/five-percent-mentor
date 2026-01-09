@@ -1,12 +1,15 @@
 services:
   - type: web
-    name: five-percent-mentor-api
+    name: five-percent-mentor
     env: node
-    region: oregon
+    # From root: build frontend, then setup backend
+    buildCommand: npm install && npm run build && cd backend && npm install
+    startCommand: cd backend && node server.js
     plan: free
-    buildCommand: npm install
-    startCommand: npm start
+    region: oregon 
     envVars:
+      - key: NODE_ENV
+        value: production
       - key: DATABASE_URL
         sync: false
       - key: NEON_AUTH_URL

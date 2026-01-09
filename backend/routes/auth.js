@@ -6,6 +6,8 @@ const router = Router()
 /**
  * Auth Endpoints - Proxy to Neon Auth service
  * Following NGE Knowledge (1) -> Wisdom (2) -> Understanding (3)
+ * 
+ * Note: Neon Auth service requires the database name in the path.
  */
 
 // POST /api/auth/sign-up
@@ -19,7 +21,7 @@ router.post( '/sign-up', async ( req, res ) => {
 
     // Proxy to Neon Auth service
     const authUrl = process.env.NEON_AUTH_URL
-    const response = await fetch( `${authUrl}/sign-up/email`, {
+    const response = await fetch( `${authUrl}/neondb/auth/sign-up/email`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify( { email, password, name } )
@@ -50,7 +52,7 @@ router.post( '/sign-in', async ( req, res ) => {
     }
 
     const authUrl = process.env.NEON_AUTH_URL
-    const response = await fetch( `${authUrl}/sign-in/email`, {
+    const response = await fetch( `${authUrl}/neondb/auth/sign-in/email`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify( { email, password } )
@@ -73,7 +75,7 @@ router.post( '/sign-in', async ( req, res ) => {
 router.post( '/sign-out', async ( req, res ) => {
   try {
     const authUrl = process.env.NEON_AUTH_URL
-    await fetch( `${authUrl}/sign-out`, { method: 'POST' } )
+    await fetch( `${authUrl}/neondb/auth/sign-out`, { method: 'POST' } )
     res.json( { success: true } )
   } catch ( error ) {
     console.error( 'Sign-out error:', error )
@@ -85,7 +87,7 @@ router.post( '/sign-out', async ( req, res ) => {
 router.get( '/session', async ( req, res ) => {
   try {
     const authUrl = process.env.NEON_AUTH_URL
-    const response = await fetch( `${authUrl}/get-session` )
+    const response = await fetch( `${authUrl}/neondb/auth/get-session` )
 
     if ( response.status === 401 || response.status === 404 ) {
       return res.status( 401 ).json( { user: null } )

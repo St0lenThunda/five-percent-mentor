@@ -1,8 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { db } from '../db/client'
-import { journalEntries } from '../db/schema'
-import { eq, desc } from 'drizzle-orm'
+import { api } from '../utils/api-client'
 import { useUserStore } from './user'
 
 export const useJournalStore = defineStore( 'journal', () => {
@@ -17,12 +15,7 @@ export const useJournalStore = defineStore( 'journal', () => {
 
     isLoading.value = true
     try {
-      const result = await db.select()
-        .from( journalEntries )
-        .where( eq( journalEntries.userId, userStore.user.id ) )
-        .orderBy( desc( journalEntries.createdAt ) )
-        .limit( 30 )
-
+      const result = await api.getJournalEntries( userStore.user.id )
       entries.value = result
     } catch ( e ) {
       console.error( 'Failed to fetch journal entries:', e )
@@ -38,12 +31,12 @@ export const useJournalStore = defineStore( 'journal', () => {
 
     isSaving.value = true
     try {
-      const [newEntry] = await db.insert( journalEntries ).values( {
+      const newEntry = await api.createJournalEntry( {
         userId: userStore.user.id,
         date,
         mathematicsId,
         entryText
-      } ).returning()
+      } )
 
       // Add to beginning of entries list
       entries.value.unshift( newEntry )
@@ -68,9 +61,7 @@ export const useJournalStore = defineStore( 'journal', () => {
 
     isSaving.value = true
     try {
-      await db.update( journalEntries )
-        .set( { entryText } )
-        .where( eq( journalEntries.id, id ) )
+      await api.updateJournalEntry( id, { entryText } )
 
       // Update local state
       const index = entries.value.findIndex( e => e.id === id )
@@ -91,8 +82,7 @@ export const useJournalStore = defineStore( 'journal', () => {
     if ( !userStore.user?.id ) return
 
     try {
-      await db.delete( journalEntries )
-        .where( eq( journalEntries.id, id ) )
+      await api.deleteJournalEntry( id )
 
       // Remove from local state
       entries.value = entries.value.filter( e => e.id !== id )

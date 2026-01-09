@@ -1,39 +1,23 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { setActivePinia, createPinia } from 'pinia'
 import { useProgressStore } from '../progress'
-import { db } from '../../db/client'
+import { api } from '../../utils/api-client'
 
-// Mock the database client
-const mockDb = vi.hoisted( () => ( {
-  select: vi.fn(),
-  insert: vi.fn(),
-  update: vi.fn(),
+// Mock the API client
+const mockApi = vi.hoisted( () => ( {
+  getMasteryMetrics: vi.fn(),
+  updateMasteryProgress: vi.fn(),
+  recordCorrectAnswer: vi.fn(),
+  markComplete: vi.fn(),
 } ) )
 
-vi.mock( '../../db/client', () => ( {
-  db: mockDb,
+vi.mock( '../../utils/api-client', () => ( {
+  api: mockApi,
 } ) )
 
-// Helper to mock a successful select result
-const mockSelectResult = ( data ) => {
-  mockDb.select.mockReturnValue( {
-    from: vi.fn( () => ( {
-      where: vi.fn( () => Promise.resolve( data ) ),
-      orderBy: vi.fn( () => Promise.resolve( data ) ),
-    } ) ),
-  } )
-}
-
-// Helper to mock successful insert/update
-const mockMutationResult = () => {
-  mockDb.insert.mockReturnValue( {
-    values: vi.fn( () => Promise.resolve() ),
-  } )
-  mockDb.update.mockReturnValue( {
-    set: vi.fn( () => ( {
-      where: vi.fn( () => Promise.resolve() ),
-    } ) ),
-  } )
+// Helper to mock successful API call
+const mockApiResult = ( method, data ) => {
+  mockApi[method].mockResolvedValue( data )
 }
 
 // Mock the user store
@@ -47,11 +31,11 @@ describe( 'Progress Store Mastery Logic', () => {
   beforeEach( () => {
     setActivePinia( createPinia() )
     vi.clearAllMocks()
-    mockMutationResult()
+    mockApiResult( 'recordCorrectAnswer', {} )
   } )
 
   it( 'successfully records a correct answer and increments count', async () => {
-    mockSelectResult( [] )
+    mockApiResult( 'getMasteryMetrics', [] )
     const store = useProgressStore()
 
     // Initial state
@@ -67,7 +51,7 @@ describe( 'Progress Store Mastery Logic', () => {
   } )
 
   it( 'triggers mastery "Born" status at 5 correct answers', async () => {
-    mockSelectResult( [{ id: 1, correctCount: 4 }] )
+    mockApiResult( 'getMasteryMetrics', [{ id: 1, correctCount: 4 }] )
     const store = useProgressStore()
 
     // Mock existing local state

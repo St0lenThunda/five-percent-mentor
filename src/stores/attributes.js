@@ -1,8 +1,6 @@
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
-import { db } from '../db/client'
-import { userAttributes } from '../db/schema'
-import { eq, and } from 'drizzle-orm'
+import { ref } from 'vue'
+import { api } from '../utils/api-client'
 import { useUserStore } from './user'
 
 export const useAttributesStore = defineStore( 'attributes', () => {
@@ -22,10 +20,8 @@ export const useAttributesStore = defineStore( 'attributes', () => {
         staticAttributes.value = await response.json()
       }
 
-      // Load DB progress
-      const progress = await db.select()
-        .from( userAttributes )
-        .where( eq( userAttributes.userId, userStore.user.id ) )
+      // Load DB progress via API
+      const progress = await api.getAttributes( userStore.user.id )
 
       const progressMap = {}
       progress.forEach( p => {
@@ -45,42 +41,25 @@ export const useAttributesStore = defineStore( 'attributes', () => {
   const setBuilding = async ( attributeId ) => {
     if ( !userStore.user?.id ) return
     try {
-      // 1. Reset current building
+      // 1. Reset current building in local state
       const oldBuilding = Object.keys( attributeProgress.value ).find( id => attributeProgress.value[id].isBuilding )
       if ( oldBuilding ) {
         attributeProgress.value[oldBuilding].isBuilding = false
-        await db.update( userAttributes )
-          .set( { isBuilding: false } )
-          .where( and( 
-            eq( userAttributes.userId, userStore.user.id ),
-            eq( userAttributes.attributeId, oldBuilding )
-          ) )
       }
 
-      // 2. Set new building
+      // 2. Set new building in local state
       if ( !attributeProgress.value[attributeId] ) {
         attributeProgress.value[attributeId] = { level: 0, isBuilding: true }
       } else {
         attributeProgress.value[attributeId].isBuilding = true
       }
 
-      // Upsert into DB
-      const existing = await db.select().from( userAttributes )
-        .where( and( eq( userAttributes.userId, userStore.user.id ), eq( userAttributes.attributeId, attributeId ) ) )
-      
-      if ( existing.length > 0 ) {
-        await db.update( userAttributes )
-          .set( { isBuilding: true } )
-          .where( and( eq( userAttributes.userId, userStore.user.id ), eq( userAttributes.attributeId, attributeId ) ) )
-      } else {
-        await db.insert( userAttributes )
-          .values( { 
-            userId: userStore.user.id, 
-            attributeId, 
-            level: 0, 
-            isBuilding: true 
-          } )
-      }
+      // Update via API
+      await api.createOrUpdateAttribute( {
+        userId: userStore.user.id,
+        attributeId,
+        isBuilding: true
+      } )
     } catch ( error ) {
       console.error( 'Failed to set building attribute:', error )
     }
@@ -94,20 +73,17 @@ export const useAttributesStore = defineStore( 'attributes', () => {
       
       if ( newLevel > current.level ) {
         attributeProgress.value[attributeId] = { ...current, level: newLevel }
-        lastGrowth.value = { id: attributeId, name: staticAttributes.value.find(a => a.id === attributeId)?.name, level: newLevel }
-
-        // DB Update
-        const existing = await db.select().from( userAttributes )
-        .where( and( eq( userAttributes.userId, userStore.user.id ), eq( userAttributes.attributeId, attributeId ) ) )
-
-        if ( existing.length > 0 ) {
-          await db.update( userAttributes )
-            .set( { level: newLevel, updatedAt: new Date() } )
-            .where( and( eq( userAttributes.userId, userStore.user.id ), eq( userAttributes.attributeId, attributeId ) ) )
-        } else {
-          await db.insert( userAttributes )
-            .values( { userId: userStore.user.id, attributeId, level: newLevel } )
+        lastGrowth.value = {
+          id: attributeId,
+          name: staticAttributes.value.find( a => a.id === attributeId )?.name,
+          level: newLevel 
         }
+
+        // Log completion/growth via API
+        await api.logAttributeCompletion( userStore.user.id, {
+          attributeId,
+          level: newLevel
+        } )
       }
     } catch ( error ) {
       console.error( 'Failed to grow attribute:', error )
