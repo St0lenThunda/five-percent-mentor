@@ -24,8 +24,9 @@ class ApiClient {
       const response = await fetch( url, config )
       
       if ( !response.ok ) {
-        const error = await response.json()
-        throw new Error( error.error || 'Request failed' )
+        const errorData = await response.json().catch( () => ( {} ) )
+        const errorMessage = errorData.error || errorData.details || `Error ${response.status}: ${response.statusText}`
+        throw new Error( errorMessage )
       }
 
       // Handle empty responses

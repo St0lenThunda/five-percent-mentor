@@ -81,12 +81,15 @@ router.post( '/sign-in', async ( req, res ) => {
     }
 
     const authUrl = process.env.NEON_AUTH_URL
+    console.log( `Attempting sign-in proxy to: ${authUrl}` )
+
     const response = await fetch( `${authUrl}/neondb/auth/sign-in/email`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify( { email, password } )
     } )
 
+    console.log( `Auth service response status: ${response.status}` )
     const result = await safeJson( response )
 
     if ( !response.ok ) {
@@ -136,6 +139,7 @@ router.get( '/session', async ( req, res ) => {
       return res.json( { user: null } )
     }
 
+    res.json( data )
   } catch ( error ) {
     console.error( 'Session check error:', error )
     res.json( { user: null } )
