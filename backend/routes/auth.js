@@ -71,7 +71,11 @@ router.post( '/sign-up', async ( req, res ) => {
 
     const response = await fetch( `${authUrl}/neondb/auth/sign-up/email`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Origin': req.headers.origin || '',
+        'Referer': req.headers.referer || ''
+      },
       body: JSON.stringify( { email, password, name } )
     } )
 
@@ -110,7 +114,11 @@ router.post( '/sign-in', async ( req, res ) => {
 
     const response = await fetch( `${authUrl}/neondb/auth/sign-in/email`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Origin': req.headers.origin || '',
+        'Referer': req.headers.referer || ''
+      },
       body: JSON.stringify( { email, password } )
     } )
 
